@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+	body {
+		font-size: 30px;
+	}
+
+	td {
+		text-align: center;
+		border: solid;
+		border-color: black;
+	}
+</style>
+
+<body>
+	<div style="width: 400px; margin: 0 auto">
+		<table style="width:100%">
+			<tr>
+				<th>Date YYYY-MM-DD HH-MM-SS TZ</th>
+			</tr>
+			<tr>
+				<td>2021-01-01 00:00</td>
+			</tr>
+			<tr>
+				<td>2021-01-01 00:00:00</td>
+			</tr>
+			<tr>
+				<td>2021-01-01 00:00:00 PST</td>
+			</tr>
+			<tr>
+				<td>2021-01-01 00:00:00 UTC</td>
+			</tr>
+			<tr>
+				<td>2021-01-01 00:00:00 AEST</td>
+			</tr>
+			<tr>
+				<td>2021-01-01 00:00:00 JST</td>
+			</tr>
+		</table>
+
+	</div>
+</body>
+
+<script>
+	const allTD = document.querySelectorAll("td");
+
+	allTD.forEach(element => {
+		console.log(element.innerHTML)
+	});
+</script>
+
+</html>
