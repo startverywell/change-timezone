@@ -25,119 +25,75 @@
 				<th>Date YYYY-MM-DD HH-MM-SS TZ</th>
 			</tr>
 			<tr>
-				<td>2021-01-01 00:00</td>
-			</tr>
-			<tr>
 				<td>2021-01-01 00:00:00 UTC</td>
 			</tr>
 			<tr>
+				<td>2021</td>
+			</tr>
+			<tr>
+				<td>2021-01-01 00:00:00 AEDT</td>
+			</tr>
+			<!-- 
+			<tr>
+				<td>2021-01-01 00:00:00 +12</td>
+			</tr>
+
+			<tr>
+				<td>2021-01-01 00:00:00 -12</td>
+			</tr>
+
+			<tr>
+				<td>2021-01-01 00:00:00 +1230</td>
+			</tr>
+
+			<tr>
+				<td>2021-01-01 00:00:00 -1230</td>
+			</tr>
+
+			<tr>
+				<td>2021-01-01 00:00:00</td>
+			</tr>
+
+			<tr>
+				<td>2021-01-01 00:00 UTC</td>
+			</tr>
+
+			<tr>
+				<td>2021-01-01 00:00 AEDT</td>
+			</tr>
+
+			<tr>
+				<td>2021-01-01 00:00 +12</td>
+			</tr>
+
+			<tr>
+				<td>2021-01-01 00:00 -12</td>
+			</tr>
+
+			<tr>
+				<td>2021-01-01 00:00 +1230</td>
+			</tr>
+
+			<tr>
+				<td>2021-01-01 00:00 -1230</td>
+			</tr>
+
+			<tr>
+				<td>2021-01-01 00:00</td>
+			</tr>
+			<tr>
+				<td>2021-01-01 00:00.123 UTC</td>
+			</tr>
+			<tr>
 				<td>2021-01-01 00:00:00.123 UTC</td>
-			</tr>
-			<!-- <tr>
-				<td>2021-01-01 00:00:00 PST</td>
-			</tr>
-			
-			<tr>
-				<td>2021-01-01 00:00:00 AEST</td>
-			</tr>
-			<tr>
-				<td>2021-01-01 00:00:00 JST</td>
 			</tr> -->
 		</table>
 
 	</div>
 </body>
 
-<script src="moment-with-locales.min.js"></script>
-<script src="moment-timezone-with-data.min.js"></script>
-<script>
-
-	const dateTimeRegexPattern = /(\d{4}\-\d{2}\-\d{2}\s\d{2}(?:(?:\:\d{2}){1,2}))(?:(\s(?:[A-Z]{2,5})|(\.\d{3})\s(\w{3})|(?:\s(?:[\+-](?:\d{4}|\d{2})))))|(\d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2})/
-	const allTDElements = document.body.querySelectorAll("td");
-
-	const currentTimeZone = "Pacific/Fiji";
-	const newTimeZone = "Australia/Canberra";
-
-	function formatDay(date) {
-		return moment(date).format("YYYY-MM-DD");
-	}
-	function formatDayReturn(date) {
-		return moment(date).format("MMM DD YYYY");
-	}
-	function formatDayTime(date) {
-		return moment(date).format("YYYY-MM-DD HH:mm:ss");
-	}
-	function addOneDay(date) {
-		return moment(date).add(1, "day").format("YYYY-MM-DD");
-	}
-	function formatAsSelectedTZ(date, timeZone) {
-		return moment.tz(formatDayTime(date), timeZone);
-	}
-	function getZoneName(date, toTimeZone) {
-		return moment.tz(date, toTimeZone).zoneName();
-	}
-	function convertTimeDate(fromDate, fromTimeZone, toTimeZone) {
-		fromDate = formatAsSelectedTZ(fromDate, fromTimeZone);
-		let toDate = fromDate.clone().tz(toTimeZone);
-		return formatDayTime(toDate);
-	}
-	function convertFromTimeStamp(unixFormat) {
-		const dateFormat = new Date(unixFormat * 1000);
-		return dateFormat;
-	}
-	function convertDateToTimeStamp(date) {
-		let unixFormat = Date.parse(date);
-		return unixFormat / 1000;
-	}
-	function getConvertedDateTime(oldTime, currentTimeZone, newTimeZone) {
-		// Correctly format the date to UTC for further manipulation
-		// Return: 2020-07-06T06:13:51.000Z
-		const currentDay = new Date(oldTime);
-		let convertedTime = convertTimeDate(
-			currentDay,
-			currentTimeZone,
-			newTimeZone
-		);
-
-		console.log(convertedTime);
-		// Add Zone Name to time
-		// Return: 2020-07-07 09:13:51 AEST
-		return (
-			convertedTime +
-			" " +
-			getZoneName(convertedTime, newTimeZone)
-		);
-	}
-	if (allTDElements) {
-		allTDElements.forEach(function (element) {
-			const currentDateTimeValue = dateTimeRegexPattern.exec(element.innerHTML);
-			if (currentDateTimeValue != null) {
-				if (currentDateTimeValue[4] == "UTC") {
-					element.innerHTML = getConvertedDateTime(
-						currentDateTimeValue[1],
-						"Etc/UTC",
-						newTimeZone
-					);
-				} else if (currentDateTimeValue[1]) {
-					element.innerHTML = getConvertedDateTime(
-						currentDateTimeValue[1],
-						currentTimeZone,
-						newTimeZone
-					);
-				} else if (currentDateTimeValue[5]) {
-					element.innerHTML = getConvertedDateTime(
-						currentDateTimeValue[5],
-						currentTimeZone,
-						newTimeZone
-					);
-				}
-			} else {
-				console.log("Does not contain a date format of: YYYY-MM-DD HH:MM:SS")
-			}
-		});
-	}
-
-
-</script>
+<script src="../lib/moment-with-locales.min.js"></script>
+<script src="../lib/moment-timezone-with-data.min.js"></script>
+<script src="/tests/script.js"></script>
 
 </html>
