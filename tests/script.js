@@ -13,6 +13,10 @@ function convertDateTime(oldDateTime, toTimeZone) {
   return formatDateTime(toDateTime);
 }
 
+function sayHello() {
+  console.log('hello');
+}
+
 function convertFromTimeStamp(unixFormat) {
   const dateTimeFormat = new Date(unixFormat * 1000);
   return dateTimeFormat;
@@ -81,4 +85,4 @@ function runPageConversion() {
   }
 }
 
-runPageConversion();
+// runPageConversion();
