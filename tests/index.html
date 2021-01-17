@@ -9,12 +9,14 @@
 <style>
 	body {
 		font-size: 30px;
+		background-color: black;
+		color: grey;
 	}
 
 	td {
 		text-align: center;
 		border: solid;
-		border-color: black;
+		border-color: grey;
 	}
 </style>
 
@@ -28,12 +30,16 @@
 				<td>2021-01-01 00:00:00 UTC</td>
 			</tr>
 			<tr>
-				<td>2021</td>
+				<td>test</td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td>2021-01-01 00:00:00 AEDT</td>
 			</tr>
-			<!-- 
+
+			<tr>
+				<td>2021-01-01 00:00:00</td>
+			</tr>
+
 			<tr>
 				<td>2021-01-01 00:00:00 +12</td>
 			</tr>
@@ -92,8 +98,9 @@
 	</div>
 </body>
 
-<script src="../lib/moment-with-locales.min.js"></script>
-<script src="../lib/moment-timezone-with-data.min.js"></script>
-<script src="/tests/script.js"></script>
+<script src="../libs/moment-with-locales.min.js"></script>
+<script src="../libs/moment-timezone-with-data.min.js"></script>
+<script src="/tests/moment-interface.js"></script>
+<script src="/tests/main.js"></script>
 
 </html>
