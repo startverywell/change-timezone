@@ -1,24 +1,21 @@
 const moment = require('moment');
 const momenttz = require('moment-timezone');
 
+function formatDateTime(dateTime) {
+  return moment(dateTime).format('YYYY-MM-DD HH:mm:ss');
+}
+
 module.exports = {
-  formatDateTime(dateTime) {
-    return moment(dateTime).format('YYYY-MM-DD HH:mm:ss');
-  },
   formatAsSelectedTimeZone(dateTime, timeZone) {
-    return momenttz.tz(module.exports.formatDateTime(dateTime), timeZone);
+    return momenttz.tz(formatDateTime(dateTime), timeZone);
   },
   getZoneName(timeZone) {
     return momenttz.tz(timeZone).zoneName();
   },
-
-  convertToMomentObject(dateTime, timeZone) {
-    return momenttz.tz(module.exports.formatDateTime(new Date(dateTime)), timeZone);
-  },
-
-  convertDateTimeToNewTimeZone(dateTime, timeZone) {
-    let convertedDateTime = dateTime.clone().tz(timeZone);
-    return module.exports.formatDateTime(convertedDateTime);
+  convertDateTimeToNewTimeZone(dateTime, timeZone, newTimeZone) {
+    dateTime = momenttz.tz(formatDateTime(new Date(dateTime)), timeZone);
+    let convertedDateTime = dateTime.clone().tz(newTimeZone);
+    return formatDateTime(convertedDateTime);
   },
 
   convertTimeStampToDate(unixFormat) {
