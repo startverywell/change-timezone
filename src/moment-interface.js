@@ -1,3 +1,4 @@
+const { unix } = require('moment');
 const moment = require('moment');
 const momenttz = require('moment-timezone');
 
@@ -14,7 +15,7 @@ module.exports = {
   },
   convertDateTimeToNewTimeZone(dateTime, timeZone, newTimeZone) {
     dateTime = momenttz.tz(formatDateTime(new Date(dateTime)), timeZone);
-    let convertedDateTime = dateTime.clone().tz(newTimeZone);
+    const convertedDateTime = dateTime.clone().tz(newTimeZone);
     return formatDateTime(convertedDateTime);
   },
 
