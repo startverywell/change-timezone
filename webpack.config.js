@@ -1,3 +1,4 @@
+const path = require('path');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 module.exports = {
@@ -12,4 +13,16 @@ module.exports = {
     // To strip all locales except “en”
     new MomentLocalesPlugin(),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.html/,
+        type: 'asset/source',
+      },
+      {
+        test: /\.css/,
+        type: 'asset/source',
+      },
+    ],
+  },
 };

@@ -1,16 +1,20 @@
-(function () {
-  const query = document.querySelector.bind(document);
+import optionsHTML from './popup/options.html';
+import tzcPopupCSSCSS from './popup/tzcPopup.css';
+import tzcPopupHTML from './popup/tzcPopup.html';
 
+(function () {
   // Import conversion function
   const runPageConversion = require('./run-page-conversion').default;
 
   // Import popup button HTML, CSS and JS
-  const {
-    tzcPopupButton,
-    tzcPopupCSS,
-    toggleTZConverterPopup,
-    testconversion,
-  } = require('./popup/page-pop-up');
+
+  const { toggleTZConverterPopup } = require('./popup/page-pop-up');
+
+  const tzcOptions = optionsHTML;
+  const tzcPopupButton = tzcPopupHTML;
+  const tzcPopupCSS = tzcPopupCSSCSS;
+
+  const query = document.querySelector.bind(document);
 
   // Add CSS
   const head = query('head');
@@ -29,10 +33,13 @@
   query('#tzc-open-button').onclick = toggleTZConverterPopup;
   query('#tzc-close-options-button').onclick = toggleTZConverterPopup;
 
-  // Add listener for the picker to immediately run the conversion when new TimeZone is selected
-  const selectTimeZone = query('#tzc-full-list');
+  // Add options
+  query('#tzc-full-list').innerHTML = tzcOptions;
+  query('#tzc-from-tz').innerHTML = tzcOptions;
+  query('#tzc-to-tz').innerHTML = tzcOptions;
 
-  selectTimeZone.addEventListener('change', (event) => {
+  // Add listener for the picker to immediately run the conversion when new TimeZone is selected
+  query('#tzc-full-list').addEventListener('change', (event) => {
     runPageConversion(
       document.body.querySelectorAll('td'),
       currentPageTimeZone,
