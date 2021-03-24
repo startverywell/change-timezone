@@ -8,6 +8,7 @@ export default function runPageConversion(
 ) {
   const zoneName = momentInterface.getZoneName(toTimeZone);
 
+  // TODO: change to guard clause?
   if (elements.length != 0) {
     elements.forEach(function (element) {
       if (regexChecks.hasDateTime(element.innerHTML)) {
