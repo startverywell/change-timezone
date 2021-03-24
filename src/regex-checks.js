@@ -16,4 +16,17 @@ module.exports = {
     const dateTimeMatch = targetRegexToMatch.exec(target);
     return dateTimeMatch ? true : false;
   },
+
+  hasUnixTime(target) {
+    const targetRegexToMatch = /\d{10}/;
+    const unixTimeMatch = targetRegexToMatch.exec(target);
+    return unixTimeMatch ? true : false;
+  },
+
+  getUnixTime(userInput) {
+    const checkUnixFormat = /\d{10}/;
+    const unixValueFromInput = checkUnixFormat.exec(userInput);
+    console.log(unixValueFromInput);
+    return unixValueFromInput;
+  },
 };

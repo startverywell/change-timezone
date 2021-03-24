@@ -6,36 +6,37 @@ export default function convertInputFromUser(
   fromTimeZone,
   toTimeZone
 ) {
-  // Regex for unixtime format (10 digits / seconds since 1970): `1234567891`
-  const checkUnixFormat = /\d{10}/;
-  // Regex for datetime format: `2020-07-05 16:13:51`
-  const checkDateTimeFormat = /\d{4}.\d{2}.\d{2}.\d{2}\:\d{2}\:\d{2}/;
   // User's current timezone
   const computerTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-  const dateValueFromInput = checkDateTimeFormat.exec(userInput);
-  const unixValueFromInput = checkUnixFormat.exec(userInput);
-
+  let dateValueFromInput;
+  let unixValueFromInput;
   let fromDateInUnix;
 
+  if (regexChecks.hasDateTime(userInput)) {
+    dateValueFromInput = regexChecks.getDateTime(userInput);
+  }
+  if (regexChecks.hasUnixTime(userInput)) {
+    unixValueFromInput = regexChecks.getUnixTime(userInput);
+  }
   // Return if no input is found
   if (!dateValueFromInput && !unixValueFromInput) {
     return;
   }
 
   if (unixValueFromInput) {
-    fromDateInUnix = unixValueFromInput[0];
+    fromDateInUnix = unixValueFromInput;
   }
   if (dateValueFromInput) {
     const correctDateFormat = momentInterface.convertDateTimeToNewTimeZone(
-      dateValueFromInput[0],
+      dateValueFromInput,
       fromTimeZone,
       computerTimeZone
     );
-
     fromDateInUnix = momentInterface.convertDateToTimeStamp(correctDateFormat);
   }
 
+  // We have converted the inputted date to the users time zone
+  // And now we are converting from their timezone to the chosen toTimeZone
   const fromDate = momentInterface.convertTimeStampToDate(fromDateInUnix);
   const toDate = momentInterface.convertDateTimeToNewTimeZone(
     fromDate,
@@ -43,6 +44,7 @@ export default function convertInputFromUser(
     toTimeZone
   );
   const toTimeZoneName = momentInterface.getZoneName(toTimeZone);
+
   return {
     toDate: toDate,
     toTimeZoneName: toTimeZoneName,
