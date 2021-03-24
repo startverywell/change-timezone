@@ -1,3 +1,5 @@
+const convertInputFromUser = require('../../convert-input-from-user').default;
+
 function toggleTZConverterPopup() {
   console.log('run');
   if (query('#tzc-options-display').classList.contains('hidden')) {
