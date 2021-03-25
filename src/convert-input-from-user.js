@@ -1,11 +1,7 @@
 const momentInterface = require('./moment-interface.js');
 const regexChecks = require('./regex-checks');
 
-export default function convertInputFromUser(
-  userInput,
-  fromTimeZone,
-  toTimeZone
-) {
+function convertInputFromUser(userInput, fromTimeZone, toTimeZone) {
   // User's current timezone
   const computerTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   let dateValueFromInput;
@@ -18,6 +14,7 @@ export default function convertInputFromUser(
   if (regexChecks.hasUnixTime(userInput)) {
     unixValueFromInput = regexChecks.getUnixTime(userInput);
   }
+  console.log(unixValueFromInput);
   // Return if no input is found
   if (!dateValueFromInput && !unixValueFromInput) {
     return;
@@ -35,9 +32,11 @@ export default function convertInputFromUser(
     fromDateInUnix = momentInterface.convertDateToTimeStamp(correctDateFormat);
   }
 
+  console.log(fromDateInUnix);
   // We have converted the inputted date to the users time zone
   // And now we are converting from their timezone to the chosen toTimeZone
   const fromDate = momentInterface.convertTimeStampToDate(fromDateInUnix);
+  console.log(fromDate);
   const toDate = momentInterface.convertDateTimeToNewTimeZone(
     fromDate,
     computerTimeZone,
@@ -51,3 +50,5 @@ export default function convertInputFromUser(
     unixFormat: fromDateInUnix.toString(),
   };
 }
+
+module.exports = convertInputFromUser;

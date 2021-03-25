@@ -1,4 +1,4 @@
-const convertInputFromUser = require('../../convert-input-from-user').default;
+const convertInputFromUser = require('../../convert-input-from-user');
 
 function toggleTZConverterPopup() {
   console.log('run');

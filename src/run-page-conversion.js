@@ -1,11 +1,7 @@
 const momentInterface = require('./moment-interface.js');
 const regexChecks = require('./regex-checks');
 
-export default function runPageConversion(
-  elements,
-  currentTimeZone,
-  toTimeZone
-) {
+function runPageConversion(elements, currentTimeZone, toTimeZone) {
   const zoneName = momentInterface.getZoneName(toTimeZone);
 
   // TODO: change to guard clause?
@@ -34,3 +30,5 @@ export default function runPageConversion(
     console.log('No elements to convert');
   }
 }
+
+export default runPageConversion;
