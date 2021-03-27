@@ -1,10 +1,7 @@
 import options from './html/options.html';
 import popupButton from './html/pop-up.html';
 import popupCSS from './css/pop-up.css';
-const { togglePopup, convertInput } = require('./js/script.js');
-
-// Import convertPage() for the Pop-up to use
-const convertPage = require('../convert-page').default;
+const { togglePopup, convertInput, convertPage } = require('./js/script.js');
 
 // This function adds the Pop-up to the page
 function addPopup() {

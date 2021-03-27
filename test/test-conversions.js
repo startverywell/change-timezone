@@ -1,6 +1,6 @@
 const momentInterface = require('../src/moment-interface.js');
 
-const { convertUnixTimeToNewDateTime } = require('../src/popup/js/script.js');
+const { convertInputToNewTimeZone } = require('../src/convert-functions.js');
 
 var assert = require('assert');
 
@@ -82,11 +82,15 @@ describe('Testing moment interface conversions', function () {
       });
     });
   });
-  describe('convertUnixTimeToNewDateTime()', function () {
+  describe('convertInputToNewTimeZone()', function () {
     describe('returns a converted date time and unix value', function () {
       it('provided date time', function () {
         assert.deepStrictEqual(
-          convertUnixTimeToNewDateTime('1609488000', 'America/Los_Angeles'),
+          convertInputToNewTimeZone(
+            '1609488000',
+            'America/Los_Angeles',
+            'America/Los_Angeles'
+          ),
           {
             dateTime: '2021-01-01 00:00:00',
             zoneName: 'PDT',

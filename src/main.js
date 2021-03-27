@@ -1,6 +1,6 @@
 (function () {
   const addPopup = require('./popup/add-pop-up.js').default;
-  const convertPage = require('./convert-page').default;
+  const { convertPage } = require('./convert-functions');
 
   // Add the Popup to the page
   addPopup();
@@ -26,5 +26,6 @@
   const { currentTimeZone, selectedTimeZone } = getTimeZoneState();
 
   // Run page conversion
+
   convertPage(currentTimeZone, selectedTimeZone);
 })();
