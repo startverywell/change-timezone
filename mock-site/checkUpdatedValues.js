@@ -1,6 +1,6 @@
 const allElements = document.body.querySelectorAll('td');
 
-const checks = '2021-01-01 19:00:00 AEDT';
+const checks = '2021-01-01 00:00:00 PDT';
 
 for (let index = 0; index < allElements.length; index++) {
   if (allElements[index].innerHTML == checks) {

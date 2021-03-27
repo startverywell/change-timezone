@@ -18,13 +18,13 @@ module.exports = {
     return formatDateTime(convertedDateTime);
   },
 
-  convertTimeStampToDate(unixFormat) {
-    const dateTimeFormat = new Date(unixFormat * 1000);
-    return dateTimeFormat;
+  convertTimeStampToDate(unixTime) {
+    const dateTime = new Date(unixTime * 1000);
+    return dateTime;
   },
 
   convertDateToTimeStamp(dateTimeFormat) {
-    let unixFormat = Date.parse(dateTimeFormat);
-    return unixFormat / 1000;
+    const unixTime = Date.parse(dateTimeFormat) / 1000;
+    return unixTime;
   },
 };

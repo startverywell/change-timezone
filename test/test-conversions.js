@@ -1,6 +1,6 @@
 const momentInterface = require('../src/moment-interface.js');
 
-const convertInputFromUser = require('../src/convert-input-from-user');
+const { convertUnixToNewDateTime } = require('../src/popup/js/script.js');
 
 var assert = require('assert');
 
@@ -66,19 +66,15 @@ describe('Testing moment interface conversions', function () {
       });
     });
   });
-  describe('convertInputFromUser()', function () {
+  describe('convertUnixTimeToNewDateTime()', function () {
     describe('returns a converted date time and unix value', function () {
       it('provided date time', function () {
         assert.deepStrictEqual(
-          convertInputFromUser(
-            '2021-01-01 00:00:00',
-            'America/Los_Angeles',
-            'Australia/Canberra'
-          ),
+          convertUnixTimeToNewDateTime('1609488000', 'America/Los_Angeles'),
           {
-            toDate: '2021-01-01 19:00:00',
-            toTimeZoneName: 'AEDT',
-            unixFormat: '1609488000',
+            dateTime: '2021-01-01 00:00:00',
+            zoneName: 'PDT',
+            unixTime: '1609488000',
           }
         );
       });

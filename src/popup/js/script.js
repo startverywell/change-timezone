@@ -1,7 +1,8 @@
-const convertInputFromUser = require('../../convert-input-from-user');
+const regex = require('../../regex');
 
-function toggleTZConverterPopup() {
-  console.log('run');
+const momentInterface = require('../../moment-interface.js');
+
+function togglePopup() {
   if (query('#tzc-options-display').classList.contains('hidden')) {
     query('#tzc-options-display').classList.remove('hidden');
   } else {
@@ -9,20 +10,67 @@ function toggleTZConverterPopup() {
   }
 }
 
-function manualConvert() {
+function convertToUnixTime(input, fromTimeZone) {
+  const computerTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  let dateValueFromInput;
+  let unixTime;
+
+  if (regex.hasUnixTime(input)) {
+    unixTime = regex.getUnixTime(input);
+  }
+
+  if (regex.hasDateTime(input)) {
+    dateValueFromInput = regex.getDateTime(input);
+
+    const correctDateFormat = momentInterface.convertDateTimeToNewTimeZone(
+      dateValueFromInput,
+      fromTimeZone,
+      computerTimeZone
+    );
+    unixTime = momentInterface.convertDateToTimeStamp(correctDateFormat);
+  }
+  return unixTime;
+}
+
+function convertUnixTimeToNewDateTime(unixTime, toTimeZone) {
+  // We have converted the inputted date to the users time zone
+  // And now we are converting from their timezone to the chosen toTimeZone
+  const computerTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const fromDateTime = momentInterface.convertTimeStampToDate(unixTime);
+
+  const toDateTime = momentInterface.convertDateTimeToNewTimeZone(
+    fromDateTime,
+    computerTimeZone,
+    toTimeZone
+  );
+  const zoneName = momentInterface.getZoneName(toTimeZone);
+
+  return {
+    dateTime: toDateTime,
+    zoneName: zoneName,
+    unixTime: unixTime.toString(),
+  };
+}
+
+function convertInput() {
   // Get input from user
+  const input = query('#tzc-input').value;
   const fromTimeZone = query('#tzc-from-tz').value;
   const toTimeZone = query('#tzc-to-tz').value;
-  const userInput = query('#tzc-input').value;
-
-  const data = convertInputFromUser(userInput, fromTimeZone, toTimeZone);
-
   const outputPlaceholder = query('#tzc-output-placeholder');
-  if (data) {
-    outputPlaceholder.innerHTML = `Conversion results: ${data.toDate} ${data.toTimeZoneName} <br><br> Unix time: ${data.unixFormat}`;
+  // User's current timezone
+
+  if (regex.hasDateTime(input) || regex.hasUnixTime(input)) {
+    // Convert input to UnixTime
+    const unixTime = convertToUnixTime(input, fromTimeZone);
+    const convertedDateTime = convertUnixTimeToNewDateTime(
+      unixTime,
+      toTimeZone
+    );
+    outputPlaceholder.innerHTML = `Conversion results: ${convertedDateTime.dateTime} ${convertedDateTime.zoneName} <br><br> Unix time: ${convertedDateTime.unixTime}`;
   } else {
     outputPlaceholder.innerHTML = `Please enter a formatted time: YYYY-MM-DD HH:MM:SS, Message link or Unix time`;
   }
 }
 
-export { toggleTZConverterPopup, manualConvert };
+module.exports = { togglePopup, convertInput, convertUnixToNewDateTime };
