@@ -17,12 +17,23 @@ module.exports = {
     const convertedDateTime = dateTime.clone().tz(newTimeZone);
     return formatDateTime(convertedDateTime);
   },
+  convertTimeStampToDate(unixTime, newTimeZone) {
+    const dateTime = momenttz.tz(
+      formatDateTime(new Date(unixTime * 1000)),
+      Intl.DateTimeFormat().resolvedOptions().timeZone
+    );
 
-  convertTimeStampToDate(unixTime) {
-    const dateTime = new Date(unixTime * 1000);
-    return dateTime;
+    const convertedDateTime = dateTime.clone().tz(newTimeZone);
+    return formatDateTime(convertedDateTime);
   },
-
+  convertDateTimeWithZoneNameToUnixTime(dateTimeFormat, timeZone) {
+    const dateTime = momenttz.tz(
+      formatDateTime(new Date(dateTimeFormat)),
+      timeZone
+    );
+    const unixTime = Date.parse(dateTime) / 1000;
+    return unixTime;
+  },
   convertDateToTimeStamp(dateTimeFormat) {
     const unixTime = Date.parse(dateTimeFormat) / 1000;
     return unixTime;

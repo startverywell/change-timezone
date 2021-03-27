@@ -1,6 +1,6 @@
 const momentInterface = require('../src/moment-interface.js');
 
-const { convertUnixToNewDateTime } = require('../src/popup/js/script.js');
+const { convertUnixTimeToNewDateTime } = require('../src/popup/js/script.js');
 
 var assert = require('assert');
 
@@ -33,14 +33,14 @@ describe('Testing moment interface conversions', function () {
     describe('from Unix Epoch Time to Date Time', function () {
       it('0000000000 to Jan 01 1970 12am', function () {
         assert.strictEqual(
-          JSON.stringify(momentInterface.convertTimeStampToDate('0000000000')),
-          '"1970-01-01T00:00:00.000Z"'
+          momentInterface.convertTimeStampToDate('0000000000', 'Etc/UTC'),
+          '1970-01-01 00:00:00'
         );
       });
       it('1767225600 to Jan 01 2026 12am', function () {
         assert.strictEqual(
-          JSON.stringify(momentInterface.convertTimeStampToDate('1767225600')),
-          '"2026-01-01T00:00:00.000Z"'
+          momentInterface.convertTimeStampToDate('1767225600', 'Etc/UTC'),
+          '2026-01-01 00:00:00'
         );
       });
     });
@@ -62,6 +62,22 @@ describe('Testing moment interface conversions', function () {
             momentInterface.convertDateToTimeStamp('2026-01-01T00:00:00.000Z')
           ),
           '1767225600'
+        );
+      });
+    });
+  });
+
+  describe('convertDateTimeWithZoneNameToUnixTime()', function () {
+    describe('from Date Time to UnixTime', function () {
+      it('2021-01-01 00:00:00 Los Angeles time', function () {
+        assert.strictEqual(
+          JSON.stringify(
+            momentInterface.convertDateTimeWithZoneNameToUnixTime(
+              '2021-01-01 00:00:00',
+              'America/Los_Angeles'
+            )
+          ),
+          '1609488000'
         );
       });
     });
