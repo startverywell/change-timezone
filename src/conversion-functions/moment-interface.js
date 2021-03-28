@@ -13,12 +13,6 @@ function getZoneName(timeZone) {
   return momenttz.tz(timeZone).zoneName();
 }
 
-function convertDateTimeToNewTimeZone(dateTime, timeZone, newTimeZone) {
-  dateTime = momenttz.tz(formatDateTime(new Date(dateTime)), timeZone);
-  const convertedDateTime = dateTime.clone().tz(newTimeZone);
-  return formatDateTime(convertedDateTime);
-}
-
 function convertTimeStampToDate(unixTime, newTimeZone) {
   const dateTime = momenttz.tz(
     formatDateTime(new Date(unixTime * 1000)),
@@ -29,17 +23,20 @@ function convertTimeStampToDate(unixTime, newTimeZone) {
   return formatDateTime(convertedDateTime);
 }
 
-function convertDateTimeWithZoneNameToUnixTime(dateTimeFormat, timeZone) {
-  const dateTime = momenttz.tz(
-    formatDateTime(new Date(dateTimeFormat)),
-    timeZone
-  );
+function convertDateTimeToNewTimeZone(dateTime, timeZone, newTimeZone) {
+  dateTime = momenttz.tz(formatDateTime(new Date(dateTime)), timeZone);
+  const convertedDateTime = dateTime.clone().tz(newTimeZone);
+  return formatDateTime(convertedDateTime);
+}
+
+function convertDateTimeWithZoneNameToUnixTime(dateTime, zoneName) {
+  dateTime = momenttz.tz(formatDateTime(new Date(dateTime)), zoneName);
   const unixTime = Date.parse(dateTime) / 1000;
   return unixTime;
 }
 
-function convertDateToTimeStamp(dateTimeFormat) {
-  const unixTime = Date.parse(dateTimeFormat) / 1000;
+function convertDateToTimeStamp(dateTime) {
+  const unixTime = Date.parse(dateTime) / 1000;
   return unixTime;
 }
 

@@ -1,4 +1,4 @@
-const regex = require('../src/regex');
+const regex = require('../src/regex/regex');
 
 var assert = require('assert');
 

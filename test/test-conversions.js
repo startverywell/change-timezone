@@ -1,6 +1,6 @@
-const momentInterface = require('../src/moment-interface.js');
+const momentInterface = require('../src/conversion-functions/moment-interface.js');
 
-const { convertInputToNewTimeZone } = require('../src/convert-functions.js');
+const { convertValue } = require('../src/conversion-functions/convertValue.js');
 
 var assert = require('assert');
 
@@ -82,11 +82,11 @@ describe('Testing moment interface conversions', function () {
       });
     });
   });
-  describe('convertInputToNewTimeZone()', function () {
+  describe('convertValue()', function () {
     describe('returns a converted date time and unix value', function () {
       it('provided date time', function () {
         assert.deepStrictEqual(
-          convertInputToNewTimeZone(
+          convertValue(
             '1609488000',
             'America/Los_Angeles',
             'America/Los_Angeles'

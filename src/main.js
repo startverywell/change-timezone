@@ -1,6 +1,6 @@
 (function () {
-  const addPopup = require('./popup/add-pop-up.js').default;
-  const { convertPage } = require('./convert-functions');
+  const addPopup = require('./pop-up/add-pop-up.js').default;
+  const { convertPage } = require('./conversion-functions/convertPage.js');
 
   // Add the Popup to the page
   addPopup();
