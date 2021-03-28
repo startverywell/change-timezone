@@ -1,19 +1,23 @@
 const momentInterface = require('./moment-interface.js');
+const { toUnixTime } = require('./convertToUnix.js');
 
 // Converts a given input and current TimeZone into a new TimeZone
-// input should be unix
-function convertValue(unixTime, selectedTimeZone) {
-  const toDateTime = momentInterface.convertTimeStampToDate(
-    unixTime,
-    selectedTimeZone
-  );
-  const zoneName = momentInterface.getZoneName(selectedTimeZone);
+function convertValue(input, fromTimeZone, toTimeZone) {
+  const unixTime = toUnixTime(input, fromTimeZone);
 
-  return {
-    dateTime: toDateTime,
-    zoneName: zoneName,
-    unixTime: unixTime.toString(),
-  };
+  if (unixTime) {
+    const toDateTime = momentInterface.convertTimeStampToDate(
+      unixTime,
+      toTimeZone
+    );
+    const zoneName = momentInterface.getZoneName(toTimeZone);
+
+    return {
+      dateTime: toDateTime,
+      zoneName: zoneName,
+      unixTime: unixTime.toString(),
+    };
+  }
 }
 
 module.exports = { convertValue };

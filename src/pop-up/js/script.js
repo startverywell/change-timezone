@@ -1,8 +1,4 @@
-const regex = require('../../regex/regex');
 const { convertValue } = require('../../conversion-functions/convertValue.js');
-const {
-  convertToUnix,
-} = require('../../conversion-functions/convertToUnix.js');
 const { convertPage } = require('../../conversion-functions/convertPage.js');
 
 function togglePopup() {
@@ -13,52 +9,16 @@ function togglePopup() {
   }
 }
 
-function toUnixTime(input, fromTimeZone) {
-  // Convert input to UnixTime
-  if (regex.hasUnixTime(input)) {
-    const unixTime = regex.getUnixTime(input);
-    return unixTime;
-  }
-
-  if (regex.hasDateTime(input)) {
-    const dateValueFromInput = regex.getDateTime(input);
-    const unixTime = convertToUnix(dateValueFromInput, fromTimeZone);
-    return unixTime;
-  }
-}
-
 function convertInput() {
   // Get input from user
   const input = query('#tzc-input').value;
   const fromTimeZone = query('#tzc-from-tz').value;
   const toTimeZone = query('#tzc-to-tz').value;
   // User's current timezone
-  let unixTime;
 
-  if (regex.hasDateTime(input) || regex.hasUnixTime(input)) {
-    unixTime = toUnixTime(input, fromTimeZone);
-    const convertedDateTime = convertValue(unixTime, toTimeZone);
+  const convertedDateTime = convertValue(input, fromTimeZone, toTimeZone);
 
-    query(
-      '#tzc-output-placeholder'
-    ).innerHTML = `Conversion results: ${convertedDateTime.dateTime} ${convertedDateTime.zoneName} <br><br> Unix time: ${convertedDateTime.unixTime}`;
-  } else {
-    query(
-      '#tzc-output-placeholder'
-    ).innerHTML = `Please enter a formatted time: YYYY-MM-DD HH:MM:SS, Message link or Unix time`;
-  }
-}
-function newConvertInput() {
-  // Get input from user
-  const input = query('#tzc-input').value;
-  const fromTimeZone = query('#tzc-from-tz').value;
-  const toTimeZone = query('#tzc-to-tz').value;
-  // User's current timezone
-  let unixTime;
-  unixTime = toUnixTime(input, fromTimeZone);
-
-  if (unixTime) {
-    const convertedDateTime = convertValue(unixTime, toTimeZone);
+  if (convertedDateTime) {
     query(
       '#tzc-output-placeholder'
     ).innerHTML = `Conversion results: ${convertedDateTime.dateTime} ${convertedDateTime.zoneName} <br><br> Unix time: ${convertedDateTime.unixTime}`;

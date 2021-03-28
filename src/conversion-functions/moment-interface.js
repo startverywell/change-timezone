@@ -29,7 +29,7 @@ function convertDateTimeToNewTimeZone(dateTime, timeZone, newTimeZone) {
   return formatDateTime(convertedDateTime);
 }
 
-function convertDateTimeWithZoneNameToUnixTime(dateTime, zoneName) {
+function convertDateTimeToUnixTime(dateTime, zoneName) {
   dateTime = momenttz.tz(formatDateTime(new Date(dateTime)), zoneName);
   const unixTime = Date.parse(dateTime) / 1000;
   return unixTime;
@@ -45,6 +45,6 @@ module.exports = {
   getZoneName,
   convertDateTimeToNewTimeZone,
   convertTimeStampToDate,
-  convertDateTimeWithZoneNameToUnixTime,
+  convertDateTimeToUnixTime,
   convertDateToTimeStamp,
 };
