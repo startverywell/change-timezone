@@ -2,11 +2,12 @@ import options from './html/options.html';
 import popupButton from './html/pop-up.html';
 import popupCSS from './css/pop-up.css';
 const { togglePopup, convertInput, convertPage } = require('./js/script.js');
+const { getTimeZoneState } = require('../getTimeZoneState.js');
+
+const query = document.querySelector.bind(document);
 
 // This function adds the Pop-up to the page
 function addPopup() {
-  const query = document.querySelector.bind(document);
-
   // Add CSS for Pop-up
   const head = query('head');
   const css = document.createElement('style');
@@ -35,7 +36,12 @@ function addPopup() {
 
   // Add listener for the picker to immediately run the conversion when new TimeZone is selected
   query('#tzc-full-list').addEventListener('change', (event) => {
-    convertPage(localStorage.getItem('currentTimeZone'), event.target.value);
+    if (PRODUCTION) {
+      convertPage(event.target.value);
+    } else {
+      const { currentTimeZone } = getTimeZoneState();
+      convertPage(currentTimeZone, event.target.value);
+    }
   });
 }
 

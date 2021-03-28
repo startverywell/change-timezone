@@ -67,12 +67,12 @@ describe('Testing moment interface conversions', function () {
     });
   });
 
-  describe('convertDateTimeWithZoneNameToUnixTime()', function () {
+  describe('convertDateTimeToUnixTime()', function () {
     describe('from Date Time to UnixTime', function () {
       it('2021-01-01 00:00:00 Los Angeles time', function () {
         assert.strictEqual(
           JSON.stringify(
-            momentInterface.convertDateTimeWithZoneNameToUnixTime(
+            momentInterface.convertDateTimeToUnixTime(
               '2021-01-01 00:00:00',
               'America/Los_Angeles'
             )

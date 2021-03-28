@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "mocha",
-    "build": "npx webpack"
+    "build": "npx webpack --env.NODE_ENV=local",
+    "build-production": "npx webpack --env.NODE_ENV=production"
   },
   "repository": {
     "type": "git",

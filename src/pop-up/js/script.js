@@ -1,5 +1,6 @@
 const { convertValue } = require('../../conversion-functions/convertValue.js');
 const { convertPage } = require('../../conversion-functions/convertPage.js');
+const query = document.querySelector.bind(document);
 
 function togglePopup() {
   if (query('#tzc-options-display').classList.contains('hidden')) {
