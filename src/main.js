@@ -12,14 +12,14 @@
       let { currentTimeZone, selectedTimeZone } = result;
       if (currentTimeZone) {
         chrome.storage.local.set({ currentTimeZone: 'America/Los_Angeles' }, function () {
-          convertPage(currentTimeZone, selectedTimeZone);
+          convertPage(selectedTimeZone);
         });
       }
       if (!selectedTimeZone) {
         currentTimeZone = 'America/Los_Angeles';
         selectedTimeZone = 'America/Los_Angeles';
         chrome.storage.local.set({ currentTimeZone, selectedTimeZone }, function () {
-          convertPage(currentTimeZone, selectedTimeZone);
+          convertPage(selectedTimeZone);
         });
       }
     });
@@ -30,14 +30,14 @@
       if (!localStorage.getItem('selectedTimeZone')) {
         localStorage.setItem('selectedTimeZone', 'America/Los_Angeles');
       }
-      const { currentTimeZone, selectedTimeZone } = getTimeZoneState();
+      const { selectedTimeZone } = getTimeZoneState();
 
-      convertPage(currentTimeZone, selectedTimeZone);
+      convertPage(selectedTimeZone);
     } else {
-      console.log('This browser has no storage support');
-      const currentTimeZone = 'America/Los_Angeles';
-      const selectedTimeZone = 'America/Los_Angeles';
-      convertPage(currentTimeZone, selectedTimeZone);
+      // console.log('This browser has no storage support');
+      // const currentTimeZone = 'America/Los_Angeles';
+      // const selectedTimeZone = 'America/Los_Angeles';
+      // convertPage(currentTimeZone, selectedTimeZone);
     }
   }
 })();

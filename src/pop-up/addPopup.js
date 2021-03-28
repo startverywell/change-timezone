@@ -36,12 +36,7 @@ function addPopup() {
 
   // Add listener for the picker to immediately run the conversion when new TimeZone is selected
   query('#tzc-full-list').addEventListener('change', (event) => {
-    if (PRODUCTION) {
-      convertPage(event.target.value);
-    } else {
-      const { currentTimeZone } = getTimeZoneState();
-      convertPage(currentTimeZone, event.target.value);
-    }
+    convertPage(event.target.value);
   });
 }
 
