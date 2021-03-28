@@ -5,7 +5,6 @@
   // Add the Popup to the page
   addPopup();
   // If we are bundling in Production, we are working with the Chrome Storage API
-  // TODO: Change to Switch
   if (PRODUCTION) {
     console.log('Production = ' + PRODUCTION);
     chrome.storage.local.get(['currentTimeZone', 'selectedTimeZone'], function (result) {
