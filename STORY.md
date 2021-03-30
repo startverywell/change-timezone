@@ -63,9 +63,9 @@ These requirements were not off the back of additional functionality but so I co
 
 - [x] Refactor (see below for requirements)
 - [x] Unit testing and a dummy page for testing with a non Chrome extension version
-- [] Add comments where necessary
-- [] A DateTime picker so the user doesn't have to write out the formatted DateTime (but still have the input for pasting)
-- [] Make the picker less ugly
+ [] Add comments where necessary
+ [] A DateTime picker so the user doesn't have to write out the formatted DateTime (but still have the input for pasting)
+ [] Make the picker less ugly
 
 ### Refactor requirements
 
