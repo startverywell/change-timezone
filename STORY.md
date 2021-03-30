@@ -4,6 +4,8 @@ I created the below "story" for this project because I wanted to document the ch
 
 The TLDR is that the requirements kept changing and I initially didn't take time to think about what I was implementing by scoping and thinking about goals.
 
+# Version 1
+
 ## Original problem statement
 
 A website is used by users for debugging purposes, elements on the page could include a date in the following format: `2021-01-01 19:00:00` and is guaranteed to be in Pacific Time (PDT or PST). Each user could work in any timezone around the world, and each user needs the page in their own timezone. The pages needs to be manipulated externally from the source code of the website (Add on script that runs when the page loads). The user only uses Chrome.
@@ -13,13 +15,13 @@ A website is used by users for debugging purposes, elements on the page could in
 - [x] Any page needs to be able to have times of format `2021-01-01 19:00:00` (PT) in a table element converted to the user's timezone
 - [x] The script needs to be added into the page after load
 
-## Goals
+## Personal goals
 
 - [x] Meet the requirements
 - [x] Have a project to put on my portfolio
 - [x] Learn Webpack (very roughly)
 
-## Discovery and Round 1
+## Commentary
 
 Off the bat, I thought this should be done through a Chrome extension. I hadn't created one before so that would require learning.
 
@@ -27,11 +29,11 @@ Off the bat, I thought this should be done through a Chrome extension. I hadn't 
 - I then needed a way to select the elements. I initially just used the whole document's `innerhtml` and parse a regex over it / find and replace with updated values. I was away! I could update all of the values on the page.
 - I decided to use `moment` and `moment-tz` to do the conversions, I also wanted to bundle the app together rather than using a CDN for `moment` so I needed to use a bundler (which I hadn't used any before outside of some tutorials). I decided to go with Webpack which.
 
-## Requirements changed
+## Requirements evolved
 
 - [x] The user would like to be able to change their default / convert to any timezone (not just theirs)
 
-## Round 2
+## Commentary
 
 - I needed to add a picker that would allow the user to change the default TimeZone (maybe they work with customers in a different TimeZone). This required creating some HTML and CSS to make something pretty. I initially had this in the Chrome extension popup ([see here for other versions](https://github.com/richardaspinall/time-zone-converter/blob/dev/STORY.md#other-features--versions-of-the-app-that-i-had-implemented-but-removed-over-time)) but I ended up adding this to the Dom too.
 - It also required a little change in the logic, I also implemented an interface with `moment` for the conversion functions I needed.
@@ -40,24 +42,26 @@ Off the bat, I thought this should be done through a Chrome extension. I hadn't 
 
 - I realized and quickly understood that I was overriding any event listeners that were set up on the page because I was replacing the whole DOM. A lot of pages didn't have anything that could be affected, but there were a few, so implementing a different solution would then future proof additional pages and ensure it wouldn't break.
 
-## Round 3
+## Commentary
 
 - Round 3 took a bit of effort and time as I was creating a new implementation. At this stage I was also just hacking things together and not thinking about a solution.
 - I started by targeting each page and their tables individually through `document.querySelectorAll(body > div:nth-child(2) > table:nth-child(50) > tbody > tr:nth-child(n+1) > td:nth-child(1))`.
 - After a whole lot of refactoring and re-implementing, I realized that all of the elements I needed to convert were in table `td` elements so this was simply `document.querySelectorAll('td')` and then a conversion on each of them replacing their `innerHTML` value.
 
-## Requirements changed
+## Requirements evolved
 
 - [x] The user would like to be able to manually change times by entering input
 - [x] Support UnixTime format
 
-## Round 4
+## Commentary
 
 - All the logic is already there so this should have been easy and I did actually get it done fairly quickly.
 - I added this logic to the Chrome extension Popup too so it could actually be used outside of the targetted pages.
 - This was the point where I properly realized I needed to do a better and intentional refactor for code reuse. I wasn't happy with the spaghetti I had made.
 
-## Final requirements
+# Version 2
+
+## Requirements
 
 These requirements were not off the back of additional functionality but so I could future proof the project. It was also in a state as per Round 4 above that I didn't really have a project to show. The code was still a mess and I hadn't documented anything.
 
@@ -76,7 +80,7 @@ These requirements were not off the back of additional functionality but so I co
 - [ ] Be able to add additional regex matching functions easily
 - [ ] Be able to add a different element that would be selected on a page for conversion (not just `TD` elements)
 
-## Final Goals
+## Personal goals
 
 - [ ] Meet the requirements
 - [x] Learn Webpack (specifically enviornment / global variables to target different builds)
@@ -85,7 +89,7 @@ These requirements were not off the back of additional functionality but so I co
 - [ ] Create the regular README.md and remove any of my learning journey
 - [ ] Get feedback about the end code from a friend (professional developer)
 
-## Round 5 (Final)
+## Commentary
 
 - Learning a bit more about Webpack to set up variables that were checked on building the app (Dev vs Prod). Specifically this was needed because I couldn't use `chrome.storage` when not running the Chrome extension.
 - I went around in loops trying to best refactor some of the functionality. But once I did set the requirements properly, it became more clear as I knew what my refactor was targeting. An example of a loop was that I had added the initialization state for TimeZones in the main script (initialization function), but then moved it to the `convertPage()` function to keep all the TimeZone state together, but quickly realized it should be separated as there wasn't any point in checking if we were initializing the page when converting the page manually after load / initialization!
@@ -95,14 +99,6 @@ These requirements were not off the back of additional functionality but so I co
 
 - Creating this STORY readme was a bit of work as I had to remember a lot of the issues I faced a couple of years ago. I trawled through the repository branches and commits gathering most of it. This gave me another insight: make sure to write good commit messages! It wasn't too bad but definitely could be better.
 
-## Don't be so hard on yourself
-
-I eventually realized that I was being pretty hard on myself with every requirement change and implementation. I wanted to ensure I was doing things properly and tried to learn way too many things at once. The code is still not solid but I think I need to create some more basic projects and it will come with time!
-
-- Webpack and bundling is quite a learning curve and it wasn't an initial main goal but something I needed to get familiar with
-- TimeZones are really confusing for most people which is the point of this tool!
-- Coupling the above with this being an add-on / and external script with DOM manipulation
-
 ## Learnings
 
 - Document my learnings as I go!
@@ -111,6 +107,14 @@ I eventually realized that I was being pretty hard on myself with every requirem
 - Set up unit testing as early as possible!
 - Practice writing good commit messages!
 - Think then code!
+
+### Don't be so hard on yourself
+
+I eventually realized that I was being pretty hard on myself with every requirement change and implementation. I wanted to ensure I was doing things properly and tried to learn way too many things at once. The code is still not solid but I think I need to create some more basic projects and it will come with time!
+
+- Webpack and bundling is quite a learning curve and it wasn't an initial main goal but something I needed to get familiar with
+- TimeZones are really confusing for most people which is the point of this tool!
+- Coupling the above with this being an add-on / and external script with DOM manipulation
 
 ## Future
 
