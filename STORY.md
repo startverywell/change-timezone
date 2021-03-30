@@ -63,9 +63,9 @@ These requirements were not off the back of additional functionality but so I co
 
 - [x] Refactor (see below for requirements)
 - [x] Unit testing and a dummy page for testing with a non Chrome extension version
- [] Add comments where necessary
- [] A DateTime picker so the user doesn't have to write out the formatted DateTime (but still have the input for pasting)
- [] Make the picker less ugly
+- [ ] Add comments where necessary
+- [ ] A DateTime picker so the user doesn't have to write out the formatted DateTime (but still have the input for pasting)
+- [ ] Make the picker less ugly
 
 ### Refactor requirements
 
@@ -73,17 +73,17 @@ These requirements were not off the back of additional functionality but so I co
 - [x] Simplify and group up all of the regex logic in one place
 - [x] Create a more traditional web page structure in the `src` for the Pop-up so I can easily edit instead of viewing it as a string that is being passed to a variable
 - [x] Have a dev (non Chrome-ext) version that can be built so I don't need to add and remove the extension just to test
-- [] Be able to add additional regex matching functions easily
-- [] Be able to add a different element that would be selected on a page for conversion (not just `TD` elements)
+- [ ] Be able to add additional regex matching functions easily
+- [ ] Be able to add a different element that would be selected on a page for conversion (not just `TD` elements)
 
 ## Final Goals
 
-- [] Meet the requirements
+- [ ] Meet the requirements
 - [x] Learn Webpack (specifically enviornment / global variables to target different builds)
 - [x] Learn how to write complex regular expressions
 - [x] Create a STORY readme to journal the whole learning and development journey
-- [] Create the regular README.md and remove any of my learning journey
-- [] Get feedback about the end code from a friend (professional developer)
+- [ ] Create the regular README.md and remove any of my learning journey
+- [ ] Get feedback about the end code from a friend (professional developer)
 
 ## Round 5 (Final)
 
@@ -116,10 +116,10 @@ I eventually realized that I was being pretty hard on myself with every requirem
 
 I don't plan on implementing any of the above as I need to draw a line in the sand but here are some of the things I would have liked to do:
 
-- [] Pages look to be moving to React which causes a headache because I would need to wait for the content to load / recieve an event when the content loads before it does a conversion.
-- [] The code or a separate implemenation should really be in-built to the page.
-- [] Have a way for a user to easily select a value on the page of a supported format, get the element type and then run a conversion for the whole page on that type
-- [] Automatically detect the ZoneName abbreviation at the end of the DateTime value so that it converts from that time rather than a hard coded default
+- [ ] Pages look to be moving to React which causes a headache because I would need to wait for the content to load / recieve an event when the content loads before it does a conversion.
+- [ ] The code or a separate implemenation should really be in-built to the page.
+- [ ] Have a way for a user to easily select a value on the page of a supported format, get the element type and then run a conversion for the whole page on that type
+- [ ] Automatically detect the ZoneName abbreviation at the end of the DateTime value so that it converts from that time rather than a hard coded default
 
 ## Other features / versions
 
