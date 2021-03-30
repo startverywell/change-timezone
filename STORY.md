@@ -99,7 +99,7 @@ These requirements were not off the back of additional functionality but so I co
 
 - Creating this STORY readme was a bit of work as I had to remember a lot of the issues I faced a couple of years ago. I trawled through the repository branches and commits gathering most of it. This gave me another insight: make sure to write good commit messages! It wasn't too bad but definitely could be better.
 
-## Learnings
+# Learnings
 
 - Document my learnings as I go!
 - Define the scope of the project and set milestones with timeframes!
