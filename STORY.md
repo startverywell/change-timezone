@@ -14,12 +14,11 @@ A website is used by users for debugging purposes, each page has many tables and
 ## Goals
 
 - Learn JavaScript
-- Have a solid project to put on my portfolio
+- Have a project to put on my portfolio
 
 ## Discovery
 
 Off the bat, I thought this should be done through a Chrome extension. I hadn't created one before so that would require learning.
 
 - I found a very simple example that got showed the basics and from there I could essentially add a script to any page that would run after loading.
-- I realized I would need to create a regex for the required format `2021-01-01 19:00:00` which didn't take long
-- I then needed a way to select the elements. I decided to go with `document.querySelector("td")` and I was away! I could update all of the values on the page.
+- I then needed a way to select the elements. I initially just used the whole document's `innerhtml` and parse a regex over it / find and replace with updated values. I was away! I could update all of the values on the page.
