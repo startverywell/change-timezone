@@ -21,7 +21,7 @@ Off the bat, I thought this should be done through a Chrome extension. I hadn't 
 
 ## Goals
 
-[x] Meet the requirements
+[ x ] Meet the requirements
 [x] Have a project to put on my portfolio
 [x] Learn Webpack
 
