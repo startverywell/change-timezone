@@ -1,5 +1,6 @@
 const { convertValue } = require('../../conversion-functions/convertValue.js');
 const { convertPage } = require('../../conversion-functions/convertPage.js');
+
 const query = document.querySelector.bind(document);
 
 function togglePopup() {
@@ -15,7 +16,6 @@ function convertInput() {
   const input = query('#tzc-input').value;
   const fromTimeZone = query('#tzc-from-tz').value;
   const toTimeZone = query('#tzc-to-tz').value;
-  // User's current timezone
 
   const convertedDateTime = convertValue(input, fromTimeZone, toTimeZone);
 

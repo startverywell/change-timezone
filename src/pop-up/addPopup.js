@@ -1,7 +1,10 @@
 import options from './html/options.html';
 import popupButton from './html/pop-up.html';
 import popupCSS from './css/pop-up.css';
+
+// For unit tests they can't be ES6 imports/exports
 const { togglePopup, convertInput, convertPage } = require('./js/script.js');
+
 const query = document.querySelector.bind(document);
 
 // This function adds the Pop-up to the page

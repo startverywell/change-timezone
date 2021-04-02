@@ -1,4 +1,4 @@
-const regex = require('../src/regex/regex');
+const regex = require('../../src/regex/regex');
 
 var assert = require('assert');
 
@@ -6,10 +6,7 @@ describe('Testing the regex module', function () {
   describe('getDateTime()', function () {
     describe('returns the DateTime value of the format', function () {
       it('YYYY-MM-DD HH:mm:ss', function () {
-        assert.strictEqual(
-          regex.getDateTime('2021-01-01 19:00:00'),
-          '2021-01-01 19:00:00'
-        );
+        assert.strictEqual(regex.getDateTime('2021-01-01 19:00:00'), '2021-01-01 19:00:00');
       });
     });
   });
@@ -17,41 +14,17 @@ describe('Testing the regex module', function () {
   describe('getTimeZoneAbbrev()', function () {
     describe('returns the TimeZone abbreviation value of', function () {
       it('2 to 5 letters', function () {
-        assert.strictEqual(
-          regex.getTimeZoneAbbrev('2021-01-01 19:00:00 PT'),
-          'PT'
-        );
-        assert.strictEqual(
-          regex.getTimeZoneAbbrev('2021-01-01 19:00:00.123 UTC'),
-          'UTC'
-        );
-        assert.strictEqual(
-          regex.getTimeZoneAbbrev('2021-01-01 19:00:00 AEST'),
-          'AEST'
-        );
-        assert.strictEqual(
-          regex.getTimeZoneAbbrev('2021-01-01 19:00:00 AESTS'),
-          'AESTS'
-        );
+        assert.strictEqual(regex.getTimeZoneAbbrev('2021-01-01 19:00:00 PT'), 'PT');
+        assert.strictEqual(regex.getTimeZoneAbbrev('2021-01-01 19:00:00.123 UTC'), 'UTC');
+        assert.strictEqual(regex.getTimeZoneAbbrev('2021-01-01 19:00:00 AEST'), 'AEST');
+        assert.strictEqual(regex.getTimeZoneAbbrev('2021-01-01 19:00:00 AESTS'), 'AESTS');
       });
 
       it('an offset (2 or 4 numbers)', function () {
-        assert.strictEqual(
-          regex.getTimeZoneAbbrev('2021-01-01 19:00:00 +12'),
-          '+12'
-        );
-        assert.strictEqual(
-          regex.getTimeZoneAbbrev('2021-01-01 19:00:00 -12'),
-          '-12'
-        );
-        assert.strictEqual(
-          regex.getTimeZoneAbbrev('2021-01-01 19:00:00 +1230'),
-          '+1230'
-        );
-        assert.strictEqual(
-          regex.getTimeZoneAbbrev('2021-01-01 19:00:00 -1230'),
-          '-1230'
-        );
+        assert.strictEqual(regex.getTimeZoneAbbrev('2021-01-01 19:00:00 +12'), '+12');
+        assert.strictEqual(regex.getTimeZoneAbbrev('2021-01-01 19:00:00 -12'), '-12');
+        assert.strictEqual(regex.getTimeZoneAbbrev('2021-01-01 19:00:00 +1230'), '+1230');
+        assert.strictEqual(regex.getTimeZoneAbbrev('2021-01-01 19:00:00 -1230'), '-1230');
       });
     });
   });

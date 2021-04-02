@@ -1,6 +1,6 @@
-const momentInterface = require('../src/conversion-functions/moment-interface.js');
+const momentInterface = require('../../src/conversion-functions/moment-interface.js');
 
-const { convertValue } = require('../src/conversion-functions/convertValue.js');
+const { convertValue } = require('../../src/conversion-functions/convertValue.js');
 
 var assert = require('assert');
 
@@ -32,16 +32,10 @@ describe('Testing moment interface conversions', function () {
   describe('convertTimeStampToDate()', function () {
     describe('from Unix Epoch Time to Date Time', function () {
       it('0000000000 to Jan 01 1970 12am', function () {
-        assert.strictEqual(
-          momentInterface.convertTimeStampToDate('0000000000', 'Etc/UTC'),
-          '1970-01-01 00:00:00'
-        );
+        assert.strictEqual(momentInterface.convertTimeStampToDate('0000000000', 'Etc/UTC'), '1970-01-01 00:00:00');
       });
       it('1767225600 to Jan 01 2026 12am', function () {
-        assert.strictEqual(
-          momentInterface.convertTimeStampToDate('1767225600', 'Etc/UTC'),
-          '2026-01-01 00:00:00'
-        );
+        assert.strictEqual(momentInterface.convertTimeStampToDate('1767225600', 'Etc/UTC'), '2026-01-01 00:00:00');
       });
     });
   });
@@ -49,18 +43,11 @@ describe('Testing moment interface conversions', function () {
   describe('convertDateToTimeStamp()', function () {
     describe('from Date Time to Unix Epoch Time', function () {
       it('Jan 01 1970 12am to 0000000000', function () {
-        assert.strictEqual(
-          JSON.stringify(
-            momentInterface.convertDateToTimeStamp('1970-01-01T00:00:00.000Z')
-          ),
-          '0'
-        );
+        assert.strictEqual(JSON.stringify(momentInterface.convertDateToTimeStamp('1970-01-01T00:00:00.000Z')), '0');
       });
       it('Jan 01 2026 12am to 1767225600', function () {
         assert.strictEqual(
-          JSON.stringify(
-            momentInterface.convertDateToTimeStamp('2026-01-01T00:00:00.000Z')
-          ),
+          JSON.stringify(momentInterface.convertDateToTimeStamp('2026-01-01T00:00:00.000Z')),
           '1767225600'
         );
       });
@@ -71,12 +58,7 @@ describe('Testing moment interface conversions', function () {
     describe('from Date Time to UnixTime', function () {
       it('2021-01-01 00:00:00 Los Angeles time', function () {
         assert.strictEqual(
-          JSON.stringify(
-            momentInterface.convertDateTimeToUnixTime(
-              '2021-01-01 00:00:00',
-              'America/Los_Angeles'
-            )
-          ),
+          JSON.stringify(momentInterface.convertDateTimeToUnixTime('2021-01-01 00:00:00', 'America/Los_Angeles')),
           '1609488000'
         );
       });
@@ -85,18 +67,11 @@ describe('Testing moment interface conversions', function () {
   describe('convertValue()', function () {
     describe('returns a converted date time and unix value', function () {
       it('provided date time', function () {
-        assert.deepStrictEqual(
-          convertValue(
-            '1609488000',
-            'America/Los_Angeles',
-            'America/Los_Angeles'
-          ),
-          {
-            dateTime: '2021-01-01 00:00:00',
-            zoneName: 'PDT',
-            unixTime: '1609488000',
-          }
-        );
+        assert.deepStrictEqual(convertValue('1609488000', 'America/Los_Angeles', 'America/Los_Angeles'), {
+          dateTime: '2021-01-01 00:00:00',
+          zoneName: 'PDT',
+          unixTime: '1609488000',
+        });
       });
     });
   });
@@ -109,16 +84,10 @@ describe('Testing other moment interface functions', function () {
         assert.strictEqual(momentInterface.getZoneName('Etc/UTC'), 'UTC');
       });
       it('PDT', function () {
-        assert.strictEqual(
-          momentInterface.getZoneName('America/Los_Angeles'),
-          'PDT'
-        );
+        assert.strictEqual(momentInterface.getZoneName('America/Los_Angeles'), 'PDT');
       });
       it('AEDT', function () {
-        assert.strictEqual(
-          momentInterface.getZoneName('Australia/Canberra'),
-          'AEDT'
-        );
+        assert.strictEqual(momentInterface.getZoneName('Australia/Canberra'), 'AEDT');
       });
     });
   });
