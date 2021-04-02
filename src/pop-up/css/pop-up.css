@@ -10,28 +10,37 @@
   line-height: 20px;
 }
 /* TODO: only have background be white and the width not the button */
-#tzc-open-button {
-  color: inherit;
-  font-size: inherit;
-  text-align: left;
+
+#tzc-button-wrapper {
+  background-color: white;
+  height: 35px;
   border-radius: 20px 0 0 20px;
-  padding: 0px;
   width: 100%;
+  border: solid #333 1px;
+}
+#tzc-open-button {
+  border-radius: 20px 0 0 20px;
+  background-color: white;
+  height: 25px;
+  margin-top: 4px;
+  margin-left: 1px;
+  padding-right: 0px;
   cursor: pointer;
   user-select: none;
+  outline: none;
+  border: none;
 }
 
 #tzc-open-button img {
   height: 25px;
   width: 25px;
-  border-radius: 20px 20px 20px 20px;
+  border-radius: 25px;
 }
 
 #tzc-options-display {
   background-color: #333;
   bottom: 20px;
   padding: 10px;
-  border-radius: 3px 3px 0 0;
   width: 300px;
 }
 
@@ -61,8 +70,9 @@
   position: absolute;
   width: 15px;
   height: 15px;
-  top: 8px;
-  right: 8px;
+  top: 0px;
+  right: 0px;
+  margin: 10px;
   cursor: pointer;
   border-color: transparent;
   border-radius: 100%;

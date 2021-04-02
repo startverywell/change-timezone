@@ -6,8 +6,10 @@ const query = document.querySelector.bind(document);
 function togglePopup() {
   if (query('#tzc-options-display').classList.contains('hidden')) {
     query('#tzc-options-display').classList.remove('hidden');
+    query('#tzc-button-wrapper').style.setProperty('border-radius', '20px 0 0 0px');
   } else {
     query('#tzc-options-display').classList.add('hidden');
+    query('#tzc-button-wrapper').style.setProperty('border-radius', '20px 0 0 20px');
   }
 }
 
