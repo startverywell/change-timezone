@@ -1,46 +1,45 @@
+/* TODO: research if I can add the css specifically only for my HTML that goes into the page */
+/* Change to SASS */
 #tzc-pop-up {
-  position: absolute;
-  bottom: 0px;
-  padding: 0 2px;
-  color: #fff;
-  font-family: Helvetica, Arial, sans-serif;
+  position: fixed;
+  right: 0px;
+  top: 200px;
+  color: white;
+  font-family: Lato, Arial, sans-serif;
   font-size: 11px;
   line-height: 20px;
 }
-
+/* TODO: only have background be white and the width not the button */
 #tzc-open-button {
-  background-color: #353;
   color: inherit;
   font-size: inherit;
   text-align: left;
-  height: 20px;
-  min-width: 150px;
-  padding: 0 6px;
-  border-radius: 3px 3px 0 0;
+  border-radius: 20px 0 0 20px;
+  padding: 0px;
+  width: 100%;
   cursor: pointer;
   user-select: none;
 }
 
+#tzc-open-button img {
+  height: 25px;
+  width: 25px;
+  border-radius: 20px 20px 20px 20px;
+}
+
 #tzc-options-display {
   background-color: #333;
-  position: fixed;
   bottom: 20px;
   padding: 10px;
   border-radius: 3px 3px 0 0;
-}
-
-#tzc-float-elements {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: inherit;
-  padding: 10px 0;
+  width: 300px;
 }
 
 #tzc-from-tz,
-#tzc-to-tz {
+#tzc-to-tz,
+#tzc-full-list {
   cursor: pointer;
-  width: 80%;
+  width: 100%;
   margin: inherit;
 }
 
@@ -49,16 +48,25 @@
   width: 100%;
 }
 
+.tzc-inputs {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 #tzc-output-placeholder {
   font-size: 20px;
 }
 
 #tzc-close-options-button {
   position: absolute;
-  top: 0;
-  right: 0;
+  width: 15px;
+  height: 15px;
+  top: 8px;
+  right: 8px;
   cursor: pointer;
-  border-radius: 3px 0 0;
+  border-color: transparent;
+  border-radius: 100%;
+  background-color: #ff605c;
 }
 
 select {

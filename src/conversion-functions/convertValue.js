@@ -6,12 +6,9 @@ function convertValue(input, fromTimeZone, toTimeZone) {
   const unixTime = toUnixTime(input, fromTimeZone);
 
   if (unixTime) {
-    const toDateTime = momentInterface.convertTimeStampToDate(
-      unixTime,
-      toTimeZone
-    );
+    const toDateTime = momentInterface.convertTimeStampToDate(unixTime, toTimeZone);
     const zoneName = momentInterface.getZoneName(toTimeZone);
-
+    // TODO: return one value for dateTime and zoneName (reusability)
     return {
       dateTime: toDateTime,
       zoneName: zoneName,

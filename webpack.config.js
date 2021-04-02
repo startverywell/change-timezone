@@ -36,6 +36,10 @@ module.exports = (env) => {
           test: /\.css/,
           type: 'asset/source',
         },
+        {
+          test: /\.(png)$/i,
+          type: 'asset/resource',
+        },
       ],
     },
   };

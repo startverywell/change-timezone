@@ -1,6 +1,7 @@
 import options from './html/options.html';
 import popupButton from './html/pop-up.html';
 import popupCSS from './css/pop-up.css';
+import icon from './images/tcicon128.png';
 
 // For unit tests they can't be ES6 imports/exports
 const { togglePopup, convertInput, convertPage } = require('./js/script.js');
@@ -27,6 +28,11 @@ function addPopup() {
   query('#tzc-full-list').innerHTML = options;
   query('#tzc-from-tz').innerHTML = options;
   query('#tzc-to-tz').innerHTML = options;
+
+  // Add icon
+  const myIcon = new Image();
+  myIcon.src = icon;
+  query('#tzc-open-button').appendChild(myIcon);
 
   // Add toggle to open and close Pop-up
   query('#tzc-open-button').onclick = togglePopup;
