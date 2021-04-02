@@ -1,0 +1,75 @@
+#tzc-pop-up {
+  position: absolute;
+  bottom: 0px;
+  padding: 0 2px;
+  color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 20px;
+}
+
+#tzc-open-button {
+  background-color: #353;
+  color: inherit;
+  font-size: inherit;
+  text-align: left;
+  height: 20px;
+  min-width: 150px;
+  padding: 0 6px;
+  border-radius: 3px 3px 0 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+#tzc-options-display {
+  background-color: #333;
+  position: fixed;
+  bottom: 20px;
+  padding: 10px;
+  border-radius: 3px 3px 0 0;
+}
+
+#tzc-float-elements {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: inherit;
+  padding: 10px 0;
+}
+
+#tzc-from-tz,
+#tzc-to-tz {
+  cursor: pointer;
+  width: 80%;
+  margin: inherit;
+}
+
+#tzc-input {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#tzc-output-placeholder {
+  font-size: 20px;
+}
+
+#tzc-close-options-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  border-radius: 3px 0 0;
+}
+
+select {
+  cursor: pointer;
+}
+
+#tzc-pop-up label {
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
