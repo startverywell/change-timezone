@@ -33,8 +33,21 @@ module.exports = (env) => {
           type: 'asset/source',
         },
         {
-          test: /\.css/,
-          type: 'asset/source',
+          test: /\.(scss|css)$/,
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                modules: {
+                  // localIdentName: '[local]--[hash:base64:5]',
+                  localIdentName: 'tzc-[local]',
+                },
+              },
+            },
+            'sass-loader',
+          ],
         },
         {
           test: /\.(png)$/i,
