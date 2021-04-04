@@ -1,6 +1,6 @@
 import options from './html/options.html';
 import popupButton from './html/pop-up.html';
-import popupCSS from './css/pop-up.css';
+import popupCSS from './css/pop-up.scss';
 import icon from './images/tcicon128.png';
 
 // For unit tests they can't be ES6 imports/exports
@@ -25,24 +25,24 @@ function addPopup() {
   referenceNode.appendChild(converterTool);
 
   // Add TimeZone options into the Pop-up for selection
-  query('#tzc-full-list').innerHTML = options;
-  query('#tzc-from-tz').innerHTML = options;
-  query('#tzc-to-tz').innerHTML = options;
+  query('.tzc-full-list').innerHTML = options;
+  query('.tzc-from-tz').innerHTML = options;
+  query('.tzc-to-tz').innerHTML = options;
 
   // Add icon
   const myIcon = new Image();
   myIcon.src = icon;
-  query('#tzc-open-button').appendChild(myIcon);
+  query('.tzc-open-button').appendChild(myIcon);
 
   // Add toggle to open and close Pop-up
-  query('#tzc-open-button').onclick = togglePopup;
-  query('#tzc-close-options-button').onclick = togglePopup;
+  query('.tzc-open-button').onclick = togglePopup;
+  query('.tzc-close-options-button').onclick = togglePopup;
 
   // Add convert button for manual conversion
-  query('#tzc-convert-button').onclick = convertInput;
+  query('.tzc-convert-button').onclick = convertInput;
 
   // Add listener for the picker to immediately run the conversion when new TimeZone is selected
-  query('#tzc-full-list').addEventListener('change', (event) => {
+  query('.tzc-full-list').addEventListener('change', (event) => {
     convertPage(event.target.value);
   });
 }

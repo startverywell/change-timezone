@@ -1,46 +1,46 @@
-<div id="tzc-pop-up">
-    <div id="tzc-button-wrapper">
-        <button id="tzc-open-button"></button>
+<div class="tzc-pop-up">
+    <div class="tzc-button-wrapper">
+        <button class="tzc-open-button"></button>
     </div>
 
-    <div id="tzc-options-display" class="hidden">
+    <div class="tzc-options-display tzc-hidePopup">
         <div>
             <h3> Convert times on this page to: </h3>
         </div>
-        <select size="1" id="tzc-full-list" class="tzc-inputs">
+        <select size="1" class="tzc-full-list tzc-inputs">
         </select>
         <hr />
         <div>
             <h3> Manual Converter </h3>
         </div>
 
-        <div id="tzc-float-elements">
+        <div class="tzc-float-elements">
             <label> From: </label>
             <div class="tzc-inputs">
-                <select size="1" id="tzc-from-tz">
+                <select size="1" class="tzc-from-tz">
                 </select>
             </div>
             <div class="tzc-inputs">
-                <input id="tzc-input" type="text"
+                <input class="tzc-input" type="text"
                     placeholder="Formatted time (YYYY-MM-DD HH:MM:SS), Message link or Unix time" ;
                     autocomplete="off" />
             </div>
             <label> To: </label>
             <div class="tzc-inputs">
 
-                <select size="1" id="tzc-to-tz" class="tzc-inputs">
+                <select size="1" class="tzc-to-tz" class="tzc-inputs">
                 </select>
             </div>
 
         </div>
 
         <div>
-            <button id="tzc-convert-button" class="btn">Convert</button>
+            <button class="tzc-convert-button" class="btn">Convert</button>
         </div>
         <hr />
-        <div id="tzc-output-placeholder"></div>
+        <div class="tzc-output-placeholder"></div>
 
-        <button id="tzc-close-options-button"> </button>
+        <button class="tzc-close-options-button"> </button>
     </div>
 </div>
 </div>
