@@ -20,10 +20,19 @@
                 <select size="1" class="tzc-from-tz">
                 </select>
             </div>
+            <label> Enter or paste a date </label>
             <div class="tzc-inputs">
-                <input class="tzc-input" type="text"
+                <input type="radio" name="input-type" id="tzc-input-manual">
+                <input id="tzc-input" type="text"
                     placeholder="Formatted time (YYYY-MM-DD HH:MM:SS), Message link or Unix time" ;
                     autocomplete="off" />
+
+            </div>
+
+            <label> Date & Time Picker </label>
+            <div class="tzc-inputs">
+                <input type="radio" name="input-type" id="tzc-input-picker">
+                <input type="datetime-local" id="tzc-picker" pattern="d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2}">
             </div>
             <label> To: </label>
             <div class="tzc-inputs">

@@ -13,9 +13,32 @@ function togglePopup() {
   }
 }
 
+function toggleDisabled(input_id) {
+  if ('tzc-input-manual' === input_id || 'tzc-input' === input_id) {
+    query('#tzc-picker').disabled = true;
+    query('#tzc-input').disabled = false;
+    query('#tzc-input-manual').checked = true;
+  }
+
+  if ('tzc-input-picker' === input_id || 'tzc-picker' === input_id) {
+    query('#tzc-picker').disabled = false;
+    query('#tzc-input').disabled = true;
+    query('#tzc-input-picker').checked = true;
+  }
+}
+
 function convertInput() {
   // Get input from user
-  const input = query('.tzc-input').value;
+  let input;
+
+  // Manual input or picker
+  if (query('.tzc-input').value) {
+    input = query('.tzc-input').value;
+  }
+  if (query('.tzc-picker').value) {
+    input = query('.tzc-picker').value;
+  }
+
   const fromTimeZone = query('.tzc-from-tz').value;
   const toTimeZone = query('.tzc-to-tz').value;
 
@@ -32,4 +55,4 @@ function convertInput() {
   }
 }
 
-module.exports = { togglePopup, convertInput, convertPage };
+module.exports = { togglePopup, toggleDisabled, convertInput, convertPage };

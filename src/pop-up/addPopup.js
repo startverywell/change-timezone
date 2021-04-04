@@ -4,7 +4,7 @@ import popupCSS from './css/pop-up.scss';
 import icon from './images/tcicon128.png';
 
 // For unit tests they can't be ES6 imports/exports
-const { togglePopup, convertInput, convertPage } = require('./js/script.js');
+const { togglePopup, toggleDisabled, convertInput, convertPage } = require('./js/script.js');
 
 const query = document.querySelector.bind(document);
 
@@ -37,6 +37,21 @@ function addPopup() {
   // Add toggle to open and close Pop-up
   query('.tzc-open-button').onclick = togglePopup;
   query('.tzc-close-options-button').onclick = togglePopup;
+
+  // Toggle disabled checkbox
+  query('#tzc-input-picker').onclick = function () {
+    toggleDisabled(this.id);
+  };
+  query('#tzc-input-manual').onclick = function () {
+    toggleDisabled(this.id);
+  };
+
+  query('#tzc-picker').onclick = function () {
+    toggleDisabled(this.id);
+  };
+  query('#tzc-input').onclick = function () {
+    toggleDisabled(this.id);
+  };
 
   // Add convert button for manual conversion
   query('.tzc-convert-button').onclick = convertInput;

@@ -54,7 +54,7 @@
 
 .input {
   box-sizing: border-box;
-  width: 100%;
+  width: 80%;
 }
 
 .inputs {
@@ -86,4 +86,8 @@ select {
 .hidePopup {
   display: none;
   visibility: hidden;
+}
+
+.picker {
+  background-color: white;
 }
