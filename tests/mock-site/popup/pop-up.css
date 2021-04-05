@@ -1,14 +1,33 @@
-/* TODO: research if I can add the css specifically only for my HTML that goes into the page */
 .popUp {
   position: fixed;
   right: 500px;
-  top: 100px;
+  top: 50px;
   color: white;
   font-family: Lato, Arial, sans-serif;
   font-size: 11px;
 }
 
-.popUp .openOptionsDisplayButtonWrapper {
+.popUp .labelPointDown {
+  position: relative;
+  top: 5px;
+}
+
+.popUp h2 {
+  display: inline-block;
+  text-decoration: underline;
+}
+
+.popUp label {
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.popUp hr {
+  margin: 10px 0 10px 0;
+}
+
+.popUp .buttonOpenOptionsDisplayWrapper {
+  border-bottom: 1px dashed;
   background-color: white;
   height: auto;
   border: solid #333 1px;
@@ -16,7 +35,7 @@
   padding: 5px;
 }
 
-.popUp .openOptionsDisplayButtonWrapper .openOptionsDisplayButton {
+.popUp .buttonOpenOptionsDisplayWrapper .buttonOpenOptionsDisplay {
   display: block;
   border-radius: 20px 0 0 20px;
   background-color: white;
@@ -30,14 +49,14 @@
   padding: 0px;
 }
 
-.popUp .openOptionsDisplayButtonWrapper .openOptionsDisplayButton img {
+.popUp .buttonOpenOptionsDisplayWrapper .buttonOpenOptionsDisplay img {
   display: block;
   height: 25px;
   width: 25px;
   border-radius: 25px;
 }
 
-.popUp .closeOptionsDisplayButton {
+.popUp .buttonCloseOptionsDisplay {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: absolute;
@@ -66,6 +85,7 @@
 .popUp .optionsDisplay select,
 .popUp .optionsDisplay input {
   cursor: pointer;
+  border: 1px;
 }
 
 .popUp .optionsDisplay select {
@@ -78,17 +98,17 @@
   border-radius: 8px;
 }
 
-.popUp .optionsDisplay .input,
-.popUp .optionsDisplay .picker {
+.popUp .optionsDisplay .inputManualDate,
+.popUp .optionsDisplay .inputUiDate {
   display: inline-block;
   width: 80%;
 }
 
-.popUp .optionsDisplay .convertButtonWrapper {
+.popUp .optionsDisplay .buttonConvertWrapper {
   text-align: center;
 }
 
-.popUp .optionsDisplay .convertButtonWrapper .convertButton {
+.popUp .optionsDisplay .buttonConvertWrapper .buttonConvert {
   background-color: #80c0ff;
   font-size: 18px;
   width: 100%;
@@ -97,11 +117,11 @@
   border-color: transparent;
 }
 
-.popUp .optionsDisplay .outputPlaceholder {
+.popUp .optionsDisplay .conversionOutputPlaceholder {
   background-color: white;
   color: #333;
   font-size: larger;
-  max-width: 300px;
+  max-width: 280px;
   padding: 10px;
 }
 /*# sourceMappingURL=pop-up.css.map */

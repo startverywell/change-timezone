@@ -1,20 +1,39 @@
-/* TODO: research if I can add the css specifically only for my HTML that goes into the page */
 .popUp {
   position: fixed;
   right: 500px;
-  top: 100px;
+  top: 50px;
   color: white;
   font-family: Lato, Arial, sans-serif;
   font-size: 11px;
 
-  .openOptionsDisplayButtonWrapper {
+  .labelPointDown {
+    position: relative;
+    top: 5px;
+  }
+
+  h2 {
+    display: inline-block;
+    text-decoration: underline;
+  }
+
+  label {
+    font-size: 16px;
+    text-decoration: none;
+  }
+
+  hr {
+    margin: 10px 0 10px 0;
+  }
+
+  .buttonOpenOptionsDisplayWrapper {
+    border-bottom: 1px dashed;
     background-color: white;
     height: auto;
     border: solid #333 1px;
     border-radius: 20px 0 0 20px;
     padding: 5px;
 
-    .openOptionsDisplayButton {
+    .buttonOpenOptionsDisplay {
       display: block;
       border-radius: 20px 0 0 20px;
       background-color: white;
@@ -32,7 +51,7 @@
     }
   }
 
-  .closeOptionsDisplayButton {
+  .buttonCloseOptionsDisplay {
     box-sizing: border-box;
     position: absolute;
     top: 10px;
@@ -59,6 +78,7 @@
     select,
     input {
       cursor: pointer;
+      border: 1px;
     }
 
     select {
@@ -72,14 +92,14 @@
     }
 
     // TODO: change names
-    .input,
-    .picker {
+    .inputManualDate,
+    .inputUiDate {
       display: inline-block;
       width: 80%;
     }
-    .convertButtonWrapper {
+    .buttonConvertWrapper {
       text-align: center;
-      .convertButton {
+      .buttonConvert {
         background-color: #80c0ff;
         font-size: 18px;
         width: 100%;
@@ -89,11 +109,11 @@
       }
     }
 
-    .outputPlaceholder {
+    .conversionOutputPlaceholder {
       background-color: white;
       color: #333;
       font-size: larger;
-      max-width: 300px;
+      max-width: 280px;
       padding: 10px;
     }
   }
