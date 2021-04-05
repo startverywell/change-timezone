@@ -32,19 +32,29 @@ module.exports = (env) => {
           test: /\.html/,
           type: 'asset/source',
         },
+        // {
+        //   test: /\.(scss|css)$/,
+        //   use: [
+        //     'style-loader',
+        //     {
+        //       loader: 'css-loader',
+        //       options: {
+        //         importLoaders: 1,
+        //         modules: {
+        //           // localIdentName: '[local]--[hash:base64:5]',
+        //           // localIdentName: 'tzc-[local]',
+        //         },
+        //       },
+        //     },
+        //     'sass-loader',
+        //   ],
+        // },
         {
           test: /\.(scss|css)$/,
           use: [
             'style-loader',
             {
               loader: 'css-loader',
-              options: {
-                importLoaders: 1,
-                modules: {
-                  // localIdentName: '[local]--[hash:base64:5]',
-                  localIdentName: 'tzc-[local]',
-                },
-              },
             },
             'sass-loader',
           ],

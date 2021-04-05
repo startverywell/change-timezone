@@ -4,19 +4,13 @@ import popupCSS from './css/pop-up.scss';
 import icon from './images/tcicon128.png';
 
 // For unit tests they can't be ES6 imports/exports
-const { togglePopup, toggleDisabled, convertInput, convertPage } = require('./js/script.js');
+const { togglePopup, toggleDisabledInputs, convertInput, convertPage } = require('./js/script.js');
 
 const query = document.querySelector.bind(document);
+const queryID = document.getElementById.bind(document);
 
-// This function adds the Pop-up to the page
+// This function adds the popup and event listeners to buttons
 function addPopup() {
-  // Add CSS for Pop-up
-  const head = query('head');
-  const css = document.createElement('style');
-  css.innerHTML = popupCSS;
-
-  head.appendChild(css);
-
   // Add "pop up" button to the body of page
   const referenceNode = query('body');
   const converterTool = document.createElement('div');
@@ -24,40 +18,39 @@ function addPopup() {
 
   referenceNode.appendChild(converterTool);
 
-  // Add TimeZone options into the Pop-up for selection
-  query('.tzc-full-list').innerHTML = options;
-  query('.tzc-from-tz').innerHTML = options;
-  query('.tzc-to-tz').innerHTML = options;
-
   // Add icon
   const myIcon = new Image();
   myIcon.src = icon;
-  query('.tzc-open-button').appendChild(myIcon);
+  queryID('buttonOpenOptionsDisplay').appendChild(myIcon);
 
-  // Add toggle to open and close Pop-up
-  query('.tzc-open-button').onclick = togglePopup;
-  query('.tzc-close-options-button').onclick = togglePopup;
+  // Add TimeZone options into the Pop-up for selection
+  queryID('selectPageTimeZone').innerHTML = options;
+  queryID('selectFromTimeZone').innerHTML = options;
+  queryID('selectToTimeZone').innerHTML = options;
+
+  // Toggle Popup / options display
+  queryID('buttonOpenOptionsDisplay').onclick = togglePopup;
+  queryID('buttonCloseOptionsDisplay').onclick = togglePopup;
 
   // Toggle disabled checkbox
-  query('#tzc-input-picker').onclick = function () {
-    toggleDisabled(this.id);
+  queryID('radioManualDate').onclick = function () {
+    toggleDisabledInputs(this.id);
   };
-  query('#tzc-input-manual').onclick = function () {
-    toggleDisabled(this.id);
+  queryID('radioUiDate').onclick = function () {
+    toggleDisabledInputs(this.id);
   };
-
-  query('#tzc-picker').onclick = function () {
-    toggleDisabled(this.id);
+  queryID('inputManualDate').onclick = function () {
+    toggleDisabledInputs(this.id);
   };
-  query('#tzc-input').onclick = function () {
-    toggleDisabled(this.id);
+  queryID('inputUiDate').onclick = function () {
+    toggleDisabledInputs(this.id);
   };
 
   // Add convert button for manual conversion
-  query('.tzc-convert-button').onclick = convertInput;
+  queryID('buttonConvert').onclick = convertInput;
 
   // Add listener for the picker to immediately run the conversion when new TimeZone is selected
-  query('.tzc-full-list').addEventListener('change', (event) => {
+  queryID('selectPageTimeZone').addEventListener('change', (event) => {
     convertPage(event.target.value);
   });
 }

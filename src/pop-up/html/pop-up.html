@@ -1,54 +1,59 @@
-<div class="tzc-pop-up">
-    <div class="tzc-button-wrapper">
-        <button class="tzc-open-button"></button>
+<div id="popUp">
+    <div id="buttonOpenOptionsDisplayWrapper">
+        <button id="buttonOpenOptionsDisplay">
+        </button>
     </div>
 
-    <div class="tzc-options-display tzc-hidePopup">
+    <div id="optionsDisplay" class="hidePopUp">
+        <button id="buttonCloseOptionsDisplay"></button>
         <div>
-            <h3> Convert times on this page to: </h3>
+            <h2> Convert times on this page to: </h2>
+            <label id="labelPointDown"> ⤵️</label>
         </div>
-        <select size="1" class="tzc-full-list tzc-inputs">
+
+        <select size="1" id="selectPageTimeZone">
+            <!-- options are automatically added on build -->
         </select>
         <hr />
-        <div>
-            <h3> Manual Converter </h3>
-        </div>
 
-        <div class="tzc-float-elements">
-            <label> From: </label>
-            <div class="tzc-inputs">
-                <select size="1" class="tzc-from-tz">
+        <div>
+            <h2> Manual Converter </h2>
+        </div>
+        <div>
+            <label> From Time Zone: </label>
+            <label id="labelPointDown"> ⤵️</label>
+            <div>
+                <select size="1" id="selectFromTimeZone">
+                    <!-- options are automatically added on build -->
                 </select>
             </div>
-            <label> Enter or paste a date </label>
-            <div class="tzc-inputs">
-                <input type="radio" name="input-type" id="tzc-input-manual">
-                <input id="tzc-input" type="text"
-                    placeholder="Formatted time (YYYY-MM-DD HH:MM:SS), Message link or Unix time" ;
-                    autocomplete="off" />
 
+            <h3> Enter Date & Time / Timestamp </h3>
+            <div>
+                <input type="radio" name="input-type" id="radioManualDate">
+                <input type="text" id="inputManualDate" placeholder="2021-01-01 09:00:00 / 1609452000"
+                    autocomplete="off" />
             </div>
 
             <label> Date & Time Picker </label>
-            <div class="tzc-inputs">
-                <input type="radio" name="input-type" id="tzc-input-picker">
-                <input type="datetime-local" id="tzc-picker" pattern="d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2}">
+            <div>
+                <input type="radio" name="input-type" id="radioUiDate">
+                <input type="datetime-local" id="inputUiDate" pattern="d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2}">
             </div>
-            <label> To: </label>
-            <div class="tzc-inputs">
 
-                <select size="1" class="tzc-to-tz tzc-inputs">
+            <label> To Time Zone: </label>
+            <label id="labelPointDown"> ⤵️</label>
+            <div>
+                <select size="1" id="selectToTimeZone">
+                    <!-- options are automatically added on build -->
                 </select>
             </div>
-
         </div>
 
-        <div>
-            <button class="tzc-convert-button btn">Convert</button>
+        <div id="buttonConvertWrapper">
+            <button id="buttonConvert">Convert</button>
         </div>
-        <hr />
-        <div class="tzc-output-placeholder"></div>
 
-        <button class="tzc-close-options-button"> </button>
+        <div id="conversionOutputPlaceholder">Results: </div>
     </div>
 </div>

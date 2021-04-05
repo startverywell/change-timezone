@@ -5,8 +5,8 @@ function setTimeZoneState(selectedTimeZone) {
     localStorage.setItem('currentTimeZone', selectedTimeZone);
     localStorage.setItem('selectedTimeZone', selectedTimeZone);
   }
-  document.getElementsByClassName('tzc-full-list').value = selectedTimeZone;
-  document.getElementsByClassName('tzc-to-tz').value = selectedTimeZone;
+  document.getElementById('selectPageTimeZone').value = selectedTimeZone;
+  document.getElementById('selectToTimeZone').value = selectedTimeZone;
 }
 
 module.exports = { setTimeZoneState };

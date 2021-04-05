@@ -1,12 +1,13 @@
-.popUp {
+#popUp {
   position: fixed;
-  right: 500px;
+  right: 0px;
   top: 50px;
   color: white;
   font-family: Lato, Arial, sans-serif;
   font-size: 11px;
+  max-width: 350px;
 
-  .labelPointDown {
+  #labelPointDown {
     position: relative;
     top: 5px;
   }
@@ -25,7 +26,7 @@
     margin: 10px 0 10px 0;
   }
 
-  .buttonOpenOptionsDisplayWrapper {
+  #buttonOpenOptionsDisplayWrapper {
     border-bottom: 1px dashed;
     background-color: white;
     height: auto;
@@ -33,7 +34,7 @@
     border-radius: 20px 0 0 20px;
     padding: 5px;
 
-    .buttonOpenOptionsDisplay {
+    #buttonOpenOptionsDisplay {
       display: block;
       border-radius: 20px 0 0 20px;
       background-color: white;
@@ -51,7 +52,7 @@
     }
   }
 
-  .buttonCloseOptionsDisplay {
+  #buttonCloseOptionsDisplay {
     box-sizing: border-box;
     position: absolute;
     top: 10px;
@@ -66,7 +67,7 @@
     padding: 0px;
   }
 
-  .optionsDisplay {
+  #optionsDisplay {
     background-color: #333;
     bottom: 20px;
     padding: 10px;
@@ -82,6 +83,7 @@
     }
 
     select {
+      max-width: 100%;
       padding: 5px;
       border-radius: 8px;
     }
@@ -91,15 +93,14 @@
       border-radius: 8px;
     }
 
-    // TODO: change names
-    .inputManualDate,
-    .inputUiDate {
+    #inputManualDate,
+    #inputUiDate {
       display: inline-block;
       width: 80%;
     }
-    .buttonConvertWrapper {
+    #buttonConvertWrapper {
       text-align: center;
-      .buttonConvert {
+      #buttonConvert {
         background-color: #80c0ff;
         font-size: 18px;
         width: 100%;
@@ -109,17 +110,17 @@
       }
     }
 
-    .conversionOutputPlaceholder {
+    #conversionOutputPlaceholder {
       background-color: white;
       color: #333;
       font-size: larger;
-      max-width: 280px;
+      max-width: 100%;
       padding: 10px;
     }
   }
 
-  // .hidePopUp {
-  //   display: none;
-  //   visibility: hidden;
-  // }
+  .hidePopUp {
+    display: none;
+    visibility: hidden;
+  }
 }

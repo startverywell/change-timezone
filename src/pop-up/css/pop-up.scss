@@ -1,89 +1,126 @@
-/* TODO: research if I can add the css specifically only for my HTML that goes into the page */
-.pop-up {
+#popUp {
   position: fixed;
   right: 0px;
-  top: 200px;
+  top: 50px;
   color: white;
   font-family: Lato, Arial, sans-serif;
   font-size: 11px;
-  line-height: 20px;
-  label {
+  max-width: 350px;
+
+  #labelPointDown {
+    position: relative;
+    top: 5px;
+  }
+
+  h2 {
     display: inline-block;
+    text-decoration: underline;
   }
-}
 
-.button-wrapper {
-  background-color: white;
-  height: 35px;
-  border-radius: 20px 0 0 20px;
-  width: 100%;
-  border: solid #333 1px;
-}
-.open-button {
-  border-radius: 20px 0 0 20px;
-  background-color: white;
-  height: 25px;
-  margin-top: 4px;
-  margin-left: 1px;
-  padding-right: 0px;
-  cursor: pointer;
-  user-select: none;
-  outline: none;
-  border: none;
-  img {
-    height: 25px;
-    width: 25px;
-    border-radius: 25px;
+  label {
+    font-size: 16px;
+    text-decoration: none;
   }
-}
 
-.options-display {
-  background-color: #333;
-  bottom: 20px;
-  padding: 10px;
-  width: 300px;
-}
+  hr {
+    margin: 10px 0 10px 0;
+  }
 
-.from-tz,
-.to-tz,
-.full-list {
-  cursor: pointer;
-  width: 100%;
-  margin: inherit;
-}
+  #buttonOpenOptionsDisplayWrapper {
+    border-bottom: 1px dashed;
+    background-color: white;
+    height: auto;
+    border: solid #333 1px;
+    border-radius: 20px 0 0 20px;
+    padding: 5px;
 
-.input {
-  box-sizing: border-box;
-  width: 80%;
-}
+    #buttonOpenOptionsDisplay {
+      display: block;
+      border-radius: 20px 0 0 20px;
+      background-color: white;
+      cursor: pointer;
+      user-select: none;
+      outline: none;
+      border: none;
+      padding: 0px;
+      img {
+        display: block;
+        height: 25px;
+        width: 25px;
+        border-radius: 25px;
+      }
+    }
+  }
 
-.inputs {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
+  #buttonCloseOptionsDisplay {
+    box-sizing: border-box;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    border: 0px;
+    border-color: transparent;
+    border-radius: 100%;
+    background-color: #ff605c;
+    padding: 0px;
+  }
 
-.output-placeholder {
-  font-size: 20px;
-}
+  #optionsDisplay {
+    background-color: #333;
+    bottom: 20px;
+    padding: 10px;
 
-.close-options-button {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  top: 0px;
-  right: 0px;
-  margin: 10px;
-  cursor: pointer;
-  border-color: transparent;
-  border-radius: 100%;
-  background-color: #ff605c;
-}
+    div {
+      margin: 10px 0 10px;
+    }
 
-select {
-  cursor: pointer;
-}
+    select,
+    input {
+      cursor: pointer;
+      border: 1px;
+    }
 
-.hidePopup {
-  display: none;
-  visibility: hidden;
+    select {
+      max-width: 100%;
+      padding: 5px;
+      border-radius: 8px;
+    }
+
+    input {
+      padding: 5px;
+      border-radius: 8px;
+    }
+
+    #inputManualDate,
+    #inputUiDate {
+      display: inline-block;
+      width: 80%;
+    }
+    #buttonConvertWrapper {
+      text-align: center;
+      #buttonConvert {
+        background-color: #80c0ff;
+        font-size: 18px;
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border-color: transparent;
+      }
+    }
+
+    #conversionOutputPlaceholder {
+      background-color: white;
+      color: #333;
+      font-size: larger;
+      max-width: 100%;
+      padding: 10px;
+    }
+  }
+
+  .hidePopUp {
+    display: none;
+    visibility: hidden;
+  }
 }
