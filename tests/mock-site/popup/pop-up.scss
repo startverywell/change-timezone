@@ -6,17 +6,15 @@
   color: white;
   font-family: Lato, Arial, sans-serif;
   font-size: 11px;
-  // line-height: 20px;
 
-  .optionsDisplayButtonWrapper {
+  .openOptionsDisplayButtonWrapper {
     background-color: white;
     height: auto;
-    width: 100%;
     border: solid #333 1px;
     border-radius: 20px 0 0 20px;
     padding: 5px;
 
-    .optionsDisplayButton {
+    .openOptionsDisplayButton {
       display: block;
       border-radius: 20px 0 0 20px;
       background-color: white;
@@ -34,7 +32,7 @@
     }
   }
 
-  .closeOptionsDisplay {
+  .closeOptionsDisplayButton {
     box-sizing: border-box;
     position: absolute;
     top: 10px;
@@ -49,41 +47,48 @@
     padding: 0px;
   }
 
-  label {
-    display: inline-block;
-  }
-
-  select {
-    cursor: pointer;
-  }
-
-  .options-display {
+  .optionsDisplay {
     background-color: #333;
     bottom: 20px;
     padding: 10px;
-    width: 300px;
-  }
 
-  .from-tz,
-  .to-tz,
-  .full-list {
-    cursor: pointer;
-    width: 100%;
-    margin: inherit;
-  }
+    div {
+      margin: 10px 0 10px;
+    }
 
-  .input {
-    box-sizing: border-box;
-    width: 80%;
-  }
+    select,
+    input {
+      cursor: pointer;
+    }
 
-  .inputs {
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
+    select {
+      padding: 5px;
+      border-radius: 8px;
+    }
 
-  .output-placeholder {
-    font-size: 20px;
+    input {
+      padding: 5px;
+      border-radius: 8px;
+    }
+
+    // TODO: change names
+    .input,
+    .picker {
+      display: inline-block;
+      width: 80%;
+    }
+
+    .convertButton {
+      background-color: #80c0ff;
+      padding: 10px;
+      border-radius: 8px;
+      width: 100%;
+      border-color: transparent;
+    }
+
+    .outputPlaceholder {
+      font-size: larger;
+    }
   }
 
   // .hidePopUp {

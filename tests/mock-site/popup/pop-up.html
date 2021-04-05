@@ -12,15 +12,15 @@
 
 <body>
     <div class="popUp">
-        <div class="optionsDisplayButtonWrapper">
-            <button class="optionsDisplayButton">
+        <div class="openOptionsDisplayButtonWrapper">
+            <button class="openOptionsDisplayButton">
                 <img src="tcicon128.png">
             </button>
 
         </div>
 
-        <div class="options-display hidePopUp">
-            <button class="closeOptionsDisplay"></button>
+        <div class="optionsDisplay hidePopUp">
+            <button class="closeOptionsDisplayButton"></button>
             <div>
                 <h3> Convert times on this page to: </h3>
             </div>
@@ -44,9 +44,9 @@
             <div>
                 <h3> Manual Converter </h3>
             </div>
-            <div class="float-elements">
+            <div>
                 <label> From: </label>
-                <div class="inputs">
+                <div>
                     <select size="1" class="from-tz">
                         <option value="" disabled>Quick Select Locations</option>
                         <option value="America/Los_Angeles"> SF & YVR &#127482&#127480&#127464&#127462 PST/PDT</option>
@@ -63,19 +63,22 @@
                         <option value="Pacific/Honolulu"> (UTC-10:00) Hawaii</option>
                     </select>
                 </div>
-                <label> Enter or paste a date </label>
-                <div class="inputs">
-                    <input type="radio" name="input-type" id="input-manual">
-                    <input id="input" type="text" autocomplete="off" />
+
+                <label> Enter or paste a date (DateTime or Unix) </label>
+                <div>
+                    <input type="radio" name="input-type" class="input-manual">
+                    <input type="text" class="input" placeholder="2021-01-01 09:00:00 / 1609452000"
+                        autocomplete="off" />
                 </div>
 
                 <label> Date & Time Picker </label>
-                <div class="inputs">
-                    <input type="radio" name="input-type" id="input-picker">
-                    <input type="datetime-local" id="picker" pattern="d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2}">
+                <div>
+                    <input type="radio" name="input-type" class="input-picker">
+                    <input type="datetime-local" class="picker" pattern="d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2}">
                 </div>
+
                 <label> To: </label>
-                <div class="inputs">
+                <div>
                     <select size="1" class="to-tz inputs">
                         <option value="" disabled>Quick Select Locations</option>
                         <option value="America/Los_Angeles"> SF & YVR &#127482&#127480&#127464&#127462 PST/PDT</option>
@@ -95,11 +98,11 @@
             </div>
 
             <div>
-                <button class="convert-button">Convert</button>
+                <button class="convertButton">Convert</button>
             </div>
             <hr />
 
-            <div class="output-placeholder"></div>
+            <div class="outputPlaceholder">test something something</div>
         </div>
     </div>
 </body>
