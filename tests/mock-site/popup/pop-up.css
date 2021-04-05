@@ -98,6 +98,10 @@
 }
 
 .popUp .optionsDisplay .outputPlaceholder {
+  background-color: white;
+  color: #333;
   font-size: larger;
+  max-width: 300px;
+  padding: 10px;
 }
 /*# sourceMappingURL=pop-up.css.map */
