@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pop-up.css">
+
+</head>
+
+
+<body>
+    <div class="popUp">
+        <div class="optionsDisplayButtonWrapper">
+            <button class="optionsDisplayButton">
+                <img src="tcicon128.png">
+            </button>
+
+        </div>
+
+        <div class="options-display hidePopUp">
+            <button class="closeOptionsDisplay"></button>
+            <div>
+                <h3> Convert times on this page to: </h3>
+            </div>
+            <select size="1" class="full-list inputs">
+                <option value="" disabled>Quick Select Locations</option>
+                <option value="America/Los_Angeles"> SF & YVR &#127482&#127480&#127464&#127462 PST/PDT</option>
+                <option value="America/Denver"> Denver &#127482&#127480 MST/MDT</option>
+                <option value="America/New_York"> NY/TOR &#127482&#127480&#127464&#127462 EST/EDT</option>
+                <option value="Etc/UTC"> UTC </option>
+                <option value="Europe/London"> Dublin &#127470&#127466 BST/BDT</option>
+                <option value="Asia/Kolkata"> Pune &#127470&#127475 IST</option>
+                <option value="Asia/Tokyo"> Tokyo &#127471&#127477 JST</option>
+                <option value="Australia/Canberra"> Melbourne &#127462&#127482 AEST/AEDT</option>
+                <option value="" disabled> Full List</option>
+                <option value="Pacific/Midway"> (UTC-11:00) Midway Island, American Samoa</option>
+                <option value="America/Adak"> (UTC-10:00) Aleutian Islands</option>
+                <option value="Pacific/Honolulu"> (UTC-10:00) Hawaii</option>
+            </select>
+            <hr />
+
+            <div>
+                <h3> Manual Converter </h3>
+            </div>
+            <div class="float-elements">
+                <label> From: </label>
+                <div class="inputs">
+                    <select size="1" class="from-tz">
+                        <option value="" disabled>Quick Select Locations</option>
+                        <option value="America/Los_Angeles"> SF & YVR &#127482&#127480&#127464&#127462 PST/PDT</option>
+                        <option value="America/Denver"> Denver &#127482&#127480 MST/MDT</option>
+                        <option value="America/New_York"> NY/TOR &#127482&#127480&#127464&#127462 EST/EDT</option>
+                        <option value="Etc/UTC"> UTC </option>
+                        <option value="Europe/London"> Dublin &#127470&#127466 BST/BDT</option>
+                        <option value="Asia/Kolkata"> Pune &#127470&#127475 IST</option>
+                        <option value="Asia/Tokyo"> Tokyo &#127471&#127477 JST</option>
+                        <option value="Australia/Canberra"> Melbourne &#127462&#127482 AEST/AEDT</option>
+                        <option value="" disabled> Full List</option>
+                        <option value="Pacific/Midway"> (UTC-11:00) Midway Island, American Samoa</option>
+                        <option value="America/Adak"> (UTC-10:00) Aleutian Islands</option>
+                        <option value="Pacific/Honolulu"> (UTC-10:00) Hawaii</option>
+                    </select>
+                </div>
+                <label> Enter or paste a date </label>
+                <div class="inputs">
+                    <input type="radio" name="input-type" id="input-manual">
+                    <input id="input" type="text" autocomplete="off" />
+                </div>
+
+                <label> Date & Time Picker </label>
+                <div class="inputs">
+                    <input type="radio" name="input-type" id="input-picker">
+                    <input type="datetime-local" id="picker" pattern="d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2}">
+                </div>
+                <label> To: </label>
+                <div class="inputs">
+                    <select size="1" class="to-tz inputs">
+                        <option value="" disabled>Quick Select Locations</option>
+                        <option value="America/Los_Angeles"> SF & YVR &#127482&#127480&#127464&#127462 PST/PDT</option>
+                        <option value="America/Denver"> Denver &#127482&#127480 MST/MDT</option>
+                        <option value="America/New_York"> NY/TOR &#127482&#127480&#127464&#127462 EST/EDT</option>
+                        <option value="Etc/UTC"> UTC </option>
+                        <option value="Europe/London"> Dublin &#127470&#127466 BST/BDT</option>
+                        <option value="Asia/Kolkata"> Pune &#127470&#127475 IST</option>
+                        <option value="Asia/Tokyo"> Tokyo &#127471&#127477 JST</option>
+                        <option value="Australia/Canberra"> Melbourne &#127462&#127482 AEST/AEDT</option>
+                        <option value="" disabled> Full List</option>
+                        <option value="Pacific/Midway"> (UTC-11:00) Midway Island, American Samoa</option>
+                        <option value="America/Adak"> (UTC-10:00) Aleutian Islands</option>
+                        <option value="Pacific/Honolulu"> (UTC-10:00) Hawaii</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button class="convert-button">Convert</button>
+            </div>
+            <hr />
+
+            <div class="output-placeholder"></div>
+        </div>
+    </div>
+</body>
+
+</html>
