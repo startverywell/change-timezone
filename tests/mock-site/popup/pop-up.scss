@@ -77,13 +77,16 @@
       display: inline-block;
       width: 80%;
     }
-
-    .convertButton {
-      background-color: #80c0ff;
-      padding: 10px;
-      border-radius: 8px;
-      width: 100%;
-      border-color: transparent;
+    .convertButtonWrapper {
+      text-align: center;
+      .convertButton {
+        background-color: #80c0ff;
+        font-size: 18px;
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border-color: transparent;
+      }
     }
 
     .outputPlaceholder {
