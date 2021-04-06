@@ -2,7 +2,7 @@ timezone-converter-container {
   /* Positioning */
   position: fixed;
   right: 0px;
-  top: 50px;
+  top: 10px;
 
   /* Display & Box Model */
   max-width: 350px;
@@ -23,6 +23,7 @@ timezone-converter-container {
 
   h2 {
     display: inline-block;
+    margin: 0;
     font-size: large;
     text-decoration: underline;
   }
@@ -33,7 +34,7 @@ timezone-converter-container {
   }
 
   hr {
-    margin: 10px 0 10px 0;
+    margin: 20px 0 20px 0;
   }
 
   #open-options-wrapper {
@@ -43,7 +44,7 @@ timezone-converter-container {
     padding: 5px;
     background-color: white;
 
-    #open-options {
+    #js-open-options {
       display: block;
       padding: 0px;
       border: none;
@@ -62,7 +63,8 @@ timezone-converter-container {
     }
   }
 
-  #close-options {
+  // TODO: Move down into #options-display?
+  #js-close-options {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -98,15 +100,21 @@ timezone-converter-container {
       max-width: 100%;
     }
 
-    #js-input-manual-date,
-    #js-input-ui-date {
+    #js-input-manual,
+    #js-input-picker {
       display: inline-block;
       width: 80%;
+      // background-color: white;
+    }
+
+    #js-input-manual:disabled,
+    #js-input-picker:disabled {
+      background-color: #d3d3d3;
     }
 
     #convert-datetime-wrapper {
       text-align: center;
-      #convert-datetime {
+      #js-convert-datetime {
         padding: 10px;
         width: 100%;
         border-radius: 8px;
@@ -116,7 +124,7 @@ timezone-converter-container {
       }
     }
 
-    #conversion-output {
+    #js-conversion-output {
       max-width: 100%;
       padding: 10px;
       color: #333;
@@ -125,7 +133,7 @@ timezone-converter-container {
     }
   }
 
-  // .hide-timezone-converter {
+  // .hide-timezone-element {
   //   display: none;
   //   visibility: hidden;
   // }

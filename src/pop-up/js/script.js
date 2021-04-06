@@ -1,64 +1,78 @@
 const { convertValue } = require('../../conversion-functions/convertValue.js');
 const { convertPage } = require('../../conversion-functions/convertPage.js');
 
+// Bind various document functions for querying the DOM
 const queryID = document.getElementById.bind(document);
 
+// Show / Hide the Popup
 function togglePopup() {
-  if (queryID('options-display').classList.contains('hide-timezone-converter')) {
-    queryID('options-display').classList.remove('hide-timezone-converter');
-    queryID('buttonOpenOptionsDisplayWrapper').style.setProperty('border-radius', '20px 0 0 0px');
+  if (queryID('options-display').classList.contains('hide-timezone-element')) {
+    queryID('options-display').classList.remove('hide-timezone-element');
+    queryID('open-options-wrapper').style.setProperty('border-radius', '20px 0 0 0px');
   } else {
-    queryID('options-display').classList.add('hide-timezone-converter');
-    queryID('buttonOpenOptionsDisplayWrapper').style.setProperty('border-radius', '20px 0 0 20px');
+    queryID('options-display').classList.add('hide-timezone-element');
+    queryID('open-options-wrapper').style.setProperty('border-radius', '20px 0 0 20px');
   }
 }
 
-// Will need to change this to work with classes not IDs
-function toggleDisabledInputs(input_id) {
-  if ('js-radio-manual-date' === input_id || 'js-input-manual-date' === input_id) {
-    queryID('js-radio-manual-date').checked = true;
+// Disable / Enable inputs
+function toggleInputs(input_id) {
+  if ('js-radio-manual' === input_id || 'js-input-manual' === input_id) {
+    console.log(input_id);
+    queryID('js-radio-manual').checked = true;
+    queryID('js-input-manual').disabled = false;
 
-    queryID('js-input-ui-date').disabled = true;
-    queryID('js-input-manual-date').disabled = false;
+    // Disable picker input
+    queryID('js-input-picker').disabled = true;
   } else {
-    queryID('js-radio-ui-date').checked = true;
+    console.log(input_id);
 
-    queryID('js-input-manual-date').disabled = true;
-    queryID('js-input-ui-date').disabled = false;
+    queryID('js-radio-picker').checked = true;
+    queryID('js-input-picker').disabled = false;
+
+    // Disable manual input
+    queryID('js-input-manual').disabled = true;
+    queryID('js-input-manual').value = '';
   }
 }
 
+// Converts a given input and Time Zone to a new Time Zone and displays the result
 function convertInput() {
   // Get input from user
   let input;
 
-  // Manual input or picker
-  if (queryID('js-input-manual-date').value) {
-    if (!queryID('js-input-manual-date').disabled) {
-      input = queryID('js-input-manual-date').value;
+  // Get input from user either through the manual input or picker
+  if (queryID('js-input-manual').value) {
+    if (!queryID('js-input-manual').disabled) {
+      input = queryID('js-input-manual').value;
     }
   }
-  if (queryID('js-input-ui-date').value) {
-    if (!queryID('js-input-ui-date').disabled) {
-      input = queryID('js-input-ui-date').value;
+  if (queryID('js-input-picker').value) {
+    if (!queryID('js-input-picker').disabled) {
+      input = queryID('js-input-picker').value;
     }
   }
-  console.log(input);
 
+  // Get Time Zones to convert from and to
   const fromTimeZone = queryID('js-from-timezone').value;
   const toTimeZone = queryID('js-to-timeZone').value;
 
+  // Convert input value to new Time Zone
   const convertedDateTime = convertValue(input, fromTimeZone, toTimeZone);
 
+  // Output results
   if (convertedDateTime) {
+    queryID('js-conversion-output').style.backgroundColor = 'white';
     queryID(
       'js-conversion-output'
-    ).innerHTML = `Conversion results: ${convertedDateTime.dateTime} ${convertedDateTime.zoneName} <br><br> Unix time: ${convertedDateTime.unixTime}`;
+    ).innerHTML = `<h2>✅ Conversion results: </h2> <p><label>Date Time:</label> ${convertedDateTime.dateTime} ${convertedDateTime.zoneName} <br /><label>Unix time:</label> ${convertedDateTime.unixTime}</p>`;
   } else {
+    queryID('js-conversion-output').style.backgroundColor = '#FFCC00';
     queryID(
       'js-conversion-output'
-    ).innerHTML = `Please enter a formatted time: YYYY-MM-DD HH:MM:SS, Message link or Unix time`;
+    ).innerHTML = `<h2>❌ Error: </h2> <p> Unfortunately only certain formats are supported (\`YYYY-MM-DD HH:MM:SS\` or Timestamp).</p> <p>Please use the Date & Time Picker above or paste a message link containing a Timestamp</p>`;
   }
+  queryID('js-conversion-output').classList.remove('hide-timezone-element');
 }
 
-module.exports = { togglePopup, toggleDisabledInputs, convertInput, convertPage };
+module.exports = { togglePopup, toggleInputs, convertInput, convertPage };

@@ -2,7 +2,7 @@ timezone-converter-container {
   /* Positioning */
   position: fixed;
   right: 0px;
-  top: 50px;
+  top: 10px;
   /* Display & Box Model */
   max-width: 350px;
   /* Color */
@@ -20,6 +20,7 @@ timezone-converter-container .point-down-emoji {
 
 timezone-converter-container h2 {
   display: inline-block;
+  margin: 0;
   font-size: large;
   text-decoration: underline;
 }
@@ -30,7 +31,7 @@ timezone-converter-container label {
 }
 
 timezone-converter-container hr {
-  margin: 10px 0 10px 0;
+  margin: 20px 0 20px 0;
 }
 
 timezone-converter-container #open-options-wrapper {
@@ -41,7 +42,7 @@ timezone-converter-container #open-options-wrapper {
   background-color: white;
 }
 
-timezone-converter-container #open-options-wrapper #open-options {
+timezone-converter-container #open-options-wrapper #js-open-options {
   display: block;
   padding: 0px;
   border: none;
@@ -55,14 +56,14 @@ timezone-converter-container #open-options-wrapper #open-options {
   outline: none;
 }
 
-timezone-converter-container #open-options-wrapper #open-options img {
+timezone-converter-container #open-options-wrapper #js-open-options img {
   display: block;
   height: 25px;
   width: 25px;
   border-radius: 25px;
 }
 
-timezone-converter-container #close-options {
+timezone-converter-container #js-close-options {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -100,17 +101,22 @@ timezone-converter-container #options-display select {
   max-width: 100%;
 }
 
-timezone-converter-container #options-display #input-manual-date,
-timezone-converter-container #options-display #input-ui-date {
+timezone-converter-container #options-display #js-input-manual,
+timezone-converter-container #options-display #js-input-picker {
   display: inline-block;
   width: 80%;
+}
+
+timezone-converter-container #options-display #js-input-manual:disabled,
+timezone-converter-container #options-display #js-input-picker:disabled {
+  background-color: #d3d3d3;
 }
 
 timezone-converter-container #options-display #convert-datetime-wrapper {
   text-align: center;
 }
 
-timezone-converter-container #options-display #convert-datetime-wrapper #convert-datetime {
+timezone-converter-container #options-display #convert-datetime-wrapper #js-convert-datetime {
   padding: 10px;
   width: 100%;
   border-radius: 8px;
@@ -119,7 +125,7 @@ timezone-converter-container #options-display #convert-datetime-wrapper #convert
   background-color: #80c0ff;
 }
 
-timezone-converter-container #options-display #conversion-output {
+timezone-converter-container #options-display #js-conversion-output {
   max-width: 100%;
   padding: 10px;
   color: #333;

@@ -4,7 +4,7 @@
         </button>
     </div>
 
-    <div id="options-display" class="hide-timezone-converter">
+    <div id="options-display" class="hide-timezone-element">
         <button id="js-close-options"></button>
         <div>
             <h2> Convert times on this page to: </h2>
@@ -28,17 +28,18 @@
                 </select>
             </div>
 
-            <h3> Enter Date & Time / Timestamp </h3>
+            <label> Enter Date & Time or Timestamp </label>
             <div>
-                <input type="radio" name="input-type" id="js-radio-manual-date">
-                <input type="text" id="js-input-manual-date" placeholder="2021-01-01 09:00:00 / 1609452000"
+                <input type="radio" name="input-type" id="js-radio-manual">
+                <input type="text" id="js-input-manual" placeholder="2021-01-01 09:00:00 / 1609452000"
                     autocomplete="off" />
             </div>
 
-            <label> Date & Time Picker </label>
+            <label> Picker </label>
             <div>
-                <input type="radio" name="input-type" id="js-radio-ui-date">
-                <input type="datetime-local" id="js-input-ui-date" pattern="d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2}">
+                <input type="radio" name="input-type" id="js-radio-picker">
+                <input type="datetime-local" id="js-input-picker"
+                    pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}">
             </div>
 
             <label> To Time Zone: </label>
@@ -54,6 +55,6 @@
             <button id="js-convert-datetime">Convert</button>
         </div>
 
-        <div id="js-conversion-output">Results: </div>
+        <div id="js-conversion-output" class="hide-timezone-element"></div>
     </div>
     </div>
