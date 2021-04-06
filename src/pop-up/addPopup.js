@@ -21,36 +21,36 @@ function addPopup() {
   // Add icon
   const myIcon = new Image();
   myIcon.src = icon;
-  queryID('buttonOpenOptionsDisplay').appendChild(myIcon);
+  queryID('js-open-options').appendChild(myIcon);
 
   // Add TimeZone options into the Pop-up for selection
-  queryID('selectPageTimeZone').innerHTML = options;
-  queryID('selectFromTimeZone').innerHTML = options;
-  queryID('selectToTimeZone').innerHTML = options;
+  queryID('js-page-timezone').innerHTML = options;
+  queryID('js-from-timezone').innerHTML = options;
+  queryID('js-to-timeZone').innerHTML = options;
 
   // Toggle Popup / options display
-  queryID('buttonOpenOptionsDisplay').onclick = togglePopup;
-  queryID('buttonCloseOptionsDisplay').onclick = togglePopup;
+  queryID('js-open-options').onclick = togglePopup;
+  queryID('js-close-options').onclick = togglePopup;
 
   // Toggle disabled checkbox
-  queryID('radioManualDate').onclick = function () {
+  queryID('js-radio-manual-date').onclick = function () {
     toggleDisabledInputs(this.id);
   };
-  queryID('radioUiDate').onclick = function () {
+  queryID('js-radio-ui-date').onclick = function () {
     toggleDisabledInputs(this.id);
   };
-  queryID('inputManualDate').onclick = function () {
+  queryID('js-input-manual-date').onclick = function () {
     toggleDisabledInputs(this.id);
   };
-  queryID('inputUiDate').onclick = function () {
+  queryID('js-input-ui-date').onclick = function () {
     toggleDisabledInputs(this.id);
   };
 
   // Add convert button for manual conversion
-  queryID('buttonConvert').onclick = convertInput;
+  queryID('js-convert-datetime').onclick = convertInput;
 
   // Add listener for the picker to immediately run the conversion when new TimeZone is selected
-  queryID('selectPageTimeZone').addEventListener('change', (event) => {
+  queryID('js-page-timezone').addEventListener('change', (event) => {
     convertPage(event.target.value);
   });
 }

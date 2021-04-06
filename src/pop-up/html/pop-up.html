@@ -1,17 +1,17 @@
-<div id="popUp">
-    <div id="buttonOpenOptionsDisplayWrapper">
-        <button id="buttonOpenOptionsDisplay">
+<timezone-converter-container>
+    <div id="open-options-wrapper">
+        <button id="js-open-options">
         </button>
     </div>
 
-    <div id="optionsDisplay" class="hidePopUp">
-        <button id="buttonCloseOptionsDisplay"></button>
+    <div id="options-display" class="hide-timezone-converter">
+        <button id="js-close-options"></button>
         <div>
             <h2> Convert times on this page to: </h2>
-            <label id="labelPointDown"> ⤵️</label>
+            <label class="point-down-emoji"> ⤵️</label>
         </div>
 
-        <select size="1" id="selectPageTimeZone">
+        <select size="1" id="js-page-timezone">
             <!-- options are automatically added on build -->
         </select>
         <hr />
@@ -21,39 +21,39 @@
         </div>
         <div>
             <label> From Time Zone: </label>
-            <label id="labelPointDown"> ⤵️</label>
+            <label class="point-down-emoji"> ⤵️</label>
             <div>
-                <select size="1" id="selectFromTimeZone">
+                <select size="1" id="js-from-timezone">
                     <!-- options are automatically added on build -->
                 </select>
             </div>
 
             <h3> Enter Date & Time / Timestamp </h3>
             <div>
-                <input type="radio" name="input-type" id="radioManualDate">
-                <input type="text" id="inputManualDate" placeholder="2021-01-01 09:00:00 / 1609452000"
+                <input type="radio" name="input-type" id="js-radio-manual-date">
+                <input type="text" id="js-input-manual-date" placeholder="2021-01-01 09:00:00 / 1609452000"
                     autocomplete="off" />
             </div>
 
             <label> Date & Time Picker </label>
             <div>
-                <input type="radio" name="input-type" id="radioUiDate">
-                <input type="datetime-local" id="inputUiDate" pattern="d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2}">
+                <input type="radio" name="input-type" id="js-radio-ui-date">
+                <input type="datetime-local" id="js-input-ui-date" pattern="d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2}">
             </div>
 
             <label> To Time Zone: </label>
-            <label id="labelPointDown"> ⤵️</label>
+            <label class="point-down-emoji"> ⤵️</label>
             <div>
-                <select size="1" id="selectToTimeZone">
+                <select size="1" id="js-to-timeZone">
                     <!-- options are automatically added on build -->
                 </select>
             </div>
         </div>
 
-        <div id="buttonConvertWrapper">
-            <button id="buttonConvert">Convert</button>
+        <div id="convert-datetime-wrapper">
+            <button id="js-convert-datetime">Convert</button>
         </div>
 
-        <div id="conversionOutputPlaceholder">Results: </div>
+        <div id="js-conversion-output">Results: </div>
     </div>
-</div>
+    </div>
