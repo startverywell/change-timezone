@@ -10,18 +10,20 @@
 </head>
 
 
+
 <body>
-    <div id="popUp">
-        <div id="buttonOpenOptionsDisplayWrapper">
-            <button id="buttonOpenOptionsDisplay">
+    <timezone-converter-container>
+        <div id="open-options-wrapper">
+            <button id="open-options">
+                <img src="tcicon128.png">
             </button>
         </div>
 
-        <div id="optionsDisplay" class="hidePopUp">
-            <button id="buttonCloseOptionsDisplay"></button>
+        <div id="options-display" class="hide-timezone-converter">
+            <button id="close-options"></button>
             <div>
                 <h2> Convert times on this page to: </h2>
-                <label id="labelPointDown"> ⤵️</label>
+                <label class="point-down-emoji"> ⤵️</label>
             </div>
 
             <select size="1" id="selectPageTimeZone">
@@ -46,9 +48,9 @@
             </div>
             <div>
                 <label> From Time Zone: </label>
-                <label id="labelPointDown"> ⤵️</label>
+                <label class="point-down-emoji"> ⤵️</label>
                 <div>
-                    <select size="1" id="selectFromTimeZone">
+                    <select size="1" id="from-time-zone">
                         <option value="" disabled>Quick Select Locations</option>
                         <option value="America/Los_Angeles"> SF & YVR &#127482&#127480&#127464&#127462 PST/PDT</option>
                         <option value="America/Denver"> Denver &#127482&#127480 MST/MDT</option>
@@ -67,21 +69,21 @@
 
                 <h3> Enter Date & Time / Timestamp </h3>
                 <div>
-                    <input type="radio" name="input-type" id="radioManualDate">
-                    <input type="text" id="inputManualDate" placeholder="2021-01-01 09:00:00 / 1609452000"
+                    <input type="radio" name="input-type" id="radio-manual-date">
+                    <input type="text" id="input-manual-date" placeholder="2021-01-01 09:00:00 / 1609452000"
                         autocomplete="off" />
                 </div>
 
                 <label> Date & Time Picker </label>
                 <div>
-                    <input type="radio" name="input-type" id="radioUiDate">
-                    <input type="datetime-local" id="inputUiDate" pattern="d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2}">
+                    <input type="radio" name="input-type" id="radio-ui-date">
+                    <input type="datetime-local" id="input-ui-date" pattern="d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2}">
                 </div>
 
                 <label> To Time Zone: </label>
-                <label id="labelPointDown"> ⤵️</label>
+                <label class="point-down-emoji"> ⤵️</label>
                 <div>
-                    <select size="1" id="selectToTimeZone">
+                    <select size="1" id="to-time-zone">
                         <option value="" disabled>Quick Select Locations</option>
                         <option value="America/Los_Angeles"> SF & YVR &#127482&#127480&#127464&#127462 PST/PDT</option>
                         <option value="America/Denver"> Denver &#127482&#127480 MST/MDT</option>
@@ -99,13 +101,13 @@
                 </div>
             </div>
 
-            <div id="buttonConvertWrapper">
-                <button id="buttonConvert">Convert</button>
+            <div id="convert-datetime-wrapper">
+                <button id="convert-datetime">Convert</button>
             </div>
 
-            <div id="conversionOutputPlaceholder">Results: </div>
+            <div id="conversion-output">Results: </div>
         </div>
-    </div>
+    </timezone-converter-container>
 </body>
 
 </html>
