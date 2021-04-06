@@ -22,6 +22,8 @@ function addPopup() {
   // Add icon
   const imgElement = new Image();
   imgElement.src = iconImage;
+  console.log(imgElement);
+  console.log(iconImage);
   queryID('js-open-options').appendChild(imgElement);
 
   // Add TimeZone options into the Pop-up for selection
