@@ -1,6 +1,7 @@
 import options from './html/options.html';
 import popupButton from './html/pop-up.html';
-import iconImage from './images/tcicon128.png';
+import iconImageURL from './images/tcicon128.png';
+
 import './css/pop-up.scss';
 
 // For unit tests they can't be ES6 imports/exports
@@ -21,9 +22,12 @@ function addPopup() {
 
   // Add icon
   const imgElement = new Image();
-  imgElement.src = iconImage;
-  console.log(imgElement);
-  console.log(iconImage);
+  if (PRODUCTION) {
+    imgElement.src = chrome.runtime.getURL('./tcicon128.png');
+  } else {
+    imgElement.src = iconImageURL;
+  }
+
   queryID('js-open-options').appendChild(imgElement);
 
   // Add TimeZone options into the Pop-up for selection
