@@ -57,7 +57,7 @@ function convertInput() {
     queryID('js-conversion-output').style.backgroundColor = 'white';
     queryID(
       'js-conversion-output'
-    ).innerHTML = `<h2>✅ Conversion results: </h2> <p><label>Date Time:</label> ${convertedDateTime.dateTime} ${convertedDateTime.zoneName} <br /><label>Unix time:</label> ${convertedDateTime.unixTime}</p>`;
+    ).innerHTML = `<h2>✅ Conversion results: </h2> <p><label>Date Time:</label> <br /><b>${convertedDateTime.dateTime} ${convertedDateTime.zoneName}</b> <br /><label>Timestamp:</label><br /> <b>${convertedDateTime.unixTime}</b></p>`;
   } else {
     queryID('js-conversion-output').style.backgroundColor = '#FFCC00';
     queryID(
