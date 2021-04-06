@@ -2,7 +2,7 @@
 // YYYY-MM-DD HH:mm:ss (Zone Name)
 // Example: 2021-01-01 19:00:00 PT
 function hasDateTime(target) {
-  const fullDateTimeRegex = /(?:\d{4}\-\d{2}\-\d{2}\s\d{2}(?:(?:\:\d{2}){1,2}))(?:(?:\s(?:[A-Z]{2,5})|(?:\.\w*)\s(?:[A-Z]{2,5})|(?:\s(?:[\+-](?:\d{4}|\d{2})))))|(?:\d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2})/;
+  const fullDateTimeRegex = /(?:\d{4}\-\d{2}\-\d{2}(?:\s|T)\d{2}(?:(?:\:\d{2}){1,2}))(?:(?:\s(?:[A-Z]{2,5})|(?:\.\w*)\s(?:[A-Z]{2,5})|(?:\s(?:[\+-](?:\d{4}|\d{2})))))|(?:\d{4}\-\d{2}\-\d{2}(?:\s|T)\d{2}(?:\:\d{2}){1,2})/;
   const dateTimeMatch = fullDateTimeRegex.exec(target);
   return dateTimeMatch ? true : false;
 }
@@ -18,7 +18,7 @@ function hasUnixTime(target) {
 // Gets the DateTime value from the input
 // (YYYY-MM-DD HH:mm:ss)
 function getDateTime(input) {
-  const dateTimeRegex = /(\d{4}\-\d{2}\-\d{2}\s\d{2}(?:\:\d{2}){1,2})/;
+  const dateTimeRegex = /(\d{4}\-\d{2}\-\d{2}(?:\s|T)\d{2}(?:\:\d{2}){1,2})/;
   const dateTime = dateTimeRegex.exec(input);
   return dateTime[1];
 }

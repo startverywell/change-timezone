@@ -87,7 +87,7 @@ describe('Testing other moment interface functions', function () {
         assert.strictEqual(momentInterface.getZoneName('America/Los_Angeles'), 'PDT');
       });
       it('AEDT', function () {
-        assert.strictEqual(momentInterface.getZoneName('Australia/Canberra'), 'AEDT');
+        assert.strictEqual(momentInterface.getZoneName('Australia/Canberra'), 'AEST');
       });
     });
   });

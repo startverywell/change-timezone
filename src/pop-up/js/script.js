@@ -18,15 +18,12 @@ function togglePopup() {
 // Disable / Enable inputs
 function toggleInputs(input_id) {
   if ('js-radio-manual' === input_id || 'js-input-manual' === input_id) {
-    console.log(input_id);
     queryID('js-radio-manual').checked = true;
     queryID('js-input-manual').disabled = false;
 
     // Disable picker input
     queryID('js-input-picker').disabled = true;
   } else {
-    console.log(input_id);
-
     queryID('js-radio-picker').checked = true;
     queryID('js-input-picker').disabled = false;
 
@@ -39,24 +36,19 @@ function toggleInputs(input_id) {
 // Converts a given input and Time Zone to a new Time Zone and displays the result
 function convertInput() {
   // Get input from user
+  const fromTimeZone = queryID('js-from-timezone').value;
+  const toTimeZone = queryID('js-to-timeZone').value;
   let input;
 
   // Get input from user either through the manual input or picker
-  if (queryID('js-input-manual').value) {
-    if (!queryID('js-input-manual').disabled) {
-      input = queryID('js-input-manual').value;
-    }
-  }
-  if (queryID('js-input-picker').value) {
-    if (!queryID('js-input-picker').disabled) {
-      input = queryID('js-input-picker').value;
-    }
+  if (!queryID('js-input-manual').disabled) {
+    input = queryID('js-input-manual').value;
   }
 
-  // Get Time Zones to convert from and to
-  const fromTimeZone = queryID('js-from-timezone').value;
-  const toTimeZone = queryID('js-to-timeZone').value;
-
+  if (!queryID('js-input-picker').disabled) {
+    input = queryID('js-input-picker').value;
+  }
+  console.log(input);
   // Convert input value to new Time Zone
   const convertedDateTime = convertValue(input, fromTimeZone, toTimeZone);
 

@@ -2,7 +2,6 @@ const regex = require('../regex/regex.js');
 const momentInterface = require('./moment-interface.js');
 
 // Checks if string has Unix or Date Time and returns the UnixTime
-// TODO: Change to Switch so that we can add more conversion options in the future
 function toUnixTime(input, fromTimeZone) {
   if (regex.hasUnixTime(input)) {
     const unixTime = regex.getUnixTime(input);
