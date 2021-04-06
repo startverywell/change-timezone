@@ -6,7 +6,6 @@ function setTimeZoneState(selectedTimeZone) {
     localStorage.setItem('selectedTimeZone', selectedTimeZone);
   }
   document.getElementById('js-page-timezone').value = selectedTimeZone;
-  document.getElementById('js-to-timeZone').value = selectedTimeZone;
 }
 
 module.exports = { setTimeZoneState };

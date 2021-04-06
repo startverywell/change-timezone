@@ -5,7 +5,7 @@ timezone-converter-container {
   top: 10px;
 
   /* Display & Box Model */
-  max-width: 350px;
+  max-width: 375px;
 
   /* Color */
   color: white;
@@ -103,8 +103,52 @@ timezone-converter-container {
     #js-input-manual,
     #js-input-picker {
       display: inline-block;
-      width: 80%;
+      width: 85%;
       // background-color: white;
+    }
+
+    [data-tip] {
+      position: relative;
+    }
+    [data-tip]:before {
+      content: '';
+      /* hides the tooltip when not hovered */
+      display: none;
+      content: '';
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #1a1a1a;
+      position: absolute;
+      top: 30px;
+      left: 35px;
+      z-index: 8;
+      font-size: 0;
+      line-height: 0;
+      width: 0;
+      height: 0;
+    }
+    [data-tip]:after {
+      display: none;
+      content: attr(data-tip);
+      position: absolute;
+      top: 35px;
+      left: -50px;
+      padding: 5px 8px;
+      background: #1a1a1a;
+      color: #fff;
+      z-index: 9;
+      font-size: 1.3em;
+      height: 18px;
+      line-height: 18px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      white-space: nowrap;
+      word-wrap: normal;
+    }
+    [data-tip]:hover:before,
+    [data-tip]:hover:after {
+      display: block;
     }
 
     #js-input-manual:disabled,
@@ -112,16 +156,13 @@ timezone-converter-container {
       background-color: #d3d3d3;
     }
 
-    #convert-datetime-wrapper {
-      text-align: center;
-      #js-convert-datetime {
-        padding: 10px;
-        width: 100%;
-        border-radius: 8px;
-        border-color: transparent;
-        font-size: 18px;
-        background-color: #80c0ff;
-      }
+    .convert-button {
+      padding: 10px;
+      width: 100%;
+      border-radius: 8px;
+      border-color: transparent;
+      font-size: 18px;
+      background-color: #80c0ff;
     }
 
     #js-conversion-output {

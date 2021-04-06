@@ -57,9 +57,13 @@ function addPopup() {
   };
 
   // Add listener for the picker to immediately run the conversion when new TimeZone is selected
-  queryID('js-page-timezone').addEventListener('change', (event) => {
-    convertPage(event.target.value);
-  });
+  // queryID('js-page-timezone').addEventListener('change', (event) => {
+  //   convertPage(event.target.value);
+  // });
+
+  queryID('js-convert-page').onclick = () => {
+    convertPage(queryID('js-page-timezone').value);
+  };
 }
 
 export default addPopup;

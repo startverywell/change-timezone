@@ -10,19 +10,19 @@
             <h2> Convert times on this page to: </h2>
             <label class="point-down-emoji"> ⤵️</label>
         </div>
-
-        <select size="1" id="js-page-timezone">
-            <!-- options are automatically added on build -->
-        </select>
-
-        <!-- TODO: add to above selector -->
-        <div id="convert-datetime-wrapper">
-            <button id="js-convert-datetime">Convert</button>
+        <div>
+            <select size="1" id="js-page-timezone">
+                <!-- options are automatically added on build -->
+            </select>
         </div>
+        <!-- TODO: add to above selector -->
+
+        <button id="js-convert-page" class="convert-button">Convert</button>
+
         <hr />
 
         <div>
-            <h2> Manual Converter </h2>
+            <h2> Convert times manually:</h2>
         </div>
         <div>
             <label> From Time Zone: </label>
@@ -33,10 +33,9 @@
                 </select>
             </div>
 
-            <label> Enter Date & Time or Timestamp </label>
-            <div>
+            <div data-tip="Format: YYYY-MM-DD HH:MM:SS or Unix Timestamp (can be pasted message link)">
                 <input type="radio" name="input-type" id="js-radio-manual">
-                <input type="text" id="js-input-manual" placeholder="2021-11-26 09:00:00 / 1637946000"
+                <input type="text" id="js-input-manual" placeholder="2021-11-26 09:00:00 / 1637946000 (Timestamp)"
                     autocomplete="off" />
             </div>
 
@@ -55,9 +54,9 @@
             </div>
         </div>
 
-        <div id="convert-datetime-wrapper">
-            <button id="js-convert-datetime">Convert</button>
-        </div>
+
+        <button id="js-convert-datetime" class="convert-button">Convert</button>
+
 
         <div id="js-conversion-output" class="hide-timezone-element"></div>
     </div>
