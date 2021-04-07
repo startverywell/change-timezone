@@ -1,7 +1,6 @@
 import options from './html/options.html';
 import popupButton from './html/pop-up.html';
 import iconImageURL from './images/tcicon128.png';
-
 import './css/pop-up.scss';
 
 // For unit tests they can't be ES6 imports/exports
@@ -51,18 +50,13 @@ function addPopup() {
     };
   });
 
-  // Add convert button for manual conversion
-  queryID('js-convert-datetime').onclick = () => {
-    convertInput();
-  };
-
-  // Add listener for the picker to immediately run the conversion when new TimeZone is selected
-  // queryID('js-page-timezone').addEventListener('change', (event) => {
-  //   convertPage(event.target.value);
-  // });
-
+  // Conversion calls
   queryID('js-convert-page').onclick = () => {
     convertPage(queryID('js-page-timezone').value);
+  };
+
+  queryID('js-convert-datetime').onclick = () => {
+    convertInput();
   };
 }
 
