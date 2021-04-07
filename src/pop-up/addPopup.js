@@ -70,7 +70,6 @@ function addPopup() {
     if (queryID('js-radio-picker').checked) {
       input = queryID('js-input-picker').value;
     }
-    console.log(input);
     // Convert input value to new Time Zone
 
     const convertedDateTime = convertValue(input, fromTimeZone, toTimeZone);

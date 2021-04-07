@@ -37,17 +37,14 @@ function toggleInputs(input_id) {
 function displayConvertedDateTime(convertedDateTime) {
   // Output results
   if (convertedDateTime) {
-    queryID('js-conversion-output').style.backgroundColor = 'white';
+    queryID('js-conversion-output').classList.remove('hide-timezone-element');
     queryID(
       'js-conversion-output'
-    ).innerHTML = `<h2>✅ Conversion results: </h2> <p><label>Date Time:</label> <br /><b>${convertedDateTime.dateTime} ${convertedDateTime.zoneName}</b> <br /><label>Timestamp:</label><br /> <b>${convertedDateTime.unixTime}</b></p>`;
+    ).innerHTML = `<label>✅</label> <h3>Conversion results: </h3> <h2>${convertedDateTime.dateTime} ${convertedDateTime.zoneName}</h2> <h4>Timestamp: ${convertedDateTime.unixTime}</h4>`;
   } else {
-    queryID('js-conversion-output').style.backgroundColor = '#FFCC00';
-    queryID(
-      'js-conversion-output'
-    ).innerHTML = `<h2>❌ Error: </h2> <p> Unfortunately only certain formats are supported (\`YYYY-MM-DD HH:MM:SS\` or Unix Timestamp).</p> <p>Please use the Date & Time Picker above or paste a message link containing a Timestamp</p>`;
+    queryID('js-conversion-output').classList.add('hide-timezone-element');
+    queryID('js-conversion-alert').classList.remove('hide-timezone-element');
   }
-  queryID('js-conversion-output').classList.remove('hide-timezone-element');
 }
 
 module.exports = { togglePopup, toggleInputs, displayConvertedDateTime };
