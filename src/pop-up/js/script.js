@@ -62,7 +62,7 @@ function convertInput() {
     queryID('js-conversion-output').style.backgroundColor = '#FFCC00';
     queryID(
       'js-conversion-output'
-    ).innerHTML = `<h2>❌ Error: </h2> <p> Unfortunately only certain formats are supported (\`YYYY-MM-DD HH:MM:SS\` or Timestamp).</p> <p>Please use the Date & Time Picker above or paste a message link containing a Timestamp</p>`;
+    ).innerHTML = `<h2>❌ Error: </h2> <p> Unfortunately only certain formats are supported (\`YYYY-MM-DD HH:MM:SS\` or Unix Timestamp).</p> <p>Please use the Date & Time Picker above or paste a message link containing a Timestamp</p>`;
   }
   queryID('js-conversion-output').classList.remove('hide-timezone-element');
 }
