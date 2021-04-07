@@ -21,6 +21,7 @@ timezone-converter-container {
     margin: 0;
     font-size: large;
     text-decoration: underline;
+    cursor: default;
   }
 
   label {
@@ -127,11 +128,7 @@ timezone-converter-container {
     #js-input-picker {
       display: inline-block;
       width: 85%;
-    }
-
-    #js-input-manual:disabled,
-    #js-input-picker:disabled {
-      background-color: #d3d3d3;
+      cursor: text;
     }
 
     .convert-button {
@@ -141,6 +138,7 @@ timezone-converter-container {
       border-color: transparent;
       font-size: 18px;
       background-color: #80c0ff;
+      cursor: pointer;
     }
 
     #js-conversion-output {

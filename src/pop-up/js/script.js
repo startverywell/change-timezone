@@ -1,6 +1,3 @@
-const { convertValue } = require('../../conversion-functions/convertValue.js');
-const { convertPage } = require('../../conversion-functions/convertPage.js');
-
 // Bind various document functions for querying the DOM
 const queryID = document.getElementById.bind(document);
 
@@ -22,36 +19,22 @@ function toggleInputs(input_id) {
     queryID('js-input-manual').disabled = false;
 
     // Disable picker input
-    queryID('js-input-picker').disabled = true;
+    // queryID('js-input-picker').disabled = true;
+    queryID('js-input-picker').style.backgroundColor = '#d3d3d3';
+    queryID('js-input-manual').style.backgroundColor = '#fff';
   } else {
     queryID('js-radio-picker').checked = true;
     queryID('js-input-picker').disabled = false;
 
     // Disable manual input
-    queryID('js-input-manual').disabled = true;
-    queryID('js-input-manual').value = '';
+    // queryID('js-input-manual').disabled = true;
+    queryID('js-input-manual').style.backgroundColor = '#d3d3d3';
+    queryID('js-input-picker').style.backgroundColor = '#fff';
   }
 }
 
 // Converts a given input and Time Zone to a new Time Zone and displays the result
-function convertInput() {
-  // Get input from user
-  const fromTimeZone = queryID('js-from-timezone').value;
-  const toTimeZone = queryID('js-to-timeZone').value;
-  let input;
-
-  // Get input from user either through the manual input or picker
-  if (!queryID('js-input-manual').disabled) {
-    input = queryID('js-input-manual').value;
-  }
-
-  if (!queryID('js-input-picker').disabled) {
-    input = queryID('js-input-picker').value;
-  }
-  console.log(input);
-  // Convert input value to new Time Zone
-  const convertedDateTime = convertValue(input, fromTimeZone, toTimeZone);
-
+function displayConvertedDateTime(convertedDateTime) {
   // Output results
   if (convertedDateTime) {
     queryID('js-conversion-output').style.backgroundColor = 'white';
@@ -67,4 +50,4 @@ function convertInput() {
   queryID('js-conversion-output').classList.remove('hide-timezone-element');
 }
 
-module.exports = { togglePopup, toggleInputs, convertInput, convertPage };
+module.exports = { togglePopup, toggleInputs, displayConvertedDateTime };
