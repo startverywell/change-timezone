@@ -1,0 +1,135 @@
+timezone-converter-container {
+  /* Positioning */
+  position: fixed;
+  right: 0px;
+  top: 10px;
+  /* Display & Box Model */
+  max-width: 350px;
+  /* Color */
+  color: white;
+  /* Text */
+  font-family: Lato, Arial, sans-serif;
+  font-size: 11px;
+  /* Other */
+}
+
+timezone-converter-container .point-down-emoji {
+  position: relative;
+  top: 5px;
+}
+
+timezone-converter-container h2 {
+  display: inline-block;
+  margin: 0;
+  font-size: large;
+  text-decoration: underline;
+}
+
+timezone-converter-container label {
+  font-size: medium;
+  text-decoration: none;
+}
+
+timezone-converter-container hr {
+  margin: 20px 0 20px 0;
+}
+
+timezone-converter-container #open-options-wrapper {
+  height: auto;
+  border: solid #333 1px;
+  border-radius: 20px 0 0 20px;
+  padding: 5px;
+  background-color: white;
+}
+
+timezone-converter-container #open-options-wrapper #js-open-options {
+  display: block;
+  padding: 0px;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  background-color: white;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  outline: none;
+}
+
+timezone-converter-container #open-options-wrapper #js-open-options img {
+  display: block;
+  height: 25px;
+  width: 25px;
+  border-radius: 25px;
+}
+
+timezone-converter-container #js-close-options {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 0px;
+  border-color: transparent;
+  border-radius: 100%;
+  background-color: #ff605c;
+  cursor: pointer;
+}
+
+timezone-converter-container #options-display {
+  bottom: 20px;
+  padding: 10px;
+  background-color: #333;
+}
+
+timezone-converter-container #options-display div {
+  margin: 10px 0 10px;
+}
+
+timezone-converter-container #options-display select,
+timezone-converter-container #options-display input {
+  padding: 5px;
+  border: 1px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+timezone-converter-container #options-display select {
+  max-width: 100%;
+}
+
+timezone-converter-container #options-display #js-input-manual,
+timezone-converter-container #options-display #js-input-picker {
+  display: inline-block;
+  width: 80%;
+}
+
+timezone-converter-container #options-display #js-input-manual:disabled,
+timezone-converter-container #options-display #js-input-picker:disabled {
+  background-color: #d3d3d3;
+}
+
+timezone-converter-container #options-display #convert-datetime-wrapper {
+  text-align: center;
+}
+
+timezone-converter-container #options-display #convert-datetime-wrapper #js-convert-datetime {
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  border-color: transparent;
+  font-size: 18px;
+  background-color: #80c0ff;
+}
+
+timezone-converter-container #options-display #js-conversion-output {
+  max-width: 100%;
+  padding: 10px;
+  color: #333;
+  font-size: larger;
+  background-color: white;
+}
+/*# sourceMappingURL=pop-up.css.map */
