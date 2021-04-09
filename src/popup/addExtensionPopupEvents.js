@@ -1,6 +1,6 @@
 /* 
- Adds events for Chrome Extension Popup
+ Import code and add then events to the Popup for Chrome Extension 
 */
-const addPopupEvents = require('./addPopupEvents.js').default;
+const addPopupDomEvents = require('./addPopupDomEvents.js').default;
 
-addPopupEvents();
+addPopupDomEvents();

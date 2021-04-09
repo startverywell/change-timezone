@@ -8,14 +8,19 @@ const conversion = require('../../libs/conversion');
 // Import custom page conversion function
 const { convertPage } = require('../convertPage.js');
 
-// Require Popup functions to add
+// Import Popup functions
 const { togglePopup, closeAlert, toggleInputs, displayConversion } = require('./js/script.js');
 
 // Bind various document functions for querying the DOM
 const queryID = document.getElementById.bind(document);
 
-// Adds event listeners to buttons in Popup
-function addPopupEvents() {
+// Adds event listeners to Popup
+function addPopupDomEvents() {
+  // Convert page
+  queryID('js-convert-page').onclick = () => {
+    convertPage(queryID('js-page-timezone').value);
+  };
+
   // Toggle Popup / options display
   queryID('js-open-options').onclick = () => {
     togglePopup();
@@ -35,12 +40,7 @@ function addPopupEvents() {
     };
   });
 
-  // Convert page
-  queryID('js-convert-page').onclick = () => {
-    convertPage(queryID('js-page-timezone').value);
-  };
-
-  // Manually convert
+  // Manual conversion
   queryID('js-convert-datetime').onclick = () => {
     // Get input from user
     const fromTimeZone = queryID('js-from-timezone').value;
@@ -63,4 +63,4 @@ function addPopupEvents() {
   };
 }
 
-export default addPopupEvents;
+export default addPopupDomEvents;

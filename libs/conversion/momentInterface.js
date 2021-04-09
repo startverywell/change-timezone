@@ -1,3 +1,6 @@
+/*
+  Wrapper functions to interface with moment
+*/
 const moment = require('moment');
 const momenttz = require('moment-timezone');
 

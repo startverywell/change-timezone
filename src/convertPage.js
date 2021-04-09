@@ -1,17 +1,14 @@
+/*
+  Checks every element of type td (table data cell) on the current page for a Date Time value
+  or Unix Time and converts it to the user's choice
+*/
 const conversion = require('../libs/conversion/');
 const { setTimeZoneState } = require('./setTimeZoneState.js');
 const { getTimeZoneState } = require('./getTimeZoneState.js');
 
-// Gets all elements of a certain type on the page.
-// (this might be used in the future if we were to add a way for a user to select the types of elements)
-function getElementsToConvert(elementType) {
-  const elements = document.body.querySelectorAll(elementType);
-  return elements;
-}
-
 function convertPage(newTimeZone) {
   // Select all TD elemets on page
-  const elements = getElementsToConvert('td');
+  const elements = document.body.querySelectorAll('td');
   let currentTimeZone, selectedTimeZone;
 
   // Convert Page needs to handle the getting of the current page
