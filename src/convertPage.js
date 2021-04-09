@@ -33,12 +33,12 @@ function convertPage(newTimeZone) {
         setTimeZoneState(newTimeZone);
         selectedTimeZone = newTimeZone;
       }
-      conversion.convertElements(elements, currentTimeZone, selectedTimeZone);
+      conversion.convertDomElements(elements, currentTimeZone, selectedTimeZone);
     });
   } else {
     currentTimeZone = getTimeZoneState().currentTimeZone;
     // Check if there are TD values on the page
-    conversion.convertElements(elements, currentTimeZone, newTimeZone);
+    conversion.convertDomElements(elements, currentTimeZone, newTimeZone);
     // Set storage and display options to selected TimeZone
     setTimeZoneState(newTimeZone);
   }

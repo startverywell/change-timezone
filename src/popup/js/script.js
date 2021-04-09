@@ -39,17 +39,17 @@ function toggleInputs(input_id) {
 }
 
 // Converts a given input and Time Zone to a new Time Zone and displays the result
-function displayConvertedDateTime(convertedDateTime) {
+function displayConversion(dateTime, unixTime) {
   // Output results
-  if (convertedDateTime) {
+  if (dateTime && dateTime) {
     queryID('js-conversion-output').classList.remove('hide-timezone-element');
     queryID(
       'js-conversion-output'
-    ).innerHTML = `<label>&#9989;</label> <h3>Conversion results: </h3> <h2>${convertedDateTime.dateTime} ${convertedDateTime.zoneName}</h2> <h4>Timestamp: ${convertedDateTime.unixTime}</h4>`;
+    ).innerHTML = `<label>&#9989;</label> <h3>Conversion results: </h3> <h2>${dateTime}</h2> <h4>Timestamp: ${unixTime}</h4>`;
   } else {
     queryID('js-conversion-output').classList.add('hide-timezone-element');
     queryID('js-conversion-alert').classList.remove('hide-timezone-element');
   }
 }
 
-module.exports = { togglePopup, closeAlert, toggleInputs, displayConvertedDateTime };
+module.exports = { togglePopup, closeAlert, toggleInputs, displayConversion };

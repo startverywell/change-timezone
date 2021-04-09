@@ -1,9 +1,9 @@
-const { convertValue } = require('./convertValue.js');
-const { convertToUnixTime } = require('./convertToUnixTime.js');
-const { convertElements } = require('./convertElements.js');
+const { getDateTimeFromString } = require('./getDateTimeFromString.js');
+const { getUnixTimeFromString } = require('./getUnixTimeFromString.js');
+const { convertDomElements } = require('./convertDomElements.js');
 
 module.exports = {
-  convertValue: convertValue,
-  convertToUnixTime: convertToUnixTime,
-  convertElements: convertElements,
+  getDateTimeFromString: getDateTimeFromString,
+  getUnixTimeFromString: getUnixTimeFromString,
+  convertDomElements: convertDomElements,
 };

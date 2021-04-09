@@ -9,7 +9,7 @@ const conversion = require('../../libs/conversion');
 const { convertPage } = require('../convertPage.js');
 
 // Require Popup functions to add
-const { togglePopup, closeAlert, toggleInputs, displayConvertedDateTime } = require('./js/script.js');
+const { togglePopup, closeAlert, toggleInputs, displayConversion } = require('./js/script.js');
 
 // Bind various document functions for querying the DOM
 const queryID = document.getElementById.bind(document);
@@ -55,10 +55,11 @@ function addPopupEvents() {
     }
 
     // Convert input value to new Time Zone
-    const convertedDateTime = conversion.convertValue(input, fromTimeZone, toTimeZone);
+    const convertedDateTime = conversion.getDateTimeFromString(input, fromTimeZone, toTimeZone);
+    const convertedUnixTime = conversion.getUnixTimeFromString(input, fromTimeZone);
 
     // Display the converted Date Time
-    displayConvertedDateTime(convertedDateTime);
+    displayConversion(convertedDateTime, convertedUnixTime);
   };
 }
 
