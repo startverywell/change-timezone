@@ -9,6 +9,7 @@ module.exports = (env) => {
   } else {
     PRODUCTION = false;
   }
+
   return {
     entry: {
       main: './src/main.js',
