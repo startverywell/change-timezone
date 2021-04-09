@@ -1,6 +1,6 @@
 // Require conversion functions
-const { convertValue } = require('../conversion-functions/convertValue.js');
-const { convertPage } = require('../conversion-functions/convertPage.js');
+const { convertValue } = require('../../libs/conversion/convertValue.js');
+const { convertPage } = require('../convertPage.js');
 
 // Require Popup functions to add
 const { togglePopup, closeAlert, toggleInputs, displayConvertedDateTime } = require('./js/script.js');

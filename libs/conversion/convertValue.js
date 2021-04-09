@@ -1,9 +1,9 @@
-const momentInterface = require('./moment-interface.js');
-const { toUnixTime } = require('./convertToUnix.js');
+const momentInterface = require('./momentInterface.js');
+const { convertToUnixTime } = require('./convertToUnix.js');
 
 // Converts a given input and current TimeZone into a new TimeZone
 function convertValue(input, fromTimeZone, toTimeZone) {
-  const unixTime = toUnixTime(input, fromTimeZone);
+  const unixTime = convertToUnixTime(input, fromTimeZone);
 
   if (unixTime) {
     const toDateTime = momentInterface.convertTimeStampToDate(unixTime, toTimeZone);

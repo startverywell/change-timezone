@@ -1,6 +1,6 @@
-const { convertElements } = require('./convertElements.js');
-const { setTimeZoneState } = require('../setTimeZoneState.js');
-const { getTimeZoneState } = require('../getTimeZoneState.js');
+const conversion = require('../libs/conversion/');
+const { setTimeZoneState } = require('./setTimeZoneState.js');
+const { getTimeZoneState } = require('./getTimeZoneState.js');
 
 // TODO: this should not be in the library as it's core functionality
 // This shouldn't be called "convertPage" it does a lot of the core logic for the chrome extension so it's not meant to be reused
@@ -32,13 +32,13 @@ function convertPage(newTimeZone) {
         selectedTimeZone = newTimeZone;
       }
       console.log(currentTimeZone, selectedTimeZone);
-      convertElements(elements, currentTimeZone, selectedTimeZone);
+      conversion.convertElements(elements, currentTimeZone, selectedTimeZone);
     });
   } else {
     currentTimeZone = getTimeZoneState().currentTimeZone;
     console.log(currentTimeZone, newTimeZone);
     // Check if there are TD values on the page
-    convertElements(elements, currentTimeZone, newTimeZone);
+    conversion.convertElements(elements, currentTimeZone, newTimeZone);
     // Set storage and display options to selected TimeZone
     setTimeZoneState(newTimeZone);
   }

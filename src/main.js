@@ -5,7 +5,7 @@ import './popup/css/popup.scss';
 
 (function () {
   const addPopupEvents = require('./popup/addPopupEvents.js').default;
-  const { convertPage } = require('./conversion-functions/convertPage.js');
+  const { convertPage } = require('./convertPage.js');
   const { setTimeZoneState } = require('./setTimeZoneState.js');
 
   const query = document.querySelector.bind(document);

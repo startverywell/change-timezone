@@ -4,11 +4,7 @@ const { convertValue } = require('./convertValue.js');
 function convertElements(elements, currentTimeZone, selectedTimeZone) {
   if (elements.length != 0) {
     elements.forEach(function (element) {
-      const convertedDateTime = convertValue(
-        element.innerHTML,
-        currentTimeZone,
-        selectedTimeZone
-      );
+      const convertedDateTime = convertValue(element.innerHTML, currentTimeZone, selectedTimeZone);
       if (convertedDateTime) {
         element.innerHTML = `${convertedDateTime.dateTime} ${convertedDateTime.zoneName}`;
       }

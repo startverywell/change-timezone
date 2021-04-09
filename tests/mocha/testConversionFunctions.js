@@ -1,6 +1,6 @@
-const momentInterface = require('../../src/conversion-functions/moment-interface.js');
+const momentInterface = require('../../libs/conversion/momentInterface.js');
 
-const { convertValue } = require('../../src/conversion-functions/convertValue.js');
+const conversion = require('../../libs/conversion/');
 
 var assert = require('assert');
 
@@ -67,7 +67,7 @@ describe('Testing moment interface conversions', function () {
   describe('convertValue()', function () {
     describe('returns a converted date time and unix value', function () {
       it('provided date time', function () {
-        assert.deepStrictEqual(convertValue('1609488000', 'America/Los_Angeles', 'America/Los_Angeles'), {
+        assert.deepStrictEqual(conversion.convertValue('1609488000', 'America/Los_Angeles', 'America/Los_Angeles'), {
           dateTime: '2021-01-01 00:00:00',
           zoneName: 'PDT',
           unixTime: '1609488000',

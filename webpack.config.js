@@ -13,7 +13,7 @@ module.exports = (env) => {
   return {
     entry: {
       main: './src/main.js',
-      'pop-up': './src/popup/chromePopup.js',
+      'pop-up': './src/popup/addExtensionPopupEvents.js',
     },
     output: {
       path: __dirname + '/dist',
