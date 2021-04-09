@@ -1,5 +1,11 @@
-// Require conversion functions
-const { convertValue } = require('../../libs/conversion/convertValue.js');
+/* 
+ Adds events for page Popup
+*/
+
+// Import conversion library
+const conversion = require('../../libs/conversion');
+
+// Import custom page conversion function
 const { convertPage } = require('../convertPage.js');
 
 // Require Popup functions to add
@@ -8,7 +14,7 @@ const { togglePopup, closeAlert, toggleInputs, displayConvertedDateTime } = requ
 // Bind various document functions for querying the DOM
 const queryID = document.getElementById.bind(document);
 
-// This function adds the Popup and event listeners to buttons
+// Adds event listeners to buttons in Popup
 function addPopupEvents() {
   // Toggle Popup / options display
   queryID('js-open-options').onclick = () => {
@@ -29,11 +35,12 @@ function addPopupEvents() {
     };
   });
 
-  // Conversion calls
+  // Convert page
   queryID('js-convert-page').onclick = () => {
     convertPage(queryID('js-page-timezone').value);
   };
 
+  // Manually convert
   queryID('js-convert-datetime').onclick = () => {
     // Get input from user
     const fromTimeZone = queryID('js-from-timezone').value;
@@ -46,8 +53,9 @@ function addPopupEvents() {
     if (queryID('js-radio-picker').checked) {
       input = queryID('js-input-picker').value;
     }
+
     // Convert input value to new Time Zone
-    const convertedDateTime = convertValue(input, fromTimeZone, toTimeZone);
+    const convertedDateTime = conversion.convertValue(input, fromTimeZone, toTimeZone);
 
     // Display the converted Date Time
     displayConvertedDateTime(convertedDateTime);

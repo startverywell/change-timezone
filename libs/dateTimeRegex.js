@@ -8,7 +8,6 @@ function hasDateTime(target) {
 }
 
 // Checks if there is 10 digits in the input (unix time)
-// TODO: this should check any amount of digits
 function hasUnixTime(target) {
   const unixRegex = /\d{10}/;
   const unixTimeMatch = unixRegex.exec(target);

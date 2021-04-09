@@ -1,4 +1,6 @@
-// Simply adds the Popup event listeners to the Chrom Popup
+/* 
+ Adds events for Chrome Extension Popup
+*/
 const addPopupEvents = require('./addPopupEvents.js').default;
 
 addPopupEvents();

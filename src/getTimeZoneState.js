@@ -1,3 +1,6 @@
+/*
+ Gets Time Zone (only used for dev as Chrome extension makes an asynchronous call)
+*/
 function getTimeZoneState() {
   const timeZoneState = {};
 
