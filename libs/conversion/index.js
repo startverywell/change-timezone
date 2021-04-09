@@ -1,5 +1,5 @@
 const { convertValue } = require('./convertValue.js');
-const { convertToUnixTime } = require('./convertToUnix.js');
+const { convertToUnixTime } = require('./convertToUnixTime.js');
 const { convertElements } = require('./convertElements.js');
 
 module.exports = {
