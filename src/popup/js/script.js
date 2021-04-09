@@ -12,6 +12,11 @@ function togglePopup() {
   }
 }
 
+// Close alert when conversion fails
+function closeAlert() {
+  queryID('js-conversion-alert').classList.add('hide-timezone-element');
+}
+
 // Disable / Enable inputs
 function toggleInputs(input_id) {
   if ('js-radio-manual' === input_id || 'js-input-manual' === input_id) {
@@ -40,11 +45,11 @@ function displayConvertedDateTime(convertedDateTime) {
     queryID('js-conversion-output').classList.remove('hide-timezone-element');
     queryID(
       'js-conversion-output'
-    ).innerHTML = `<label>✅</label> <h3>Conversion results: </h3> <h2>${convertedDateTime.dateTime} ${convertedDateTime.zoneName}</h2> <h4>Timestamp: ${convertedDateTime.unixTime}</h4>`;
+    ).innerHTML = `<label>&#9989;</label> <h3>Conversion results: </h3> <h2>${convertedDateTime.dateTime} ${convertedDateTime.zoneName}</h2> <h4>Timestamp: ${convertedDateTime.unixTime}</h4>`;
   } else {
     queryID('js-conversion-output').classList.add('hide-timezone-element');
     queryID('js-conversion-alert').classList.remove('hide-timezone-element');
   }
 }
 
-module.exports = { togglePopup, toggleInputs, displayConvertedDateTime };
+module.exports = { togglePopup, closeAlert, toggleInputs, displayConvertedDateTime };
