@@ -1,5 +1,5 @@
 /*
- convertDomElements() takes an array of Document Elements and converts any value described in the convert
+ Takes an array of Document Elements and converts any value described in the getUnixTimeFromString() function
 */
 const { getDateTimeFromString } = require('./getDateTimeFromString.js');
 

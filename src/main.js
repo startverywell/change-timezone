@@ -6,7 +6,7 @@ import './popup/css/popup.scss';
 (function () {
   console.log('Production = ' + PRODUCTION);
 
-  const addPopupDomEvents = require('./popup/addPopupDomEvents.js').default;
+  // const addPopupDomEvents = require('./popup/addPopupDomEvents.js').default;
   const { convertPage } = require('./convertPage.js');
   const { setTimeZoneState } = require('./setTimeZoneState.js');
 
@@ -23,7 +23,9 @@ import './popup/css/popup.scss';
   query('#js-to-timeZone').innerHTML = options;
 
   // Add event listeners to Popup
-  addPopupDomEvents();
+  require('./popup/addPopupDomEvents.js');
+
+  // addPopupDomEvents();
 
   let selectedTimeZone;
   const imgElement = new Image();

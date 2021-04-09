@@ -1,21 +1,21 @@
 /* 
  Adds events for page Popup
 */
+(function () {
+  // Import conversion library
+  const conversion = require('../../libs/conversion');
 
-// Import conversion library
-const conversion = require('../../libs/conversion');
+  // Import custom page conversion function
+  const { convertPage } = require('../convertPage.js');
 
-// Import custom page conversion function
-const { convertPage } = require('../convertPage.js');
+  // Import Popup functions
+  const { togglePopup, closeAlert, toggleInputs, displayConversion } = require('./js/script.js');
 
-// Import Popup functions
-const { togglePopup, closeAlert, toggleInputs, displayConversion } = require('./js/script.js');
+  // Bind various document functions for querying the DOM
+  const queryID = document.getElementById.bind(document);
 
-// Bind various document functions for querying the DOM
-const queryID = document.getElementById.bind(document);
-
-// Adds event listeners to Popup
-function addPopupDomEvents() {
+  // Adds event listeners to Popup
+  // function addPopupDomEvents() {
   // Convert page
   queryID('js-convert-page').onclick = () => {
     convertPage(queryID('js-page-timezone').value);
@@ -61,6 +61,5 @@ function addPopupDomEvents() {
     // Display the converted Date Time
     displayConversion(convertedDateTime, convertedUnixTime);
   };
-}
-
-export default addPopupDomEvents;
+  // }
+})();
