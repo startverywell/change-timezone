@@ -1,9 +1,8 @@
 const path = require('path');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
-const webpack = require('webpack'); //to access built-in plugins
+const webpack = require('webpack');
 
 module.exports = (env) => {
-  // console.log('NODE_ENV: ', env.NODE_ENV); // 'local'
   let PRODUCTION;
   if (env.NODE_ENV === 'production') {
     PRODUCTION = true;

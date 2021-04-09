@@ -23,7 +23,6 @@ function convertPage(newTimeZone) {
 
       // Refresh and not installing for first time
       if (currentTimeZone) {
-        //currentTimeZone = 'America/Los_Angeles';
         console.log(currentTimeZone, newTimeZone);
 
         setTimeZoneState(newTimeZone);
