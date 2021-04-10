@@ -1,5 +1,7 @@
 # Ignore prod dist
 dist-prod
+dist/main.js
+dist/popup.js
 
 # Logs
 logs

@@ -16,15 +16,22 @@ Time Zone converter is a Chrome extension that converts time to a time zone of t
 
 1. Clone the repository
 2. Run `npm run install`
-3. Run `npm run build` (dev build)
 
 ## Development
 
-- How development is configured and commands for running
+Run `npm run build`
 
 ## Production
 
-- How production is configured
+Run `npm run build-production`
+
+Production usage is through a Chrome extension. It will run / show on any page that you have configured against `matches` under `content_scripts`in the `dist/manifest.json` file. The current `manifest` defaults to all `https://` websites (but won't convert anything unless there are table cells with the specific format as per: [insert link ] ).
+
+See here for matching: https://developer.chrome.com/docs/extensions/mv2/match_patterns/
+
+For local testing, the `dist` folder can be added into your extensions in Chrome [chrome://extensions/](chrome://extensions/). You will need to turn on `developer mode` before you can add an extension this way, see [Developer Mode](https://developer.chrome.com/docs/extensions/mv3/faq/#:~:text=You%20can%20start%20by%20turning,right%2Dhand%20corner%20is%20checked)
+
+After `developer mode` has been turned on, simply drag the `dist` folder or load unpacked here: [chrome://extensions/](chrome://extensions/)
 
 ## Usage
 
