@@ -16,7 +16,7 @@ module.exports = (env) => {
       'pop-up': './src/popup/addPopupDomEvents.js',
     },
     output: {
-      path: __dirname + '/dist-dev',
+      path: __dirname + '/dist',
       filename: '[name].js',
     },
     plugins: [
