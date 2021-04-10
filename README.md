@@ -1,8 +1,6 @@
 # Chrome Time Zone Converter
 
-> **Date started**: Sep 2019
-
-> **Date ended**: April 2021 / Ongoing
+> **Started**: Sep 2019
 
 ## Description
 
