@@ -6,9 +6,12 @@ const conversion = require('../libs/conversion/');
 const { setTimeZoneState } = require('./setTimeZoneState.js');
 const { getTimeZoneState } = require('./getTimeZoneState.js');
 
+// Change to the target element on the page you want to convert
+const ELEMENT_TO_CONVERT = 'td';
+
 function convertPage(newTimeZone) {
   // Select all TD elemets on page
-  const elements = document.body.querySelectorAll('td');
+  const elements = document.body.querySelectorAll(ELEMENT_TO_CONVERT);
   let currentTimeZone, selectedTimeZone;
 
   // Convert Page needs to handle the getting of the current page

@@ -5,6 +5,7 @@ import './popup/css/popup.scss';
 
 (function () {
   console.log('Production = ' + PRODUCTION);
+  const PAGE_DEFAULT_TIMEZONE = 'America/Los_Angeles';
 
   // const addPopupDomEvents = require('./popup/addPopupDomEvents.js').default;
   const { convertPage } = require('./convertPage.js');
