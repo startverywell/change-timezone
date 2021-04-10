@@ -11,7 +11,7 @@
   "content_scripts": [
     {
       "js": ["main.js"],
-      "matches": ["https://*/*"]
+      "matches": ["https://*/*test"]
     }
   ],
   "permissions": ["storage"],
