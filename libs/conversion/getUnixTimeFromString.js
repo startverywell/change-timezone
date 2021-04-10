@@ -17,6 +17,12 @@ function getUnixTimeFromString(input, fromTimeZone) {
     const unixTime = momentInterface.dateTimeToUnixTime(dateValueFromInput, fromTimeZone);
     return unixTime;
   }
+  /*
+   Add further formats to convert below by returning a Unix Time via ./momentInterface and ../timeZoneRegex.js as per the above
+   if(regex(input)){
+     return unixTime / (0000000000)
+   }
+  */
 }
 
 module.exports = { getUnixTimeFromString };

@@ -6,7 +6,7 @@
 
 Time Zone converter is a Chrome extension that converts time to a time zone of the user's choice. Specifically it automatically converts any times of: YYYY-MM-DD HH:MM:SS [Time Zone Abbreviation] format to the user's default. It also has a manual converter if the page hasn't automatically converted (can also convert Unix time).
 
-The target element on a page is a table data cell (`'td'`) and format of: `YYYY-MM-DD HH:MM:SS` or Unix Time, however this should be somewhat easily extended for other formats and target elements on specific pages see [Production](##production) for more information
+The target element on a page is a table data cell (`'td'`) and format of: `YYYY-MM-DD HH:MM:SS` or Unix Time, however this should be somewhat easily extended for other formats and target elements on specific pages. See [Production](##production) for more information
 
 ## Goals
 
@@ -17,7 +17,7 @@ The target element on a page is a table data cell (`'td'`) and format of: `YYYY-
 
 ## Install
 
-1. Clone the repository
+1. Clone repo
 2. Run `npm run install`
 
 ## Development
@@ -38,7 +38,7 @@ See here for matching: https://developer.chrome.com/docs/extensions/mv2/match_pa
 
 5. Date times on websites you are probably wanting to convert might not be formatted or within table elements, you can extend `libs/conversion/getUnixTimeFromString.js` with new regex checks (adding to`libs/timeZoneRegex.js` and `libs/conversion/momentInterface.js`) ensuring you return a Unix Time. Then change `ELEMENT_TO_CONVERT` in `src/convertPage.js` to the element that your date times are within.
 
-**Note:** the page default (that the page converter converts from automatically) is set to "America/Los_Angeles" which can be changed in `src/main.js`
+**Note:** the page default (that the page converter converts from automatically) is set to "America/Los_Angeles" which can be changed via `PAGE_DEFAULT_TIMEZONE` in `src/main.js`.
 **Note:** the elements inner html are converted and formatted to: `YYYY-MM-DD HH:MM:SS [Time Zone Abbreviation]` / `2021-01-01 09:00:00 PDT`
 
 ## Usage

@@ -36,13 +36,13 @@ import './popup/css/popup.scss';
   if (PRODUCTION) {
     // Add image
     imgElement.src = chrome.runtime.getURL('./tcicon128.png');
-    chrome.storage.local.set({ currentTimeZone: 'America/Los_Angeles' }, function () {
+    chrome.storage.local.set({ currentTimeZone: PAGE_DEFAULT_TIMEZONE }, function () {
       chrome.storage.local.get(['selectedTimeZone'], function (result) {
         selectedTimeZone = result.selectedTimeZone;
         // Only runs on installation / defaults to PT time
         if (!selectedTimeZone) {
-          setTimeZoneState('America/Los_Angeles');
-          selectedTimeZone = 'America/Los_Angeles';
+          setTimeZoneState(PAGE_DEFAULT_TIMEZONE);
+          selectedTimeZone = PAGE_DEFAULT_TIMEZONE;
         }
         convertPage(selectedTimeZone);
       });
@@ -50,12 +50,12 @@ import './popup/css/popup.scss';
   } else {
     // Add image
     imgElement.src = iconImageURL;
-    localStorage.setItem('currentTimeZone', 'America/Los_Angeles');
+    localStorage.setItem('currentTimeZone', PAGE_DEFAULT_TIMEZONE);
     selectedTimeZone = localStorage.getItem('selectedTimeZone');
     // Only runs on installation / defaults to PT time
     if (!selectedTimeZone) {
-      setTimeZoneState('America/Los_Angeles');
-      selectedTimeZone = 'America/Los_Angeles';
+      setTimeZoneState(PAGE_DEFAULT_TIMEZONE);
+      selectedTimeZone = PAGE_DEFAULT_TIMEZONE;
     }
     convertPage(selectedTimeZone);
   }
