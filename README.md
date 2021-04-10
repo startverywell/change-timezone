@@ -1,10 +1,12 @@
-> **Date started**: (Sep 2019)
+# Chrome Time Zone Converter
 
-> **Date ended**:
+> **Date started**: Sep 2019
+
+> **Date ended**: April 2021 / Ongoing
 
 ## Description
 
-Time Zone converter is a Chrome extension that converts time to a time zone of the user's choice. Specifically it automatically converts any times of: YYYY-MM-DD HH:MM:SS [Time Zone Abbreviation] format to the user's default. It also has a manual converter if the page hasn't automatically converted (can also convert Unix time).
+Chrome Time Zone Converter is a Chrome extension that converts time to a time zone of the user's choice. Specifically it automatically converts any times of: YYYY-MM-DD HH:MM:SS [Time Zone Abbreviation] format to the user's default. It also has a manual converter if the page hasn't automatically converted (can also convert Unix time).
 
 The target element on a page is a table data cell (`'td'`) and format of: `YYYY-MM-DD HH:MM:SS` or Unix Time, however this should be somewhat easily extended for other formats and target elements on specific pages. See [Production](https://github.com/richardaspinall/chrome-timezone-converter#production) for more information
 
