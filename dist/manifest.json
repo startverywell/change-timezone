@@ -11,14 +11,14 @@
   "content_scripts": [
     {
       "js": ["main.js"],
-      "matches": ["https://*"]
+      "matches": ["https://*/*"]
     }
   ],
   "permissions": ["storage"],
   "web_accessible_resources": [
     {
       "resources": ["tcicon128.png"],
-      "matches": ["https://*"]
+      "matches": ["https://*/*"]
     }
   ]
 }

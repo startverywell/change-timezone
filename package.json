@@ -1,6 +1,6 @@
 {
   "name": "time-zone-converter",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "A Chrome extension that converts times to preferred Time Zone",
   "main": "main.js",
   "directories": {
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/richardaspinall/time-zone-converter.git"
+    "url": "git+https://github.com/richardaspinall/chrome-timezone-converter.git"
   },
   "author": "Richard Aspinall",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/richardaspinall/time-zone-converter/issues"
+    "url": "https://github.com/richardaspinall/chrome-timezone-converter/issues"
   },
-  "homepage": "https://github.com/richardaspinall/time-zone-converter#readme",
+  "homepage": "https://github.com/richardaspinall/chrome-timezone-converter#readme",
   "dependencies": {
     "moment-locales-webpack-plugin": "^1.1.0",
     "moment-timezone": "^0.5.26"
