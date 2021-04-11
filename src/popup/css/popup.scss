@@ -27,6 +27,7 @@ timezone-converter-container {
   }
 
   label {
+    display: inline-block;
     font-size: medium;
     text-decoration: none;
   }
@@ -42,6 +43,7 @@ timezone-converter-container {
 
   .tooltip {
     position: relative;
+    opacity: 1;
 
     .tooltiptext {
       position: absolute;
