@@ -4,7 +4,7 @@
 }
 
 body {
-  width: 300px;
+  width: 400px;
   margin: 0px;
 }
 
@@ -14,7 +14,7 @@ timezone-converter-container {
   right: 0px;
   top: 10px; */
   /* Display & Box Model */
-  max-width: 300px;
+
   /* Color */
   color: white;
   /* Text */
@@ -171,7 +171,7 @@ timezone-converter-container #options-display .conversion-alert {
   position: absolute;
   bottom: 30px;
   right: 20px;
-  width: 240px;
+  width: 380px;
   padding: 10px;
   background-color: #f44336;
   color: white;

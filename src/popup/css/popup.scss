@@ -8,6 +8,7 @@ timezone-converter-container {
   top: 10px;
 
   /* Display & Box Model */
+  max-width: 400px;
 
   /* Color */
   color: white;
@@ -163,7 +164,7 @@ timezone-converter-container {
       position: absolute;
       bottom: 30px;
       right: 20px;
-      width: 240px;
+      width: 380px;
       padding: 10px;
       background-color: #f44336;
       color: white;

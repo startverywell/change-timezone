@@ -41,7 +41,7 @@ function toggleInputs(input_id) {
 // Converts a given input and Time Zone to a new Time Zone and displays the result
 function displayConversion(dateTime, unixTime) {
   // Output results
-  if (dateTime && dateTime) {
+  if (dateTime && unixTime) {
     queryID('js-conversion-output').classList.remove('hide-timezone-element');
     queryID(
       'js-conversion-output'
