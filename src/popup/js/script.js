@@ -44,20 +44,20 @@ function displayConversion(dateTime, unixTime) {
   if (dateTime && unixTime) {
     const dateTimeSplit = dateTime.split(' ');
     const dateSplit = dateTimeSplit[0].split('-');
+    const timeSplit = dateTimeSplit[1].split(':');
 
-    // TODO: re work the below to be the same splitting as the date above
-    const dt = new Date(`${dateTimeSplit[0]} ${dateTimeSplit[1]}`);
-    let hours = dt.getHours();
+    let hours = timeSplit[0];
     const AmOrPm = hours >= 12 ? 'pm' : 'am';
     hours = hours % 12 || 12;
-    const minutes = dt.getMinutes();
-    const finalTime = `${hours}:${minutes} ${AmOrPm}`;
+    const minutes = timeSplit[1];
+    const seconds = timeSplit[2];
+    const finalTime = `${hours}:${minutes}:${seconds} ${AmOrPm}`;
 
     const finalDate = `${dateSplit[2]}/${dateSplit[1]}/${dateSplit[0]}`;
     queryID('js-conversion-output').classList.remove('hide-timezone-element');
     queryID(
       'js-conversion-output'
-    ).innerHTML = `<label>&#9989;</label> <h3>Conversion results: ${finalDate}, ${finalTime} ${dateTimeSplit[2]} </h3> <p> <h2>${dateTime}</h2></p> <h4>Timestamp: ${unixTime}</h4>`;
+    ).innerHTML = `<label>&#9989;</label> <h3>Conversion results: </h3> <h4>${finalDate}, ${finalTime} ${dateTimeSplit[2]}</h4>  <h4>${dateTime}</h4> <h4>Timestamp: ${unixTime}</h4>`;
   } else {
     queryID('js-conversion-output').classList.add('hide-timezone-element');
     queryID('js-conversion-alert').classList.remove('hide-timezone-element');
