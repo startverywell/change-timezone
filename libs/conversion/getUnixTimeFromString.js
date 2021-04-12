@@ -7,10 +7,10 @@ const momentInterface = require('./momentInterface.js');
 const timeZoneRegex = require('../timeZoneRegex.js');
 
 function getUnixTimeFromString(input, fromTimeZone) {
-  if (timeZoneRegex.hasUnixTime(input)) {
-    const unixTime = timeZoneRegex.getUnixTime(input);
-    return unixTime;
-  }
+  // if (timeZoneRegex.hasUnixTime(input)) {
+  //   const unixTime = timeZoneRegex.getUnixTime(input);
+  //   return unixTime;
+  // }
 
   if (timeZoneRegex.hasDateTime(input)) {
     const dateValueFromInput = timeZoneRegex.getDateTime(input);

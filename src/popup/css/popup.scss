@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 timezone-converter-container {
   /* Positioning */
   position: fixed;
@@ -5,6 +8,7 @@ timezone-converter-container {
   top: 10px;
 
   /* Display & Box Model */
+
   max-width: 300px;
 
   /* Color */
@@ -12,8 +16,9 @@ timezone-converter-container {
 
   /* Text */
   font-family: Lato, Arial, sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 400;
+  line-height: normal;
 
   /* Other */
 
@@ -41,27 +46,35 @@ timezone-converter-container {
     top: 5px;
   }
 
-  .tooltip {
+  .tzc-tooltip {
     position: relative;
-    opacity: 1;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+    border: solid white 1px;
+    border-radius: 20px;
+    text-align: center;
+    vertical-align: middle;
 
-    .tooltiptext {
+    .tzc-tooltiptext {
       position: absolute;
       visibility: hidden;
       top: 30px;
-      left: 50px;
+      right: 0px;
       width: 200px;
       z-index: 1;
       padding: 5px;
       border-radius: 6px;
       font-size: 14px;
+      text-align: left;
       background-color: black;
       color: #fff;
     }
   }
 
-  .tooltip:hover {
-    .tooltiptext {
+  .tzc-tooltip:hover {
+    .tzc-tooltiptext {
       visibility: visible;
     }
   }
@@ -104,9 +117,20 @@ timezone-converter-container {
     select,
     input {
       padding: 5px;
+      margin: 0px;
       border: 1px;
       border-radius: 8px;
+      font-size: inherit;
       cursor: pointer;
+      vertical-align: middle;
+    }
+
+    .tzc-input {
+      display: inline-block;
+      height: 100%;
+      width: 85%;
+      margin-bottom: 0px;
+      cursor: text;
     }
 
     select {
@@ -126,13 +150,6 @@ timezone-converter-container {
       border-radius: 100%;
       background-color: #ff605c;
       cursor: pointer;
-    }
-
-    #js-input-manual,
-    #js-input-picker {
-      display: inline-block;
-      width: 85%;
-      cursor: text;
     }
 
     .convert-button {

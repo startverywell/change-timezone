@@ -49,6 +49,7 @@ import './popup/css/popup.scss';
     });
   } else {
     // Add image
+    console.log(iconImageURL);
     imgElement.src = iconImageURL;
     localStorage.setItem('currentTimeZone', PAGE_DEFAULT_TIMEZONE);
     selectedTimeZone = localStorage.getItem('selectedTimeZone');

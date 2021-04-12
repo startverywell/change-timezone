@@ -15,7 +15,6 @@
     <timezone-converter-container>
         <div id="open-options-wrapper">
             <button id="js-open-options">
-                <img src="tcicon128.png">
             </button>
         </div>
 
@@ -23,32 +22,34 @@
             <button id="js-close-options"></button>
             <div>
                 <h2> Convert times on this page to: </h2>
-                <label class="point-down-emoji"> ⤵️</label>
+                <label class="point-down-emoji"> &#10549;</label>
             </div>
+            <div>
+                <select size="1" id="js-page-timezone">
+                    <option value="" disabled>Quick Select Locations</option>
+                    <option value="America/Los_Angeles"> SF & YVR &#127482&#127480&#127464&#127462 PST/PDT</option>
+                    <option value="America/Denver"> Denver &#127482&#127480 MST/MDT</option>
+                    <option value="America/New_York"> NY/TOR &#127482&#127480&#127464&#127462 EST/EDT</option>
+                    <option value="Etc/UTC"> UTC </option>
+                    <option value="Europe/London"> Dublin &#127470&#127466 BST/BDT</option>
+                    <option value="Asia/Kolkata"> Pune &#127470&#127475 IST</option>
+                    <option value="Asia/Tokyo"> Tokyo &#127471&#127477 JST</option>
+                    <option value="Australia/Canberra"> Melbourne &#127462&#127482 AEST/AEDT</option>
+                    <option value="" disabled> Full List</option>
+                    <option value="Pacific/Midway"> (UTC-11:00) Midway Island, American Samoa</option>
+                    <option value="America/Adak"> (UTC-10:00) Aleutian Islands</option>
+                </select>
+            </div>
+            <button id="js-convert-page" class="convert-button">Convert</button>
 
-            <select size="1" id="js-page-timezone">
-                <option value="" disabled>Quick Select Locations</option>
-                <option value="America/Los_Angeles"> SF & YVR &#127482&#127480&#127464&#127462 PST/PDT</option>
-                <option value="America/Denver"> Denver &#127482&#127480 MST/MDT</option>
-                <option value="America/New_York"> NY/TOR &#127482&#127480&#127464&#127462 EST/EDT</option>
-                <option value="Etc/UTC"> UTC </option>
-                <option value="Europe/London"> Dublin &#127470&#127466 BST/BDT</option>
-                <option value="Asia/Kolkata"> Pune &#127470&#127475 IST</option>
-                <option value="Asia/Tokyo"> Tokyo &#127471&#127477 JST</option>
-                <option value="Australia/Canberra"> Melbourne &#127462&#127482 AEST/AEDT</option>
-                <option value="" disabled> Full List</option>
-                <option value="Pacific/Midway"> (UTC-11:00) Midway Island, American Samoa</option>
-                <option value="America/Adak"> (UTC-10:00) Aleutian Islands</option>
-                <option value="Pacific/Honolulu"> (UTC-10:00) Hawaii</option>
-            </select>
             <hr />
 
             <div>
-                <h2> Manual Converter </h2>
+                <h2> Convert times manually:</h2>
             </div>
             <div>
                 <label> From Time Zone: </label>
-                <label class="point-down-emoji"> ⤵️</label>
+                <label class="point-down-emoji"> &#10549;</label>
                 <div>
                     <select size="1" id="js-from-timezone">
                         <option value="" disabled>Quick Select Locations</option>
@@ -63,26 +64,30 @@
                         <option value="" disabled> Full List</option>
                         <option value="Pacific/Midway"> (UTC-11:00) Midway Island, American Samoa</option>
                         <option value="America/Adak"> (UTC-10:00) Aleutian Islands</option>
-                        <option value="Pacific/Honolulu"> (UTC-10:00) Hawaii</option>
                     </select>
                 </div>
 
-                <label> Enter Date & Time or Timestamp </label>
-                <div>
+                <div class="tooltip">
+                    <span class="tooltiptext"><b>Tip:</b> <br> Format as YYYY-MM-DD HH:MM:SS or a Unix Timestamp (paste
+                        in a
+                        message link!)</span>
+
                     <input type="radio" name="input-type" id="js-radio-manual">
-                    <input type="text" id="js-input-manual" placeholder="2021-01-01 09:00:00 / 1609452000"
+                    <input type="text" id="js-input-manual" placeholder="YYYY-MM-DD --:--:-- OR 1637946000"
                         autocomplete="off" />
                 </div>
 
-                <label> Picker </label>
-                <div>
+                <div class="tooltip">
+                    <span class="tooltiptext"><b>Tip:</b> <br> Use the calendar picker on the right &#8594;</span>
+
                     <input type="radio" name="input-type" id="js-radio-picker">
                     <input type="datetime-local" id="js-input-picker"
-                        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}">
+                        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+                        placeholder="YYYY-MM-DD --:--:-- / 1637946000 (Timestamp)">
                 </div>
 
                 <label> To Time Zone: </label>
-                <label class="point-down-emoji"> ⤵️</label>
+                <label class="point-down-emoji"> &#10549;</label>
                 <div>
                     <select size="1" id="js-to-timeZone">
                         <option value="" disabled>Quick Select Locations</option>
@@ -97,18 +102,23 @@
                         <option value="" disabled> Full List</option>
                         <option value="Pacific/Midway"> (UTC-11:00) Midway Island, American Samoa</option>
                         <option value="America/Adak"> (UTC-10:00) Aleutian Islands</option>
-                        <option value="Pacific/Honolulu"> (UTC-10:00) Hawaii</option>
                     </select>
                 </div>
             </div>
 
-            <div id="convert-datetime-wrapper">
-                <button id="js-convert-datetime">Convert</button>
-            </div>
+
+            <button id="js-convert-datetime" class="convert-button">Convert</button>
+
 
             <div id="js-conversion-output" class="hide-timezone-element"></div>
+            <!-- <div id="js-conversion-alert" class="conversion-alert hide-timezone-element">
+                <span id="js-close-alert" class="closebtn">&times;</span>
+                <h3> Error: </h3>
+                <p> Unfortunately only certain formats are supported (`YYYY-MM-DD HH:MM:SS` or Unix Timestamp).</p>
+                <p>Please use the Date & Time Picker above or paste a message link containing a Timestamp</p>
+            </div> -->
         </div>
-        </div>
+    </timezone-converter-container>
 </body>
 
 

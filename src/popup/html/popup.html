@@ -31,21 +31,26 @@
                 </select>
             </div>
 
-            <div class="tooltip">
-                <span class="tooltiptext"><b>Tip:</b> <br> Format as YYYY-MM-DD HH:MM:SS or a Unix Timestamp (paste in a
-                    message link!)</span>
 
+            <div>
                 <input type="radio" name="input-type" id="js-radio-manual">
-                <input type="text" id="js-input-manual" placeholder="YYYY-MM-DD --:--:-- OR 1637946000"
-                    autocomplete="off" />
+                <input type="text" class="tzc-input" id="js-input-manual"
+                    placeholder="YYYY-MM-DD --:--:-- OR 1637946000" autocomplete="off" />
+                <span class="tzc-tooltip">?<span class="tzc-tooltiptext"><b>Tip:</b> <br> Format as YYYY-MM-DD HH:MM:SS
+                        or a Unix Timestamp
+                        (paste
+                        in a message link!)</span>
+                </span>
             </div>
 
-            <div class="tooltip">
-                <span class="tooltiptext"><b>Tip:</b> <br> Use the calendar picker on the right &#8594;</span>
-
+            <div>
                 <input type="radio" name="input-type" id="js-radio-picker">
-                <input type="datetime-local" id="js-input-picker" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+                <input type="datetime-local" class="tzc-input" id="js-input-picker"
+                    pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
                     placeholder="YYYY-MM-DD --:--:-- / 1637946000 (Timestamp)">
+                <span class="tzc-tooltip">?<span class="tzc-tooltiptext"><b>Tip:</b> <br> Use the calendar picker on
+                        the right &#8594;</span>
+                </span>
             </div>
 
             <label> To Time Zone: </label>
@@ -69,4 +74,4 @@
             <p>Please use the Date & Time Picker above or paste a message link containing a Timestamp</p>
         </div>
     </div>
-    </div>
+</timezone-converter-container>
