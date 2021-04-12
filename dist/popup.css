@@ -66,7 +66,7 @@ timezone-converter-container .tzc-tooltip .tzc-tooltiptext {
   visibility: hidden;
   top: 30px;
   right: 0px;
-  width: 200px;
+  width: 350px;
   z-index: 1;
   padding: 5px;
   border-radius: 6px;
