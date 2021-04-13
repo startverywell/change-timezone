@@ -5,6 +5,7 @@
 const conversion = require('../libs/conversion/');
 const { setTimeZoneState } = require('./setTimeZoneState.js');
 const { getTimeZoneState } = require('./getTimeZoneState.js');
+const timeZoneRegex = require('../libs/timeZoneRegex.js');
 
 // Change to the target element on the page you want to convert
 const ELEMENT_TO_CONVERT = 'td';
@@ -32,7 +33,21 @@ function convertPage(newTimeZone) {
         setTimeZoneState(newTimeZone);
         selectedTimeZone = newTimeZone;
       }
-      conversion.convertDomElements(elements, currentTimeZone, selectedTimeZone);
+
+      if (elements.length != 0) {
+        elements.forEach(function (element) {
+          if (timeZoneRegex.hasDateTime(element.innerHTML)) {
+            const convertedDateTime = conversion.getDateTimeFromString(
+              element.innerHTML,
+              currentTimeZone,
+              selectedTimeZone
+            );
+            if (convertedDateTime) {
+              element.innerHTML = `${convertedDateTime}`;
+            }
+          }
+        });
+      }
     });
   } else {
     currentTimeZone = getTimeZoneState().currentTimeZone;

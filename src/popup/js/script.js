@@ -51,13 +51,14 @@ function displayConversion(dateTime, unixTime) {
     hours = hours % 12 || 12;
     const minutes = timeSplit[1];
     const seconds = timeSplit[2];
+    // Additional formatting:
     const finalTime = `${hours}:${minutes}:${seconds} ${AmOrPm}`;
-
     const finalDate = `${dateSplit[2]}/${dateSplit[1]}/${dateSplit[0]}`;
+
     queryID('js-conversion-output').classList.remove('hide-timezone-element');
     queryID(
       'js-conversion-output'
-    ).innerHTML = `<label>&#9989;</label> <h3>Conversion results: </h3> <h4>${finalDate}, ${finalTime} ${dateTimeSplit[2]}</h4>  <h4>${dateTime}</h4> <h4>Timestamp: ${unixTime}</h4>`;
+    ).innerHTML = `<label>&#9989;</label> <h3>Conversion results: </h3>  <h2><span style="color:#D56856;">${dateTimeSplit[0]}</span> <span style="color:#00BDDD;">${dateTimeSplit[1]}</span> <span>${dateTimeSplit[2]}</span></h2> <h4>Timestamp: ${unixTime}</h4>`;
   } else {
     queryID('js-conversion-output').classList.add('hide-timezone-element');
     queryID('js-conversion-alert').classList.remove('hide-timezone-element');
