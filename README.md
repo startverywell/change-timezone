@@ -28,7 +28,7 @@ Run `npm run dev`
 
 1. Run `npm run build`
 
-2. Production usage is through a Chrome extension. It will run / show on any page that you have configured against `matches` under `content_scripts`in the `dist/manifest.json` file. The current `manifest` defaults to all `https://` websites (but won't convert anything unless there are table cells with the specific format as per: [insert link ] ). See here for matching: https://developer.chrome.com/docs/extensions/mv2/match_patterns/
+2. Production usage is through a Chrome extension. It will run / show on any page that you have configured against `matches` under `content_scripts`in the `dist/manifest.json` file. The current `manifest` defaults to all `https://` websites (but won't convert anything unless there are table cells with the specific format as per: [insert link ] ) . See here for matching: https://developer.chrome.com/docs/extensions/mv2/match_patterns/
 
 3. For local testing, the `dist` folder can be added into your extensions in Chrome [chrome://extensions/](chrome://extensions/). You will need to turn on `developer mode` before you can add an extension this way, see [Developer Mode](https://developer.chrome.com/docs/extensions/mv3/faq/#:~:text=You%20can%20start%20by%20turning,right%2Dhand%20corner%20is%20checked)
 
