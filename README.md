@@ -22,11 +22,11 @@ The target element on a page is a table data cell (`'td'`) and format of: `YYYY-
 
 ## Development
 
-Run `npm run build`
+Run `npm run dev`
 
 ## Production
 
-1. Run `npm run build-production`
+1. Run `npm run build`
 
 2. Production usage is through a Chrome extension. It will run / show on any page that you have configured against `matches` under `content_scripts`in the `dist/manifest.json` file. The current `manifest` defaults to all `https://` websites (but won't convert anything unless there are table cells with the specific format as per: [insert link ] ). See here for matching: https://developer.chrome.com/docs/extensions/mv2/match_patterns/
 
