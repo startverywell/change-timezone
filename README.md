@@ -12,7 +12,7 @@ The target element on a page is a table data cell (`'td'`) and format of: `YYYY-
 
 ## Requirements
 
-- Node
+- Node V12^
 - NPM
 
 ## Install
