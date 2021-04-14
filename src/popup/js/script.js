@@ -43,8 +43,6 @@ function displayConversion(dateTime, unixTime) {
   // Output results
   if (dateTime && unixTime) {
     const dateTimeSplit = dateTime.split(' ');
-    const dateSplit = dateTimeSplit[0].split('-');
-    const timeSplit = dateTimeSplit[1].split(':');
 
     queryID('js-conversion-output').classList.remove('hide-timezone-element');
     queryID(
