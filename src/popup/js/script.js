@@ -46,6 +46,7 @@ function displayConversion(dateTime, unixTime) {
     const dateSplit = dateTimeSplit[0].split('-');
     const timeSplit = dateTimeSplit[1].split(':');
 
+    // TODO: Remove the below
     let hours = timeSplit[0];
     const AmOrPm = hours >= 12 ? 'pm' : 'am';
     hours = hours % 12 || 12;

@@ -13,20 +13,18 @@ const ELEMENT_TO_CONVERT = 'td';
 function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
   if (elements.length != 0) {
     elements.forEach(function (element) {
-      // Get Date Time from the element
-      const dateTime = timeZoneRegex.getDateTime(element.innerHTML);
-      if (dateTime) {
-        // Get Unix Time from given Date Time
-        const unixTime = conversion.getUnixTime(dateTime, currentTimeZone);
+      // Get Unix Time from given Date Time
+      const unixTime = conversion.getUnixTime(element.innerHTML, currentTimeZone);
+      if (unixTime) {
         // Convert to new Date Time
         const convertedDateTime = conversion.getConvertedDateTime(unixTime, toTimeZone);
-        if (convertedDateTime) {
-          // Replace the old Date Time value with the converted one
-          const oldDateTime = timeZoneRegex.getFullDateTime(element.innerHTML);
-          const updatedElement = element.innerHTML.replace(oldDateTime, convertedDateTime);
-          element.innerHTML = `${updatedElement}`;
-        }
+        // Replace the old Date Time value with the converted one
+        // TODO: Move regex into conversion lib
+        const oldDateTime = timeZoneRegex.getFullDateTime(element.innerHTML);
+        const updatedElement = element.innerHTML.replace(oldDateTime, convertedDateTime);
+        element.innerHTML = `${updatedElement}`;
       }
+      // }
     });
   }
 }

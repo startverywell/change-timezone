@@ -5,6 +5,9 @@
   // Import conversion library
   const conversion = require('../../libs/conversion');
 
+  // TODO: refactor the below into the above library
+  const timeZoneRegex = require('../../libs/timeZoneRegex.js');
+
   // Import custom page conversion function
   const { convertPage } = require('../convertPage.js');
 
@@ -46,6 +49,8 @@
     const fromTimeZone = queryID('js-from-timezone').value;
     const toTimeZone = queryID('js-to-timeZone').value;
     let input;
+    let unixTime;
+    let convertedDateTime;
     // Get input from user either through the manual input or picker
     if (queryID('js-radio-manual').checked) {
       input = queryID('js-input-manual').value;
@@ -55,11 +60,17 @@
     }
 
     // Convert input value to new Time Zone
-    const convertedUnixTime = conversion.getUnixTime(input, fromTimeZone);
-    const convertedDateTime = conversion.getConvertedDateTime(convertedUnixTime, toTimeZone);
+    // TODO: Possibly pull this out to it's own function so that it can be easily updated for other datetime formats
+    unixTime = timeZoneRegex.getUnixTime(input);
+    if (unixTime) {
+      convertedDateTime = conversion.getConvertedDateTime(unixTime, toTimeZone);
+    } else {
+      unixTime = conversion.getUnixTime(input, fromTimeZone);
+      convertedDateTime = conversion.getConvertedDateTime(unixTime, toTimeZone);
+    }
 
     // Display the converted Date Time
-    displayConversion(convertedDateTime, convertedUnixTime);
+    displayConversion(convertedDateTime, unixTime);
   };
   // }
 })();

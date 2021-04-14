@@ -45,7 +45,10 @@ function getZoneName(target) {
 // Example: 0000000000
 function getUnixTime(target) {
   const unixTime = /\d{10}/.exec(target);
-  return unixTime[0];
+  if (unixTime) {
+    return unixTime[0];
+  }
+  return;
 }
 
 module.exports = {
