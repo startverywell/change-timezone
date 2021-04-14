@@ -1,7 +1,7 @@
-const { getDateTimeFromString } = require('./getDateTimeFromString.js');
-const { getUnixTimeFromString } = require('./getUnixTimeFromString.js');
+const { getConvertedDateTime } = require('./getConvertedDateTime.js');
+const { getUnixTime } = require('./getUnixTime.js');
 
 module.exports = {
-  getDateTimeFromString: getDateTimeFromString,
-  getUnixTimeFromString: getUnixTimeFromString,
+  getConvertedDateTime: getConvertedDateTime,
+  getUnixTime: getUnixTime,
 };

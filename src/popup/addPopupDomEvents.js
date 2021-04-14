@@ -55,8 +55,8 @@
     }
 
     // Convert input value to new Time Zone
-    const convertedDateTime = conversion.getDateTimeFromString(input, fromTimeZone, toTimeZone);
-    const convertedUnixTime = conversion.getUnixTimeFromString(input, fromTimeZone);
+    const convertedUnixTime = conversion.getUnixTime(input, fromTimeZone);
+    const convertedDateTime = conversion.getConvertedDateTime(convertedUnixTime, toTimeZone);
 
     // Display the converted Date Time
     displayConversion(convertedDateTime, convertedUnixTime);

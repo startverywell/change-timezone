@@ -10,17 +10,21 @@ const timeZoneRegex = require('../libs/timeZoneRegex.js');
 // Change to the target element on the page you want to convert
 const ELEMENT_TO_CONVERT = 'td';
 
-function convertElements(elements, currentTimeZone, newTimeZone) {
+function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
   if (elements.length != 0) {
     elements.forEach(function (element) {
-      if (timeZoneRegex.hasDateTime(element.innerHTML)) {
-        // TODO: tidy this up
-        const dateValueFromInput = timeZoneRegex.getDateTime(element.innerHTML);
-        const convertedDateTime = conversion.getDateTimeFromString(dateValueFromInput, currentTimeZone, newTimeZone);
+      // Get Date Time from the element
+      const dateTime = timeZoneRegex.getDateTime(element.innerHTML);
+      if (dateTime) {
+        // Get Unix Time from given Date Time
+        const unixTime = conversion.getUnixTime(dateTime, currentTimeZone);
+        // Convert to new Date Time
+        const convertedDateTime = conversion.getConvertedDateTime(unixTime, toTimeZone);
         if (convertedDateTime) {
+          // Replace the old Date Time value with the converted one
           const oldDateTime = timeZoneRegex.getFullDateTime(element.innerHTML);
-          const updatedDomValue = element.innerHTML.replace(oldDateTime, convertedDateTime);
-          element.innerHTML = `${updatedDomValue}`;
+          const updatedElement = element.innerHTML.replace(oldDateTime, convertedDateTime);
+          element.innerHTML = `${updatedElement}`;
         }
       }
     });
@@ -51,13 +55,12 @@ function convertPage(newTimeZone) {
         selectedTimeZone = newTimeZone;
       }
 
-      convertElements(elements, currentTimeZone, selectedTimeZone);
+      convertElementsInDom(elements, currentTimeZone, selectedTimeZone);
     });
   } else {
     currentTimeZone = getTimeZoneState().currentTimeZone;
     // Check if there are TD values on the page
-
-    convertElements(elements, currentTimeZone, newTimeZone);
+    convertElementsInDom(elements, currentTimeZone, newTimeZone);
 
     // Set storage and display options to selected TimeZone
     setTimeZoneState(newTimeZone);

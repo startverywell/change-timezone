@@ -42,21 +42,21 @@ describe('Testing moment interface conversions', function () {
       });
     });
   });
-  describe('getDateTimeFromString()', function () {
+  describe('getConvertedDateTime()', function () {
     describe('returns a converted date time and unix value', function () {
       it('provided date time', function () {
         assert.deepStrictEqual(
-          conversion.getDateTimeFromString('1609488000', 'America/Los_Angeles', 'America/Los_Angeles'),
+          conversion.getConvertedDateTime('1609488000', 'America/Los_Angeles'),
           '2021-01-01 00:00:00 PDT'
         );
       });
     });
   });
-  describe('getUnixTimeFromString()', function () {
+  describe('getUnixTime()', function () {
     describe('gets Unix Time from a string', function () {
       it('provided Unix Time', function () {
         assert.deepStrictEqual(
-          conversion.getUnixTimeFromString('1609488000', 'America/Los_Angeles', 'America/Los_Angeles'),
+          conversion.getUnixTime('1609488000', 'America/Los_Angeles', 'America/Los_Angeles'),
           '1609488000'
         );
       });

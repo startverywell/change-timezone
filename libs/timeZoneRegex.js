@@ -28,7 +28,10 @@ function getFullDateTime(target) {
 // (YYYY-MM-DD HH:mm:ss)
 function getDateTime(target) {
   const dateTime = /(\d{4}\-\d{2}\-\d{2}(?:\s|T)\d{2}(?:\:\d{2}){1,2})/.exec(target);
-  return dateTime[1];
+  if (dateTime) {
+    return dateTime[1];
+  }
+  return;
 }
 
 // Gets the Time Zone
