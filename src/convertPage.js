@@ -10,6 +10,21 @@ const timeZoneRegex = require('../libs/timeZoneRegex.js');
 // Change to the target element on the page you want to convert
 const ELEMENT_TO_CONVERT = 'td';
 
+function convertElements(elements, currentTimeZone, newTimeZone) {
+  if (elements.length != 0) {
+    elements.forEach(function (element) {
+      if (timeZoneRegex.hasDateTime(element.innerHTML)) {
+        const convertedDateTime = conversion.getDateTimeFromString(element.innerHTML, currentTimeZone, newTimeZone);
+        if (convertedDateTime) {
+          const oldDateTime = timeZoneRegex.getFullDateTime(element.innerHTML);
+          const updatedDomValue = element.innerHTML.replace(oldDateTime, convertedDateTime);
+          element.innerHTML = `${updatedDomValue}`;
+        }
+      }
+    });
+  }
+}
+
 function convertPage(newTimeZone) {
   // Select all TD elemets on page
   const elements = document.body.querySelectorAll(ELEMENT_TO_CONVERT);
@@ -34,25 +49,14 @@ function convertPage(newTimeZone) {
         selectedTimeZone = newTimeZone;
       }
 
-      if (elements.length != 0) {
-        elements.forEach(function (element) {
-          if (timeZoneRegex.hasDateTime(element.innerHTML)) {
-            const convertedDateTime = conversion.getDateTimeFromString(
-              element.innerHTML,
-              currentTimeZone,
-              selectedTimeZone
-            );
-            if (convertedDateTime) {
-              element.innerHTML = `${convertedDateTime}`;
-            }
-          }
-        });
-      }
+      convertElements(elements, currentTimeZone, selectedTimeZone);
     });
   } else {
     currentTimeZone = getTimeZoneState().currentTimeZone;
     // Check if there are TD values on the page
-    conversion.convertDomElements(elements, currentTimeZone, newTimeZone);
+
+    convertElements(elements, currentTimeZone, newTimeZone);
+
     // Set storage and display options to selected TimeZone
     setTimeZoneState(newTimeZone);
   }
