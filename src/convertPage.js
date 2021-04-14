@@ -14,7 +14,9 @@ function convertElements(elements, currentTimeZone, newTimeZone) {
   if (elements.length != 0) {
     elements.forEach(function (element) {
       if (timeZoneRegex.hasDateTime(element.innerHTML)) {
-        const convertedDateTime = conversion.getDateTimeFromString(element.innerHTML, currentTimeZone, newTimeZone);
+        // TODO: tidy this up
+        const dateValueFromInput = timeZoneRegex.getDateTime(element.innerHTML);
+        const convertedDateTime = conversion.getDateTimeFromString(dateValueFromInput, currentTimeZone, newTimeZone);
         if (convertedDateTime) {
           const oldDateTime = timeZoneRegex.getFullDateTime(element.innerHTML);
           const updatedDomValue = element.innerHTML.replace(oldDateTime, convertedDateTime);
