@@ -35,6 +35,7 @@ timezone-converter-container {
     display: inline-block;
     font-size: medium;
     text-decoration: none;
+    user-select: none;
   }
 
   .point-down-emoji {
@@ -206,6 +207,7 @@ timezone-converter-container {
         display: inline-block;
         margin: 0;
         font-size: 1.4em;
+        user-select: none;
       }
 
       h2,
