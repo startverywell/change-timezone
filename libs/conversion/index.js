@@ -1,7 +1,7 @@
 const { getConvertedDateTime } = require('./getConvertedDateTime.js');
-const { getUnixTime } = require('./getUnixTime.js');
+const { toUnixTime } = require('./toUnixTime.js');
 
 module.exports = {
-  getConvertedDateTime: getConvertedDateTime,
-  getUnixTime: getUnixTime,
+  getConvertedDateTime,
+  toUnixTime,
 };

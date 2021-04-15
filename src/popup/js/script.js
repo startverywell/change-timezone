@@ -1,4 +1,4 @@
-// Bind various document functions for querying the DOM
+// Bind document functions for querying the DOM
 const queryID = document.getElementById.bind(document);
 
 // Show / Hide the Popup
@@ -12,19 +12,16 @@ function togglePopup() {
   }
 }
 
-// Close alert when conversion fails
 function closeAlert() {
   queryID('js-conversion-alert').classList.add('hide-timezone-element');
 }
 
-// Disable / Enable inputs
 function toggleInputs(input_id) {
   if ('js-radio-manual' === input_id || 'js-input-manual' === input_id) {
     queryID('js-radio-manual').checked = true;
     queryID('js-input-manual').disabled = false;
 
     // Disable picker input
-    // queryID('js-input-picker').disabled = true;
     queryID('js-input-picker').style.backgroundColor = '#d3d3d3';
     queryID('js-input-manual').style.backgroundColor = '#fff';
   } else {
@@ -32,26 +29,23 @@ function toggleInputs(input_id) {
     queryID('js-input-picker').disabled = false;
 
     // Disable manual input
-    // queryID('js-input-manual').disabled = true;
     queryID('js-input-manual').style.backgroundColor = '#d3d3d3';
     queryID('js-input-picker').style.backgroundColor = '#fff';
   }
 }
 
-// Converts a given input and Time Zone to a new Time Zone and displays the result
 function displayConversion(dateTime, unixTime) {
-  // Output results
-  if (dateTime && unixTime) {
-    const dateTimeSplit = dateTime.split(' ');
+  const dateTimeSplit = dateTime.split(' ');
 
-    queryID('js-conversion-output').classList.remove('hide-timezone-element');
-    queryID(
-      'js-conversion-output'
-    ).innerHTML = `<label>&#9989;</label> <h3>Conversion results: </h3>  <h2><span style="color:#D56856;">${dateTimeSplit[0]}</span> <span style="color:#00BDDD;">${dateTimeSplit[1]}</span> <span>${dateTimeSplit[2]}</span></h2> <h4>Timestamp: ${unixTime}</h4>`;
-  } else {
-    queryID('js-conversion-output').classList.add('hide-timezone-element');
-    queryID('js-conversion-alert').classList.remove('hide-timezone-element');
-  }
+  queryID('js-conversion-output').classList.remove('hide-timezone-element');
+  queryID(
+    'js-conversion-output'
+  ).innerHTML = `<label>&#9989;</label> <h3>Conversion results: </h3>  <h2><span style="color:#D56856;">${dateTimeSplit[0]}</span> <span style="color:#00BDDD;">${dateTimeSplit[1]}</span> <span>${dateTimeSplit[2]}</span></h2> <h4>Timestamp: ${unixTime}</h4>`;
 }
 
-module.exports = { togglePopup, closeAlert, toggleInputs, displayConversion };
+function displayError() {
+  queryID('js-conversion-output').classList.add('hide-timezone-element');
+  queryID('js-conversion-alert').classList.remove('hide-timezone-element');
+}
+
+module.exports = { togglePopup, closeAlert, toggleInputs, displayConversion, displayError };

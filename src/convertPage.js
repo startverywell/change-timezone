@@ -5,7 +5,6 @@
 const conversion = require('../libs/conversion/');
 const { setTimeZoneState } = require('./setTimeZoneState.js');
 const { getTimeZoneState } = require('./getTimeZoneState.js');
-const timeZoneRegex = require('../libs/timeZoneRegex.js');
 
 // Change to the target element on the page you want to convert
 const ELEMENT_TO_CONVERT = 'td';
@@ -14,17 +13,20 @@ function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
   if (elements.length != 0) {
     elements.forEach(function (element) {
       // Get Unix Time from given Date Time
-      const unixTime = conversion.getUnixTime(element.innerHTML, currentTimeZone);
-      if (unixTime) {
-        // Convert to new Date Time
-        const convertedDateTime = conversion.getConvertedDateTime(unixTime, toTimeZone);
-        // Replace the old Date Time value with the converted one
-        // TODO: Move regex into conversion lib
-        const oldDateTime = timeZoneRegex.getFullDateTime(element.innerHTML);
-        const updatedElement = element.innerHTML.replace(oldDateTime, convertedDateTime);
-        element.innerHTML = `${updatedElement}`;
+      const inputObject = conversion.toUnixTime(element.innerHTML, currentTimeZone);
+
+      if (inputObject) {
+        const unixTime = inputObject.unixTime;
+        const oldDateTime = inputObject.oldDateTime;
+        if (unixTime) {
+          // Convert to new Date Time
+          const convertedDateTime = conversion.getConvertedDateTime(unixTime, toTimeZone);
+
+          // Replace the old Date Time value with the converted one
+          const updatedElement = element.innerHTML.replace(oldDateTime, convertedDateTime);
+          element.innerHTML = `${updatedElement}`;
+        }
       }
-      // }
     });
   }
 }
