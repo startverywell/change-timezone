@@ -5,9 +5,6 @@
   // Import conversion library
   const conversion = require('../../libs/conversion');
 
-  // TODO: refactor the below into the above library
-  const timeZoneRegex = require('../../libs/timeZoneRegex.js');
-
   // Import custom page conversion function
   const { convertPage } = require('../convertPage.js');
 
@@ -59,7 +56,7 @@
     }
 
     // Regex input for Unix Time
-    let unixTime = timeZoneRegex.getUnixTime(input);
+    let unixTime = conversion.getUnixTime(input);
     // If no Unix Time, convert input to Unix Time
     if (!unixTime) {
       const conversionObject = conversion.toUnixTime(input, fromTimeZone);
@@ -70,7 +67,7 @@
 
     // If Unix Time, convert Unix Time to the updated Time Zone and display
     if (unixTime) {
-      const convertedDateTime = conversion.getConvertedDateTime(unixTime, toTimeZone);
+      const convertedDateTime = conversion.toDateTime(unixTime, toTimeZone);
       displayConversion(convertedDateTime, unixTime);
     } else {
       displayError();

@@ -28,15 +28,8 @@ function dateTimeToUnixTime(dateTime, timeZone) {
   return unixTime;
 }
 
-function dateTimeToNewTimeZone(dateTime, timeZone, newTimeZone) {
-  dateTime = momenttz.tz(formatDateTime(new Date(dateTime)), timeZone);
-  const convertedDateTime = dateTime.clone().tz(newTimeZone);
-  return formatDateTime(convertedDateTime);
-}
-
 module.exports = {
   getZoneName,
   unixTimeToDateTime,
   dateTimeToUnixTime,
-  dateTimeToNewTimeZone,
 };
