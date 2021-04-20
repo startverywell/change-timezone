@@ -1,4 +1,4 @@
-const conversion = require('../../libs/conversion/');
+const conversion = require('../../libs/conversion');
 
 var assert = require('assert');
 
