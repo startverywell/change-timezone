@@ -1,5 +1,3 @@
-const { unix } = require('moment');
-
 /* 
  Adds events for page Popup
 */

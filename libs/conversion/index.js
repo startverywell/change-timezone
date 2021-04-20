@@ -1,13 +1,13 @@
 const { toDateTime } = require('./toDateTime.js');
 const { getFullDateTime } = require('./getFullDateTime.js');
+const { toUnixTime } = require('./toUnixTime.js');
 const { getDateTime } = require('./getDateTime.js');
 const { getUnixTime } = require('./getUnixTime.js');
-const { toUnixTime } = require('./toUnixTime.js');
 
 module.exports = {
-  toDateTime,
-  getFullDateTime,
   getDateTime,
+  getFullDateTime,
   getUnixTime,
+  toDateTime,
   toUnixTime,
 };
