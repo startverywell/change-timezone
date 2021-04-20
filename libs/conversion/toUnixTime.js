@@ -10,10 +10,8 @@ const { getStringToReplace } = require('./getStringToReplace.js');
 function toUnixTime(input, fromTimeZone) {
   const dateValueFromInput = getDateTime(input);
   let unixTime = null;
-  let stringToReplace = null;
   if (dateValueFromInput) {
     unixTime = momentInterface.dateTimeToUnixTime(dateValueFromInput, fromTimeZone);
-    stringToReplace = getStringToReplace(input);
   }
 
   /*
@@ -23,7 +21,7 @@ function toUnixTime(input, fromTimeZone) {
    }
   */
 
-  return { unixTime, stringToReplace };
+  return unixTime;
 }
 
 module.exports = { toUnixTime };

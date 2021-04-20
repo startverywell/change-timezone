@@ -59,7 +59,7 @@
     let unixTime = conversion.getUnixTime(input);
     // If no Unix Time, convert input to Unix Time
     if (!unixTime) {
-      unixTime = conversion.toUnixTime(input, fromTimeZone).unixTime;
+      unixTime = conversion.toUnixTime(input, fromTimeZone);
     }
 
     // If Unix Time, convert Unix Time to the updated Time Zone and display
