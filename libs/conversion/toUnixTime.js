@@ -1,15 +1,12 @@
-/*
-  Gets Unix Time from a given string.
-  
-  Update this function to support other formats (will need to add appropriate regex functions to timeZoneRegex.js) 
+/* 
+  Returns a Unix Time given a string and a Time Zone
 */
 const momentInterface = require('./momentInterface.js');
 const { getDateTime } = require('./getDateTime.js');
-const { getStringToReplace } = require('./getStringToReplace.js');
 
 function toUnixTime(input, fromTimeZone) {
-  const dateValueFromInput = getDateTime(input);
   let unixTime = null;
+  const dateValueFromInput = getDateTime(input);
   if (dateValueFromInput) {
     unixTime = momentInterface.dateTimeToUnixTime(dateValueFromInput, fromTimeZone);
   }

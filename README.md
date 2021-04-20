@@ -34,12 +34,6 @@ Run `npm run dev`
 
 4. After `developer mode` has been turned on, simply drag the `dist` folder or load unpacked here: chrome://extensions/
 
-5. Date times on websites you are probably wanting to convert might not be formatted or within table elements, you can extend `libs/conversion/getUnixTimeFromString.js` with new regex checks (adding to`libs/timeZoneRegex.js` and `libs/conversion/momentInterface.js`) ensuring you return a Unix Time. Then change `ELEMENT_TO_CONVERT` in `src/convertPage.js` to the element that your date times are within.
-
-**Note:** the page default (that the page converter converts from automatically) is set to "America/Los_Angeles" which can be changed via `PAGE_DEFAULT_TIMEZONE` in `src/main.js`.
-
-**Note:** the elements inner html are converted and formatted to: `YYYY-MM-DD HH:MM:SS [Time Zone Abbreviation]` / `2021-01-01 09:00:00 PDT`
-
 ## Usage
 
 1. Open `tests/mock-site/index-dev.html` in a Chrome browser
@@ -47,12 +41,21 @@ Run `npm run dev`
 3. Change the page Time Zone and click Convert
 4. Manually enter a Date Time or Unix Time with from - to Time Zones via text input or through the picker, and click Convert
 
-## Production usage
+### Production usage only
 
-1. Same as [Usage](https://github.com/richardaspinall/chrome-timezone-converter#usage) above
-2. There should also be the clock icon in your Chrome extensions tray (you may need to pin it), this can be used to manually convert whereever you are in Chrome regardless of the `manifest.json`
+There should also be the clock icon in your Chrome extensions tray (you may need to pin it), this can be used to manually convert whereever you are in Chrome regardless of the `manifest.json`
+
+## Extending
 
 ---
+
+Adding or modifiying formats that will be looked for and then converted on the page can be done by adding to: `libs/conversion/toUnixTime.js` and `/getStringToReplace.js`
+
+**Note:** change `ELEMENT_TO_CONVERT` in `src/convertPage.js` to the element type that your date times are within (if they are not in a table / td elements).
+
+**Note:** the page default (that the page converter converts from automatically) is set to "America/Los_Angeles" which can be changed via `PAGE_DEFAULT_TIMEZONE` in `src/main.js`.
+
+**Note:** the elements inner html are converted and formatted to: `YYYY-MM-DD HH:MM:SS [Time Zone Abbreviation]` / `2021-01-01 09:00:00 PDT`
 
 ## Resources
 
