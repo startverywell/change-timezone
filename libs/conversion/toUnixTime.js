@@ -5,7 +5,7 @@
 */
 const momentInterface = require('./momentInterface.js');
 const { getDateTime } = require('./getDateTime.js');
-const { getFullDateTime } = require('./getFullDateTime.js');
+const { getStringToReplace } = require('./getStringToReplace.js');
 
 function toUnixTime(input, fromTimeZone) {
   const dateValueFromInput = getDateTime(input);
@@ -13,15 +13,17 @@ function toUnixTime(input, fromTimeZone) {
   let stringToReplace = null;
   if (dateValueFromInput) {
     unixTime = momentInterface.dateTimeToUnixTime(dateValueFromInput, fromTimeZone);
-    stringToReplace = getFullDateTime(input);
+    stringToReplace = getStringToReplace(input);
   }
-  return { unixTime, stringToReplace };
+
   /*
    Add further formats to convert below by returning a Unix Time via ./momentInterface and ../timeZoneRegex.js as per the above
    if(regex(input)){
      return unixTime / (0000000000)
    }
   */
+
+  return { unixTime, stringToReplace };
 }
 
 module.exports = { toUnixTime };

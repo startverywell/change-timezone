@@ -1,12 +1,12 @@
 const { toDateTime } = require('./toDateTime.js');
-const { getFullDateTime } = require('./getFullDateTime.js');
+const { getStringToReplace } = require('./getStringToReplace.js');
 const { toUnixTime } = require('./toUnixTime.js');
 const { getDateTime } = require('./getDateTime.js');
 const { getUnixTime } = require('./getUnixTime.js');
 
 module.exports = {
   getDateTime,
-  getFullDateTime,
+  getStringToReplace,
   getUnixTime,
   toDateTime,
   toUnixTime,
