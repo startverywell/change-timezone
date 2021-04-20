@@ -1,3 +1,5 @@
+const { unix } = require('moment');
+
 /* 
  Adds events for page Popup
 */
@@ -59,10 +61,7 @@
     let unixTime = conversion.getUnixTime(input);
     // If no Unix Time, convert input to Unix Time
     if (!unixTime) {
-      const conversionObject = conversion.toUnixTime(input, fromTimeZone);
-      if (conversionObject) {
-        unixTime = conversionObject.unixTime;
-      }
+      unixTime = conversion.toUnixTime(input, fromTimeZone).unixTime;
     }
 
     // If Unix Time, convert Unix Time to the updated Time Zone and display

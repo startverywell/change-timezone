@@ -12,20 +12,16 @@ const ELEMENT_TO_CONVERT = 'td';
 function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
   if (elements.length != 0) {
     elements.forEach(function (element) {
-      // Get Unix Time from given Date Time
-      const inputObject = conversion.toUnixTime(element.innerHTML, currentTimeZone);
+      // Get Unix Time and string to replace in element from element
+      const { unixTime, stringToReplace } = conversion.toUnixTime(element.innerHTML, currentTimeZone);
 
-      if (inputObject) {
-        const unixTime = inputObject.unixTime;
-        const oldDateTime = inputObject.oldDateTime;
-        if (unixTime) {
-          // Convert to new Date Time
-          const convertedDateTime = conversion.toDateTime(unixTime, toTimeZone);
+      if (unixTime) {
+        // Convert to new Date Time
+        const convertedDateTime = conversion.toDateTime(unixTime, toTimeZone);
 
-          // Replace the old Date Time value with the converted one
-          const updatedElement = element.innerHTML.replace(oldDateTime, convertedDateTime);
-          element.innerHTML = `${updatedElement}`;
-        }
+        // Replace the old Date Time value with the converted one
+        const updatedElement = element.innerHTML.replace(stringToReplace, convertedDateTime);
+        element.innerHTML = `${updatedElement}`;
       }
     });
   }

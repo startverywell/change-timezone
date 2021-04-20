@@ -9,11 +9,13 @@ const { getFullDateTime } = require('./getFullDateTime.js');
 
 function toUnixTime(input, fromTimeZone) {
   const dateValueFromInput = getDateTime(input);
+  let unixTime = null;
+  let stringToReplace = null;
   if (dateValueFromInput) {
-    const unixTime = momentInterface.dateTimeToUnixTime(dateValueFromInput, fromTimeZone);
-    const oldDateTime = getFullDateTime(input);
-    return { unixTime, oldDateTime };
+    unixTime = momentInterface.dateTimeToUnixTime(dateValueFromInput, fromTimeZone);
+    stringToReplace = getFullDateTime(input);
   }
+  return { unixTime, stringToReplace };
   /*
    Add further formats to convert below by returning a Unix Time via ./momentInterface and ../timeZoneRegex.js as per the above
    if(regex(input)){
