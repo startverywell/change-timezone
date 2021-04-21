@@ -47,8 +47,6 @@ There should also be the clock icon in your Chrome extensions tray (you may need
 
 ## Extending
 
----
-
 Adding or modifiying formats that will be looked for and then converted on the page can be done by adding to: `libs/conversion/toUnixTime.js` and `/getStringToReplace.js`
 
 **Note:** change `ELEMENT_TO_CONVERT` in `src/convertPage.js` to the element type that your date times are within (if they are not in a table / td elements).
@@ -56,6 +54,8 @@ Adding or modifiying formats that will be looked for and then converted on the p
 **Note:** the page default (that the page converter converts from automatically) is set to "America/Los_Angeles" which can be changed via `PAGE_DEFAULT_TIMEZONE` in `src/main.js`.
 
 **Note:** the elements inner html are converted and formatted to: `YYYY-MM-DD HH:MM:SS [Time Zone Abbreviation]` / `2021-01-01 09:00:00 PDT`
+
+---
 
 ## Resources
 

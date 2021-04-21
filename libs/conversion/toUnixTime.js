@@ -4,11 +4,13 @@
 const momentInterface = require('./momentInterface.js');
 const { getDateTime } = require('./getDateTime.js');
 
+// Get rid of the "getDateTime" call and implement it here
 function toUnixTime(input, fromTimeZone) {
   let unixTime = null;
   const dateValueFromInput = getDateTime(input);
   if (dateValueFromInput) {
     unixTime = momentInterface.dateTimeToUnixTime(dateValueFromInput, fromTimeZone);
+    return unixTime;
   }
 
   /*

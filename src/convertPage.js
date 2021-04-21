@@ -13,7 +13,6 @@ function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
   if (elements.length != 0) {
     elements.forEach(function (element) {
       // Get Unix Time and string to replace in element from element
-      //const { unixTime, stringToReplace } = conversion.toUnixTime(element.innerHTML, currentTimeZone);
       const unixTime = conversion.toUnixTime(element.innerHTML, currentTimeZone);
 
       if (unixTime) {
