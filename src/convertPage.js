@@ -17,7 +17,7 @@ function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
 
       if (unixTime) {
         // Convert to new Date Time
-        const convertedDateTime = conversion.toDateTime(unixTime, toTimeZone);
+        const convertedDateTime = conversion.toFormattedDateTimeZone(unixTime, toTimeZone);
 
         // Replace the old Date Time value with the converted one
         const stringToReplace = conversion.getStringToReplace(element.innerHTML);

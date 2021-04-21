@@ -56,7 +56,7 @@
     }
 
     // Regex input for Unix Time
-    let unixTime = conversion.getUnixTime(input);
+    let unixTime = /\d{10}/.exec(input);
     // If no Unix Time, convert input to Unix Time
     if (!unixTime) {
       unixTime = conversion.toUnixTime(input, fromTimeZone);
@@ -64,7 +64,7 @@
 
     // If Unix Time, convert Unix Time to the updated Time Zone and display
     if (unixTime) {
-      const convertedDateTime = conversion.toDateTime(unixTime, toTimeZone);
+      const convertedDateTime = conversion.toFormattedDateTimeZone(unixTime, toTimeZone);
       displayConversion(convertedDateTime, unixTime);
     } else {
       displayError();
