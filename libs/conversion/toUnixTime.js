@@ -10,10 +10,10 @@ function toUnixTime(input, fromTimeZone) {
     // Ensures Unix Time (10 digits) is returned by the conversion functions
     unixTime = /\d{10}/.exec(toUnixTimeHelpers[property](input, fromTimeZone));
     if (unixTime) {
+      unixTime = unixTime[0];
       break;
     }
   }
-
   return unixTime;
 }
 

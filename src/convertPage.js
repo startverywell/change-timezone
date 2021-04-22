@@ -3,8 +3,10 @@
   or Unix Time and converts it to the user's choice
 */
 const conversion = require('../libs/conversion/');
+const { getStringToReplace } = require('./getStringToReplace.js');
 const { setTimeZoneState } = require('./setTimeZoneState.js');
 const { getTimeZoneState } = require('./getTimeZoneState.js');
+const { toFormattedDateTimeZone } = require('./toFormattedDateTimeZone');
 
 // Change to the target element on the page you want to convert
 const ELEMENT_TO_CONVERT = 'td';
@@ -17,10 +19,10 @@ function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
 
       if (unixTime) {
         // Convert to new Date Time
-        const convertedDateTime = conversion.toFormattedDateTimeZone(unixTime, toTimeZone);
+        const convertedDateTime = toFormattedDateTimeZone(unixTime, toTimeZone);
 
         // Replace the old Date Time value with the converted one
-        const stringToReplace = conversion.getStringToReplace(element.innerHTML);
+        const stringToReplace = getStringToReplace(element.innerHTML);
 
         const updatedElement = element.innerHTML.replace(stringToReplace, convertedDateTime);
         element.innerHTML = `${updatedElement}`;

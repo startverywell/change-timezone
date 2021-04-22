@@ -10,6 +10,7 @@ function setTimeZoneState(selectedTimeZone) {
   }
   // Updates page select Time Zone value
   document.getElementById('js-page-timezone').value = selectedTimeZone;
+  document.getElementById('js-from-timezone').value = selectedTimeZone;
 }
 
 module.exports = { setTimeZoneState };
