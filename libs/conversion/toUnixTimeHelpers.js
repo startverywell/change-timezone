@@ -13,7 +13,7 @@ function YMDHMS(input, fromTimeZone) {
   return;
 }
 
-// Convert this
+// Convert this too
 
 // Export the function you wish the converter to support here
 module.exports = { YMDHMS };
