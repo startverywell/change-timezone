@@ -4,11 +4,9 @@ import conversion from '../conversion';
 // Import custom page conversion function
 import convertPage from '../convertPage.js';
 
-// Import custom page conversion function
-import toFormattedDateTimeZone from '../toFormattedDateTimeZone.js';
-
 // Import Popup functions
 import { togglePopup, closeAlert, toggleInputs, displayConversion, displayError } from './js/script.js';
+
 /* 
  Adds events for page Popup
 */
@@ -66,7 +64,7 @@ import { togglePopup, closeAlert, toggleInputs, displayConversion, displayError 
 
     // If Unix Time, convert Unix Time to the updated Time Zone and display
     if (unixTime) {
-      const convertedDateTime = toFormattedDateTimeZone(unixTime, toTimeZone);
+      const convertedDateTime = conversion.toFormattedDateTimeZone(unixTime, toTimeZone);
       displayConversion(convertedDateTime, unixTime);
     } else {
       displayError();

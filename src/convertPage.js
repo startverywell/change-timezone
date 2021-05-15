@@ -3,8 +3,6 @@
   or Unix Time and converts it to the user's choice
 */
 import conversion from './conversion';
-import toFormattedDateTimeZone from './toFormattedDateTimeZone';
-import getStringToReplace from './getStringToReplace.js';
 import setTimeZoneState from './setTimeZoneState.js';
 import getTimeZoneState from './getTimeZoneState.js';
 
@@ -18,10 +16,10 @@ function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
       const unixTime = conversion.toUnixTime(element.innerHTML, currentTimeZone);
       if (unixTime) {
         // Convert to new Date Time
-        const convertedDateTime = toFormattedDateTimeZone(unixTime, toTimeZone);
+        const convertedDateTime = conversion.toFormattedDateTimeZone(unixTime, toTimeZone);
 
         // Replace the old Date Time value with the converted one
-        const stringToReplace = getStringToReplace(element.innerHTML);
+        const stringToReplace = conversion.getStringToReplace(element.innerHTML);
 
         const updatedElement = element.innerHTML.replace(stringToReplace, convertedDateTime);
         element.innerHTML = `${updatedElement}`;

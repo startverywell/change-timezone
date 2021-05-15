@@ -5,7 +5,7 @@
   Examples:
   2020-01-01 09:00:00 PST
 */
-import momentInterface from '../libs/momentInterface.js';
+import momentInterface from '../../libs/momentInterface.js';
 
 export default function toFormattedDateTimeZone(unixTime, toTimeZone) {
   const dateTime = momentInterface.unixTimeToDateTime(unixTime, toTimeZone);
