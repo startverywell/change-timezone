@@ -1,7 +1,7 @@
 /* 
  Add functions that convert a Date Time string and Time Zone as input and return Unix Times
 */
-import momentInterface from '../momentInterface.js';
+import momentInterface from '../../libs/momentInterface.js';
 
 // Converts format: YYYY-MM-DD HH:MM:SS ABC (e.g 2020-01-01 09:00:00 PST)
 // https://en.wikipedia.org/wiki/ISO_8601

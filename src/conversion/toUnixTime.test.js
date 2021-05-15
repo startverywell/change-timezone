@@ -1,6 +1,6 @@
 import assert from 'assert';
 
-import conversion from '../conversion';
+import conversion from '.';
 describe('Testing conversion lib', function () {
   it('Should return null because the string does not have a Date Time', function () {
     assert.deepStrictEqual(conversion.toUnixTime('No date here!', 'America/Los_Angeles'), null);

@@ -8,7 +8,6 @@
     "test": "tests"
   },
   "scripts": {
-    "pretest": "mocha --reporter progress buildScripts/testSetup.js \"libs/**/*.test.js\"",
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
     "predev": "npm test",
     "dev": "npx webpack --env.NODE_ENV=local",
