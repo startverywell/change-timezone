@@ -6,7 +6,7 @@ import momentInterface from '../../libs/momentInterface.js';
 // Converts format: YYYY-MM-DD HH:MM:SS ABC (e.g 2020-01-01 09:00:00 PST)
 // https://en.wikipedia.org/wiki/ISO_8601
 function isoDateTimeFormat(input, fromTimeZone) {
-  const dateTime = /(\d{4}\-\d{2}\-\d{2}(?:\s|T)\d{2}(?:\:\d{2}){1,2})/.exec(input);
+  const dateTime = /(\d{4}-\d{2}-\d{2}(?:\s|T)\d{2}(?::\d{2}){1,2})/.exec(input);
   if (dateTime) {
     const unixTime = momentInterface.dateTimeToUnixTime(dateTime[1], fromTimeZone);
     return unixTime;
@@ -14,12 +14,12 @@ function isoDateTimeFormat(input, fromTimeZone) {
 }
 
 // Converts format: XXXXXXX
-function XXXXFormat(input, fromTimeZone) {
-  // const dateTime = /SOMETHING/.exec(input);
-  // if (dateTime) {
-  //   const unixTime = momentInterface.dateTimeToUnixTime(dateTime[1], fromTimeZone);
-  //   return unixTime;
-  // }
-}
+// function XXXXFormat(input, fromTimeZone) {
+//   const dateTime = /SOMETHING/.exec(input);
+//   if (dateTime) {
+//     const unixTime = momentInterface.dateTimeToUnixTime(dateTime[1], fromTimeZone);
+//     return unixTime;
+//   }
+// }
 
-export default { isoDateTimeFormat, XXXXFormat };
+export default { isoDateTimeFormat };

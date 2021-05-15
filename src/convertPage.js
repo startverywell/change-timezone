@@ -42,8 +42,6 @@ export default function convertPage(newTimeZone) {
 
       // Refresh and not installing for first time
       if (currentTimeZone) {
-        console.log(currentTimeZone, newTimeZone);
-
         setTimeZone(newTimeZone);
         selectedTimeZone = newTimeZone;
       } else {

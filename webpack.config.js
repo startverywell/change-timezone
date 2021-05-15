@@ -1,16 +1,13 @@
-const path = require('path');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = (env) => {
-  let PRODUCTION;
+  let PRODUCTION = false;
   let DEVTOOL;
-  if (env.NODE_ENV === 'production') {
-    PRODUCTION = true;
-    DEVTOOL: 'none';
-  } else {
-    PRODUCTION = false;
+  if (env.NODE_ENV !== 'production') {
     DEVTOOL = 'eval-source-map';
+  } else {
+    PRODUCTION = true;
   }
 
   return {

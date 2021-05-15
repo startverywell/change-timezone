@@ -6,7 +6,7 @@ import convertPage from './convertPage.js';
 import setTimeZone from './setTimeZone.js';
 
 (function () {
-  console.log('Production = ' + PRODUCTION);
+  console.log('Production = ' + PRODUCTION); // eslint-disable-line no-console
   const PAGE_DEFAULT_TIMEZONE = 'America/Los_Angeles';
 
   const query = document.querySelector.bind(document);
