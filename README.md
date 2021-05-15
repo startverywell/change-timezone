@@ -22,7 +22,7 @@ The target element on a page is a table data cell (`'td'`) and format of: `YYYY-
 
 ## Development
 
-Run `npm run dev`
+Run `npm run dev -s`
 
 ## Production
 

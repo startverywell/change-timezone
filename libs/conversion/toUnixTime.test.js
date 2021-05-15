@@ -1,16 +1,7 @@
-/*
-  Note: testing is now done to the side of each file
-*/
 import assert from 'assert';
 
-import conversion from '../../libs/conversion';
-import toFormattedDateTimeZone from '../../src/toFormattedDateTimeZone';
-
+import conversion from '../conversion';
 describe('Testing conversion lib', function () {
-  it('Should return a converted Date Time', function () {
-    assert.deepStrictEqual(toFormattedDateTimeZone('1609488000', 'America/Los_Angeles'), '2021-01-01 00:00:00 PDT');
-  });
-
   it('Should return null because the string does not have a Date Time', function () {
     assert.deepStrictEqual(conversion.toUnixTime('No date here!', 'America/Los_Angeles'), null);
   });
