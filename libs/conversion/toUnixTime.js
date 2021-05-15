@@ -5,7 +5,6 @@ const toUnixTimeHelpers = require('./toUnixTimeHelpers.js');
 
 function toUnixTime(input, fromTimeZone) {
   let unixTime;
-
   for (const property in toUnixTimeHelpers) {
     // Ensures Unix Time (10 digits) is returned by the conversion functions
     unixTime = /\d{10}/.exec(toUnixTimeHelpers[property](input, fromTimeZone));
