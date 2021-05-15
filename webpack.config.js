@@ -4,14 +4,17 @@ const webpack = require('webpack');
 
 module.exports = (env) => {
   let PRODUCTION;
+  let DEVTOOL;
   if (env.NODE_ENV === 'production') {
     PRODUCTION = true;
+    DEVTOOL: 'none';
   } else {
     PRODUCTION = false;
+    DEVTOOL = 'eval-source-map';
   }
 
   return {
-    devtool: 'eval-source-map',
+    devtool: DEVTOOL,
     entry: {
       main: './src/main.js',
       popup: './src/popup/addPopupDomEvents.js',
