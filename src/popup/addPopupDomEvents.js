@@ -1,19 +1,18 @@
+// Import conversion library
+import conversion from '../../libs/conversion';
+
+// Import custom page conversion function
+import convertPage from '../convertPage.js';
+
+// Import custom page conversion function
+import toFormattedDateTimeZone from '../toFormattedDateTimeZone.js';
+
+// Import Popup functions
+import { togglePopup, closeAlert, toggleInputs, displayConversion, displayError } from './js/script.js';
 /* 
  Adds events for page Popup
 */
 (function () {
-  // Import conversion library
-  const conversion = require('../../libs/conversion');
-
-  // Import custom page conversion function
-  const { convertPage } = require('../convertPage.js');
-
-  // Import custom page conversion function
-  const { toFormattedDateTimeZone } = require('../toFormattedDateTimeZone.js');
-
-  // Import Popup functions
-  const { togglePopup, closeAlert, toggleInputs, displayConversion, displayError } = require('./js/script.js');
-
   // Bind document functions for querying the DOM
   const queryID = document.getElementById.bind(document);
 

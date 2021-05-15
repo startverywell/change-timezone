@@ -1,5 +1,2 @@
-const { toUnixTime } = require('./toUnixTime.js');
-
-module.exports = {
-  toUnixTime,
-};
+import toUnixTime from './toUnixTime.js';
+export default { toUnixTime };

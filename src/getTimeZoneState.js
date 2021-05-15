@@ -1,7 +1,7 @@
 /*
  Gets Time Zone (only used for dev as Chrome extension makes an asynchronous call)
 */
-function getTimeZoneState() {
+export default function getTimeZoneState() {
   const timeZoneState = {};
 
   timeZoneState.currentTimeZone = localStorage.getItem('currentTimeZone');
@@ -9,4 +9,3 @@ function getTimeZoneState() {
 
   return timeZoneState;
 }
-module.exports = { getTimeZoneState };

@@ -1,7 +1,7 @@
 /*
  Sets Time Zone in Chrome storage (production) or Local storage (dev) 
 */
-function setTimeZoneState(selectedTimeZone) {
+export default function setTimeZoneState(selectedTimeZone) {
   if (PRODUCTION) {
     chrome.storage.local.set({ currentTimeZone: selectedTimeZone, selectedTimeZone: selectedTimeZone }, function () {});
   } else {
@@ -12,5 +12,3 @@ function setTimeZoneState(selectedTimeZone) {
   document.getElementById('js-page-timezone').value = selectedTimeZone;
   document.getElementById('js-from-timezone').value = selectedTimeZone;
 }
-
-module.exports = { setTimeZoneState };

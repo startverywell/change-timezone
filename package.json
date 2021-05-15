@@ -8,7 +8,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "mocha \"tests/mocha/**/*.js\"",
+    "test": "mocha buildScripts/testSetup.js \"tests/mocha/**/*.js\"",
     "dev": "npx webpack --env.NODE_ENV=local",
     "build": "npx webpack --env.NODE_ENV=production"
   },
@@ -27,6 +27,12 @@
     "moment-timezone": "^0.5.26"
   },
   "devDependencies": {
+    "@babel/cli": "7.13.0",
+    "@babel/core": "7.13.8",
+    "@babel/node": "^7.13.0",
+    "@babel/preset-env": "7.13.8",
+    "@babel/register": "7.13.8",
+    "babel-loader": "8.2.2",
     "css-loader": "^5.2.0",
     "file-loader": "^6.2.0",
     "mocha": "^8.3.2",

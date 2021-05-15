@@ -1,8 +1,8 @@
 /*
   Wrapper functions to interface with moment
 */
-const moment = require('moment');
-const momenttz = require('moment-timezone');
+import moment from 'moment';
+import momenttz from 'moment-timezone';
 
 function formatDateTime(dateTime) {
   return moment(dateTime).format('YYYY-MM-DD HH:mm:ss');
@@ -28,8 +28,4 @@ function dateTimeToUnixTime(dateTime, timeZone) {
   return unixTime;
 }
 
-module.exports = {
-  getZoneName,
-  unixTimeToDateTime,
-  dateTimeToUnixTime,
-};
+export default { getZoneName, unixTimeToDateTime, dateTimeToUnixTime };

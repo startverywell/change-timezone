@@ -11,6 +11,7 @@ module.exports = (env) => {
   }
 
   return {
+    devtool: 'eval-source-map',
     entry: {
       main: './src/main.js',
       popup: './src/popup/addPopupDomEvents.js',

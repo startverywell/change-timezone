@@ -1,6 +1,6 @@
-const stringsToReplace = require('./stringsToReplace.js');
+import stringsToReplace from './stringsToReplace.js';
 
-function getStringToReplace(target) {
+export default function getStringToReplace(target) {
   let stringToReplace;
   for (const regex in stringsToReplace) {
     stringToReplace = stringsToReplace[regex].exec(target);
@@ -11,5 +11,3 @@ function getStringToReplace(target) {
   }
   return stringToReplace;
 }
-
-module.exports = { getStringToReplace };

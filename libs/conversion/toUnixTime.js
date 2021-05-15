@@ -1,10 +1,11 @@
 /* 
   Returns a Unix Time given a string and a Time Zone
 */
-const toUnixTimeHelpers = require('./toUnixTimeHelpers.js');
+import toUnixTimeHelpers from './toUnixTimeHelpers.js';
 
-function toUnixTime(input, fromTimeZone) {
+export default function toUnixTime(input, fromTimeZone) {
   let unixTime;
+
   for (const property in toUnixTimeHelpers) {
     // Ensures Unix Time (10 digits) is returned by the conversion functions
     unixTime = /\d{10}/.exec(toUnixTimeHelpers[property](input, fromTimeZone));
@@ -15,5 +16,3 @@ function toUnixTime(input, fromTimeZone) {
   }
   return unixTime;
 }
-
-module.exports = { toUnixTime };

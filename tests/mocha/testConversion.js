@@ -1,21 +1,11 @@
 const conversion = require('../../libs/conversion');
+const { toFormattedDateTimeZone } = require('../../src/toFormattedDateTimeZone');
 
 var assert = require('assert');
 
 describe('Testing conversion lib', function () {
-  // it('Should return Date Time (2021-01-01 19:00:00) from a string', function () {
-  //   assert.strictEqual(conversion.getDateTime('2021-01-01 19:00:00'), '2021-01-01 19:00:00');
-  // });
-
-  // it('Should return Unix Time (10 digits only) from a string', function () {
-  //   assert.deepStrictEqual(conversion.getUnixTime('1609488000'), '1609488000');
-  // });
-
   it('Should return a converted Date Time', function () {
-    assert.deepStrictEqual(
-      conversion.toFormattedDateTimeZone('1609488000', 'America/Los_Angeles'),
-      '2021-01-01 00:00:00 PDT'
-    );
+    assert.deepStrictEqual(toFormattedDateTimeZone('1609488000', 'America/Los_Angeles'), '2021-01-01 00:00:00 PDT');
   });
 
   it('Should return null because the string does not have a Date Time', function () {

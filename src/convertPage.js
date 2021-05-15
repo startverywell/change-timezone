@@ -2,11 +2,11 @@
   Checks every element of type td (table data cell) on the current page for a Date Time value
   or Unix Time and converts it to the user's choice
 */
-const conversion = require('../libs/conversion/');
-const { getStringToReplace } = require('./getStringToReplace.js');
-const { setTimeZoneState } = require('./setTimeZoneState.js');
-const { getTimeZoneState } = require('./getTimeZoneState.js');
-const { toFormattedDateTimeZone } = require('./toFormattedDateTimeZone');
+import conversion from '../libs/conversion/';
+import toFormattedDateTimeZone from './toFormattedDateTimeZone';
+import getStringToReplace from './getStringToReplace.js';
+import setTimeZoneState from './setTimeZoneState.js';
+import getTimeZoneState from './getTimeZoneState.js';
 
 // Change to the target element on the page you want to convert
 const ELEMENT_TO_CONVERT = 'td';
@@ -16,7 +16,6 @@ function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
     elements.forEach(function (element) {
       // Get Unix Time and string to replace in element from element
       const unixTime = conversion.toUnixTime(element.innerHTML, currentTimeZone);
-
       if (unixTime) {
         // Convert to new Date Time
         const convertedDateTime = toFormattedDateTimeZone(unixTime, toTimeZone);
@@ -31,7 +30,7 @@ function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
   }
 }
 
-function convertPage(newTimeZone) {
+export default function convertPage(newTimeZone) {
   // Select all TD elemets on page
   const elements = document.body.querySelectorAll(ELEMENT_TO_CONVERT);
   let currentTimeZone, selectedTimeZone;
@@ -66,5 +65,3 @@ function convertPage(newTimeZone) {
     setTimeZoneState(newTimeZone);
   }
 }
-
-module.exports = { convertPage };

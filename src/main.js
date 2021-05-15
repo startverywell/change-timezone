@@ -2,14 +2,12 @@ import options from './popup/html/options.html';
 import popupButton from './popup/html/popup.html';
 import iconImageURL from './popup/images/tcicon128.png';
 import './popup/css/popup.scss';
+import convertPage from './convertPage.js';
+import setTimeZoneState from './setTimeZoneState.js';
 
 (function () {
   console.log('Production = ' + PRODUCTION);
   const PAGE_DEFAULT_TIMEZONE = 'America/Los_Angeles';
-
-  // const addPopupDomEvents = require('./popup/addPopupDomEvents.js').default;
-  const { convertPage } = require('./convertPage.js');
-  const { setTimeZoneState } = require('./setTimeZoneState.js');
 
   const query = document.querySelector.bind(document);
 
