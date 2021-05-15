@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./favicon.ico" />
 </head>
+
 <style>
     body {
         font-size: 30px;
@@ -33,9 +34,25 @@
     img {
         width: 100%
     }
+
+    #hideAll {
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        background-color: black;
+        z-index: 99;
+        /* Higher than anything else in the document */
+
+    }
 </style>
 
+
+
 <body>
+    <div style="display: none" id="hideAll">&nbsp;</div>
+
     <div style="width: 400px; margin: 0 auto">
         <table style="width:100%">
             <tbody>
@@ -97,7 +114,10 @@
         <img src="./arrow.png" alt="">
     </div>
 </body>
+<script type="text/javascript">
+    document.getElementById("hideAll").style.display = "block";
+</script>
 <script src="./main.js"></script>
-
+<script src="./nomobile.js"></script>
 
 </html>
