@@ -1,7 +1,7 @@
-const conversion = require('../../libs/conversion');
-const { toFormattedDateTimeZone } = require('../../src/toFormattedDateTimeZone');
+import assert from 'assert';
 
-var assert = require('assert');
+import conversion from '../../libs/conversion';
+import toFormattedDateTimeZone from '../../src/toFormattedDateTimeZone';
 
 describe('Testing conversion lib', function () {
   it('Should return a converted Date Time', function () {

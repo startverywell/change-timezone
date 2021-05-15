@@ -1,6 +1,6 @@
-const { getStringToReplace } = require('../../src/getStringToReplace.js');
+import assert from 'assert';
+import getStringToReplace from '../../src/getStringToReplace.js';
 
-var assert = require('assert');
 describe('Should return the Date Time strings we support converting', function () {
   it('YYYY-MM-DD HH:MM:SS', function () {
     assert.deepStrictEqual(getStringToReplace('2021-01-01 19:00:00'), '2021-01-01 19:00:00');
