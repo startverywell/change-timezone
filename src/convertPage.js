@@ -3,8 +3,8 @@
   or Unix Time and converts it to the user's choice
 */
 import conversion from './conversion';
-import setTimeZoneState from './setTimeZoneState.js';
-import getTimeZoneState from './getTimeZoneState.js';
+import setTimeZone from './setTimeZone.js';
+import getTimeZone from './getTimeZone.js';
 
 // Change to the target element on the page you want to convert
 const ELEMENT_TO_CONVERT = 'td';
@@ -44,22 +44,22 @@ export default function convertPage(newTimeZone) {
       if (currentTimeZone) {
         console.log(currentTimeZone, newTimeZone);
 
-        setTimeZoneState(newTimeZone);
+        setTimeZone(newTimeZone);
         selectedTimeZone = newTimeZone;
       } else {
         currentTimeZone = result.currentTimeZone;
-        setTimeZoneState(newTimeZone);
+        setTimeZone(newTimeZone);
         selectedTimeZone = newTimeZone;
       }
 
       convertElementsInDom(elements, currentTimeZone, selectedTimeZone);
     });
   } else {
-    currentTimeZone = getTimeZoneState().currentTimeZone;
+    currentTimeZone = getTimeZone().currentTimeZone;
     // Check if there are TD values on the page
     convertElementsInDom(elements, currentTimeZone, newTimeZone);
 
     // Set storage and display options to selected TimeZone
-    setTimeZoneState(newTimeZone);
+    setTimeZone(newTimeZone);
   }
 }

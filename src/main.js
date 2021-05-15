@@ -3,7 +3,7 @@ import popupButton from './popup/html/popup.html';
 import iconImageURL from './popup/images/tcicon128.png';
 import './popup/css/popup.scss';
 import convertPage from './convertPage.js';
-import setTimeZoneState from './setTimeZoneState.js';
+import setTimeZone from './setTimeZone.js';
 
 (function () {
   console.log('Production = ' + PRODUCTION);
@@ -39,7 +39,7 @@ import setTimeZoneState from './setTimeZoneState.js';
         selectedTimeZone = result.selectedTimeZone;
         // Only runs on installation / defaults to PT time
         if (!selectedTimeZone) {
-          setTimeZoneState(PAGE_DEFAULT_TIMEZONE);
+          setTimeZone(PAGE_DEFAULT_TIMEZONE);
           selectedTimeZone = PAGE_DEFAULT_TIMEZONE;
         }
         convertPage(selectedTimeZone);
@@ -52,7 +52,7 @@ import setTimeZoneState from './setTimeZoneState.js';
     selectedTimeZone = localStorage.getItem('selectedTimeZone');
     // Only runs on installation / defaults to PT time
     if (!selectedTimeZone) {
-      setTimeZoneState(PAGE_DEFAULT_TIMEZONE);
+      setTimeZone(PAGE_DEFAULT_TIMEZONE);
       selectedTimeZone = PAGE_DEFAULT_TIMEZONE;
     }
     convertPage(selectedTimeZone);
