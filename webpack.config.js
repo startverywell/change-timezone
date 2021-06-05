@@ -14,7 +14,7 @@ module.exports = (env) => {
     devtool: DEVTOOL,
     entry: {
       main: './src/main.js',
-      popup: './src/popup/addPopupDomEvents.js',
+      popup: './src/popup/registerDOMEvents.js',
     },
     output: {
       publicPath: '',

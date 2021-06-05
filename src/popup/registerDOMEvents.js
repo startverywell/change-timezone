@@ -64,7 +64,7 @@ import { togglePopup, closeAlert, toggleInputs, displayConversion, displayError 
 
     // If Unix Time, convert Unix Time to the updated Time Zone and display
     if (unixTime) {
-      const convertedDateTime = conversion.toFormattedDateTimeZone(unixTime, toTimeZone);
+      const convertedDateTime = conversion.toDateTimeZone(unixTime, toTimeZone);
       displayConversion(convertedDateTime, unixTime);
     } else {
       displayError();

@@ -3,7 +3,7 @@ import popupButton from './popup/html/popup.html';
 import iconImageURL from './popup/images/tcicon128.png';
 import './popup/css/popup.scss';
 import convertPage from './convertPage.js';
-import setTimeZone from './setTimeZone.js';
+import setTimeZonePref from './setTimeZonePref.js';
 
 (function () {
   console.log('Production = ' + PRODUCTION); // eslint-disable-line no-console
@@ -22,9 +22,7 @@ import setTimeZone from './setTimeZone.js';
   query('#js-to-timeZone').innerHTML = options;
 
   // Add event listeners to Popup
-  require('./popup/addPopupDomEvents.js');
-
-  // addPopupDomEvents();
+  require('./popup/registerDOMEvents.js');
 
   let selectedTimeZone;
   const imgElement = new Image();
@@ -39,7 +37,7 @@ import setTimeZone from './setTimeZone.js';
         selectedTimeZone = result.selectedTimeZone;
         // Only runs on installation / defaults to PT time
         if (!selectedTimeZone) {
-          setTimeZone(PAGE_DEFAULT_TIMEZONE);
+          setTimeZonePref(PAGE_DEFAULT_TIMEZONE);
           selectedTimeZone = PAGE_DEFAULT_TIMEZONE;
         }
         convertPage(selectedTimeZone);
@@ -52,7 +50,7 @@ import setTimeZone from './setTimeZone.js';
     selectedTimeZone = localStorage.getItem('selectedTimeZone');
     // Only runs on installation / defaults to PT time
     if (!selectedTimeZone) {
-      setTimeZone(PAGE_DEFAULT_TIMEZONE);
+      setTimeZonePref(PAGE_DEFAULT_TIMEZONE);
       selectedTimeZone = PAGE_DEFAULT_TIMEZONE;
     }
     convertPage(selectedTimeZone);

@@ -3,8 +3,8 @@
   or Unix Time and converts it to the user's choice
 */
 import conversion from './conversion';
-import setTimeZone from './setTimeZone.js';
-import getTimeZone from './getTimeZone.js';
+import setTimeZonePref from './setTimeZonePref.js';
+import getTimeZonePref from './getTimeZonePref.js';
 
 // Change to the target element on the page you want to convert
 const ELEMENT_TO_CONVERT = 'td';
@@ -16,7 +16,7 @@ function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
       const unixTime = conversion.toUnixTime(element.innerHTML, currentTimeZone);
       if (unixTime) {
         // Convert to new Date Time
-        const convertedDateTime = conversion.toFormattedDateTimeZone(unixTime, toTimeZone);
+        const convertedDateTime = conversion.toDateTimeZone(unixTime, toTimeZone);
 
         // Replace the old Date Time value with the converted one
         const stringToReplace = conversion.getStringToReplace(element.innerHTML);
@@ -42,22 +42,22 @@ export default function convertPage(newTimeZone) {
 
       // Refresh and not installing for first time
       if (currentTimeZone) {
-        setTimeZone(newTimeZone);
+        setTimeZonePref(newTimeZone);
         selectedTimeZone = newTimeZone;
       } else {
         currentTimeZone = result.currentTimeZone;
-        setTimeZone(newTimeZone);
+        setTimeZonePref(newTimeZone);
         selectedTimeZone = newTimeZone;
       }
 
       convertElementsInDom(elements, currentTimeZone, selectedTimeZone);
     });
   } else {
-    currentTimeZone = getTimeZone().currentTimeZone;
+    currentTimeZone = getTimeZonePref().currentTimeZone;
     // Check if there are TD values on the page
     convertElementsInDom(elements, currentTimeZone, newTimeZone);
 
     // Set storage and display options to selected TimeZone
-    setTimeZone(newTimeZone);
+    setTimeZonePref(newTimeZone);
   }
 }

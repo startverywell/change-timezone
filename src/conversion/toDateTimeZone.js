@@ -7,7 +7,7 @@
 */
 import momentInterface from '../../libs/momentInterface.js';
 
-export default function toFormattedDateTimeZone(unixTime, toTimeZone) {
+export default function toDateTimeZone(unixTime, toTimeZone) {
   const dateTime = momentInterface.unixTimeToDateTime(unixTime, toTimeZone);
   const zoneName = momentInterface.getZoneName(toTimeZone);
   return `${dateTime} ${zoneName}`;
