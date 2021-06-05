@@ -56,7 +56,3 @@ Adding or modifiying formats that will be looked for and then converted on the p
 **Note:** the elements inner html are converted and formatted to: `YYYY-MM-DD HH:MM:SS [Time Zone Abbreviation]` / `2021-01-01 09:00:00 PDT`
 
 ---
-
-## Resources
-
-- Link to resource
