@@ -5,7 +5,7 @@
   Examples:
   2020-01-01 09:00:00 PST
 */
-import momentInterface from './momentInterface.js';
+import momentInterface from './momentInterface';
 import { TimeZoneType } from './enums';
 
 export default function toDateTimeZone(unixTime: number, toTimeZone: TimeZoneType) {

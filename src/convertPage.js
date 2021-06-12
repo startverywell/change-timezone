@@ -2,7 +2,7 @@
   Checks every element of type td (table data cell) on the current page for a Date Time value
   or Unix Time and converts it to the user's choice
 */
-import conversion from './conversion';
+import conversion from './conversion-ts';
 import setTimeZonePref from './setTimeZonePref.js';
 import getTimeZonePref from './getTimeZonePref.js';
 

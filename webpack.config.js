@@ -29,8 +29,16 @@ module.exports = (env) => {
         PRODUCTION: PRODUCTION,
       }),
     ],
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
+    },
     module: {
       rules: [
+        {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
+        },
         {
           test: /\.html/,
           type: 'asset/source',

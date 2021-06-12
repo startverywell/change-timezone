@@ -1,4 +1,4 @@
-import toUnixTime from './toUnixTime.js';
-import toDateTimeZone from './toDateTimeZone.js';
-import getStringToReplace from './getStringToReplace.js';
+import toUnixTime from './toUnixTime';
+import toDateTimeZone from './toDateTimeZone';
+import getStringToReplace from './getStringToReplace';
 export default { toUnixTime, toDateTimeZone, getStringToReplace };

@@ -1,5 +1,5 @@
 // Import conversion library
-import conversion from '../conversion';
+import conversion from '../conversion-ts';
 
 // Import custom page conversion function
 import convertPage from '../convertPage.js';
