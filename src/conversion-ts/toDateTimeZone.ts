@@ -6,11 +6,10 @@
   2020-01-01 09:00:00 PST
 */
 import momentInterface from './momentInterface';
-import { TimeZoneType } from './enums';
+import { TimeZone } from './enums';
 
-export default function toDateTimeZone(unixTime: number, toTimeZone: TimeZoneType) {
+export default function toDateTimeZone(unixTime: number, toTimeZone: TimeZone) {
   const dateTime: string = momentInterface.unixTimeToDateTime(unixTime, toTimeZone);
   const zoneName: string = momentInterface.getZoneName(toTimeZone);
-
   return `${dateTime} ${zoneName}`;
 }

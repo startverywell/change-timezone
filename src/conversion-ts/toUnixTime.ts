@@ -2,9 +2,9 @@
   Returns a Unix Time given a string and a Time Zone
 */
 import toUnixTimeHelpers from './toUnixTimeHelpers';
-import { TimeZoneType } from './enums.js';
+import { TimeZone } from './enums.js';
 
-export default function toUnixTime(input: string, fromTimeZone: TimeZoneType) {
+export default function toUnixTime(input: string, fromTimeZone: TimeZone) {
   let unixTime;
 
   for (const property in toUnixTimeHelpers) {

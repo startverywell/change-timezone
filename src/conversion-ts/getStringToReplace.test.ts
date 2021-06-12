@@ -1,5 +1,5 @@
 import assert from 'assert';
-import getStringToReplace from './getStringToReplace.js';
+import getStringToReplace from './getStringToReplace';
 
 describe('Should return the Date Time strings we support converting', function () {
   it('YYYY-MM-DD HH:MM:SS', function () {

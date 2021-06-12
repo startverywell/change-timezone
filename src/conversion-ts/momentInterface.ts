@@ -3,17 +3,17 @@
 */
 import moment from 'moment';
 import momenttz from 'moment-timezone';
-import { TimeZoneType } from './enums';
+import { TimeZone } from './enums';
 
 function formatDateTime(dateTime: moment.Moment | Date): string {
   return moment(dateTime).format('YYYY-MM-DD HH:mm:ss');
 }
 
-function getZoneName(timeZone: TimeZoneType): string {
+function getZoneName(timeZone: TimeZone): string {
   return momenttz.tz(timeZone.toString()).zoneName();
 }
 
-function unixTimeToDateTime(unixTime: number, timeZone: TimeZoneType): string {
+function unixTimeToDateTime(unixTime: number, timeZone: TimeZone): string {
   const dateTime = momenttz.tz(
     formatDateTime(new Date(unixTime * 1000)),
     Intl.DateTimeFormat().resolvedOptions().timeZone
@@ -23,7 +23,7 @@ function unixTimeToDateTime(unixTime: number, timeZone: TimeZoneType): string {
   return formatDateTime(convertedDateTime);
 }
 
-function dateTimeToUnixTime(dateTime: string, timeZone: TimeZoneType) {
+function dateTimeToUnixTime(dateTime: string, timeZone: TimeZone) {
   const newDateTime = momenttz.tz(formatDateTime(new Date(dateTime)), timeZone.toString());
   return Date.parse(newDateTime.toString()) / 1000;
 }
