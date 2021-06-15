@@ -4,14 +4,12 @@
 import toUnixTimeHelpers from './toUnixTimeHelpers';
 import { TimeZone } from './enums.js';
 
-export default function toUnixTime(input: string, fromTimeZone: TimeZone) {
-  let unixTime;
+export default function toUnixTime(input: string, timeZone: TimeZone): number | null {
+  let unixTime: number | null = null;
 
   for (const property in toUnixTimeHelpers) {
-    // Ensures Unix Time (10 digits) is returned by the conversion functions
-    unixTime = /\d{10}/.exec(toUnixTimeHelpers[property](input, fromTimeZone));
+    unixTime = toUnixTimeHelpers[property](input, timeZone);
     if (unixTime) {
-      unixTime = unixTime[0];
       break;
     }
   }

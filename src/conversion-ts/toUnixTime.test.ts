@@ -11,16 +11,13 @@ describe('Testing conversion lib', function () {
 
   describe('Should return a Unix Time', function () {
     it('Given only a Date Time string', function () {
-      assert.deepStrictEqual(
-        conversion.toUnixTime('2021-01-01 00:00:00', TimeZone['America/Los_Angeles']),
-        '1609488000'
-      );
+      assert.deepStrictEqual(conversion.toUnixTime('2021-01-01 00:00:00', TimeZone['America/Los_Angeles']), 1609488000);
     });
 
     it('Given a Date Time string with padding', function () {
       assert.deepStrictEqual(
         conversion.toUnixTime('test 2021-01-01 00:00:00 test', TimeZone['America/Los_Angeles']),
-        '1609488000'
+        1609488000
       );
     });
   });

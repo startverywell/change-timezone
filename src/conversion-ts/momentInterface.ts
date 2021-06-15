@@ -23,7 +23,7 @@ function unixTimeToDateTime(unixTime: number, timeZone: TimeZone): string {
   return formatDateTime(convertedDateTime);
 }
 
-function dateTimeToUnixTime(dateTime: string, timeZone: TimeZone) {
+function dateTimeToUnixTime(dateTime: string, timeZone: TimeZone): number {
   const newDateTime = momenttz.tz(formatDateTime(new Date(dateTime)), timeZone.toString());
   return Date.parse(newDateTime.toString()) / 1000;
 }

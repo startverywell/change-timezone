@@ -95,22 +95,22 @@ describe('Should return the Date Time strings we support converting given padded
 
 describe('Should not return Date Time strings', function () {
   it('YYY-MM-DD HH:MM:SS', function () {
-    assert.deepStrictEqual(getStringToReplace('021-01-01 19:00:00'), null);
+    assert.deepStrictEqual(getStringToReplace('021-01-01 19:00:00'), '');
   });
 
   it('ABCD-EF-GH 12:34:56', function () {
-    assert.deepStrictEqual(getStringToReplace('ABCD-EF-GH 12:34:56'), null);
+    assert.deepStrictEqual(getStringToReplace('ABCD-EF-GH 12:34:56'), '');
   });
 
   it('ABCD EF GH 12 34 56', function () {
-    assert.deepStrictEqual(getStringToReplace('ABCD EF GH 12 34 56'), null);
+    assert.deepStrictEqual(getStringToReplace('ABCD EF GH 12 34 56'), '');
   });
 
   it('1234 56 78 12 34 56', function () {
-    assert.deepStrictEqual(getStringToReplace('1234 56 78 12 34 56'), null);
+    assert.deepStrictEqual(getStringToReplace('1234 56 78 12 34 56'), '');
   });
 
   it('1234_56_78 12:34:56', function () {
-    assert.deepStrictEqual(getStringToReplace('1234_56_78 12:34:56'), null);
+    assert.deepStrictEqual(getStringToReplace('1234_56_78 12:34:56'), '');
   });
 });
