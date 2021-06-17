@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Time Zone Converter",
   "version": "3.0.0",
-  "version_name": "Refactor",
+  "version_name": "3.0.0",
   "description": "Time Zone Converter",
   "icons": { "128": "tcicon128.png" },
   "action": {
