@@ -4,13 +4,17 @@ const webpack = require('webpack');
 module.exports = (env) => {
   let PRODUCTION = false;
   let DEVTOOL;
+  let MODE;
   if (env.NODE_ENV !== 'production') {
     DEVTOOL = 'eval-source-map';
+    MODE = 'development';
   } else {
     PRODUCTION = true;
+    MODE = 'production';
   }
 
   return {
+    mode: MODE,
     devtool: DEVTOOL,
     entry: {
       main: './src/main.js',

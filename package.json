@@ -10,9 +10,9 @@
   "scripts": {
     "test": "mocha -r ts-node/register src/**/*.ts",
     "predev": "npm test",
-    "dev": "npx webpack --env.NODE_ENV=local",
+    "dev": "webpack --env.NODE_ENV=local",
     "prebuild": "npm-run-all test lint",
-    "build": "npx webpack --env.NODE_ENV=production",
+    "build": "webpack --env.NODE_ENV=production",
     "lint": "esw webpack.config.* src --color"
   },
   "repository": {
