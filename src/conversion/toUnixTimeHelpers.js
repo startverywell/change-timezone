@@ -14,12 +14,13 @@ function isoDateTimeFormat(input, fromTimeZone) {
 }
 
 // Converts format: XXXXXXX
-// function XXXXFormat(input, fromTimeZone) {
-//   const dateTime = /SOMETHING/.exec(input);
-//   if (dateTime) {
-//     const unixTime = momentInterface.dateTimeToUnixTime(dateTime[1], fromTimeZone);
-//     return unixTime;
-//   }
-// }
+function dateTimeReverse(input, fromTimeZone) {
+  const dateTime = /\d{2}\:\d{2}\:\d{2}\s[P|A]M\,\s\w{3}\s{1,2}\d{1,2}\s\d{4}/.exec(input);
 
-export default { isoDateTimeFormat };
+  if (dateTime) {
+    const unixTime = momentInterface.dateTimeToUnixTime(dateTime[0], fromTimeZone);
+    return unixTime;
+  }
+}
+
+export default { isoDateTimeFormat, dateTimeReverse };
