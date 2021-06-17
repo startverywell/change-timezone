@@ -40,7 +40,7 @@ export function displayConversion(dateTime, unixTime) {
   queryID('js-conversion-output').classList.remove('hide-timezone-element');
   queryID(
     'js-conversion-output'
-  ).innerHTML = `<label>&#9989;</label> <h3>Conversion results: </h3>  <h2><span style="color:#D56856;">${dateTimeSplit[0]}</span> <span style="color:#00BDDD;">${dateTimeSplit[1]}</span> <span>${dateTimeSplit[2]}</span></h2> <h4>Timestamp: ${unixTime}</h4>`;
+  ).innerHTML = `<label>&#9989;</label> <h3>Conversion results: </h3>  <h2><span style="color:#EAB8AE;">${dateTimeSplit[0]}</span> <span style="color:#00D4FA;">${dateTimeSplit[1]}</span> <span>${dateTimeSplit[2]}</span></h2> <h4>Timestamp: ${unixTime}</h4>`;
 }
 
 export function displayError() {
