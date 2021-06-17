@@ -15,7 +15,7 @@ function isoDateTimeFormat(input, fromTimeZone) {
 
 // Converts format: XXXXXXX
 function dateTimeReverse(input, fromTimeZone) {
-  const dateTime = /\d{2}\:\d{2}\:\d{2}\s[P|A]M\,\s\w{3}\s{1,2}\d{1,2}\s\d{4}/.exec(input);
+  const dateTime = /\d{2}:\d{2}:\d{2}\s[P|A]M,\s\w{3}\s{1,2}\d{1,2}\s\d{4}/.exec(input);
 
   if (dateTime) {
     const unixTime = momentInterface.dateTimeToUnixTime(dateTime[0], fromTimeZone);
