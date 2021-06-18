@@ -18,6 +18,16 @@ function isoDateTimeFormat(input: string, timeZone: TimeZone): number | null {
   return unixTime;
 }
 
-const arrFunctions: TimeFunction[] = [isoDateTimeFormat];
+function dateTimeReverse(input: string, fromTimeZone: TimeZone): number | null {
+  const dateTime = /\d{2}:\d{2}:\d{2}\s[P|A]M,\s\w{3}\s{1,2}\d{1,2}\s\d{4}/.exec(input);
+  let unixTime: number | null = null;
+
+  if (dateTime) {
+    unixTime = momentInterface.dateTimeToUnixTime(dateTime[0], fromTimeZone);
+  }
+  return unixTime;
+}
+
+const arrFunctions: TimeFunction[] = [isoDateTimeFormat, dateTimeReverse];
 
 export default arrFunctions;

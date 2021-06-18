@@ -21,7 +21,10 @@ describe('Testing conversion lib', function () {
       );
     });
     it('Given a Date Time reverse', function () {
-      assert.deepStrictEqual(conversion.toUnixTime('09:13:00 AM, Jun 15 2021', 'America/Los_Angeles'), '1623773580');
+      assert.deepStrictEqual(
+        conversion.toUnixTime('09:13:00 AM, Jun 15 2021', TimeZone['America/Los_Angeles']),
+        1623773580
+      );
     });
   });
 });
