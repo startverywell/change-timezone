@@ -2,7 +2,7 @@ import options from './popup/html/options.html';
 import popupButton from './popup/html/popup.html';
 import iconImageURL from './popup/images/tcicon128.png';
 import './popup/css/popup.scss';
-import conversion from './conversion';
+import { convertPage } from './conversion';
 
 import setTimeZonePref from './setTimeZonePref';
 
@@ -38,7 +38,7 @@ import setTimeZonePref from './setTimeZonePref';
           setTimeZonePref(PAGE_DEFAULT_TIMEZONE);
           selectedTimeZone = PAGE_DEFAULT_TIMEZONE;
         }
-        conversion.convertPage(selectedTimeZone);
+        convertPage(selectedTimeZone);
       });
     });
   } else {
@@ -51,7 +51,7 @@ import setTimeZonePref from './setTimeZonePref';
       setTimeZonePref(PAGE_DEFAULT_TIMEZONE);
       selectedTimeZone = PAGE_DEFAULT_TIMEZONE;
     }
-    conversion.convertPage(selectedTimeZone);
+    convertPage(selectedTimeZone);
   }
   // Add image to Popup
   query('#js-open-options').appendChild(imgElement);
