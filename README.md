@@ -4,7 +4,7 @@
 
 ## Description
 
-A Chrome extension that converts a date time to a new time zone of the user's choice.
+A Chrome extension that converts a date time to a new time zone of the user's choice..
 
 - It automatically converts any times of: YYYY-MM-DD HH:MM:SS [Time Zone Abbreviation] format to the user's chosen default. It also has a manual converter if the page hasn't automatically converted (can also convert Unix time).
 
