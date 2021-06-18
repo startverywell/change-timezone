@@ -2,9 +2,10 @@
   Checks every element of type td (table data cell) on the current page for a Date Time value
   or Unix Time and converts it to the user's choice
 */
-import conversion from './conversion-ts';
-import setTimeZonePref from './setTimeZonePref.js';
-import getTimeZonePref from './getTimeZonePref.js';
+import conversion from '..';
+import getContentToReplace from './getContentToReplace';
+import setTimeZonePref from '../../setTimeZonePref.js';
+import getTimeZonePref from '../../getTimeZonePref.js';
 
 // Change to the target element on the page you want to convert
 const ELEMENT_TO_CONVERT = 'td';
@@ -16,7 +17,7 @@ function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
       const unixTime = conversion.toUnixTime(element.innerHTML, currentTimeZone);
       if (unixTime) {
         // Get the string in the element that will be replaced
-        const stringToReplace = conversion.getStringToReplace(element.innerHTML);
+        const stringToReplace = getContentToReplace(element.innerHTML);
 
         // Convert to new Date Time
         const convertedDateTime = conversion.toDateTimeZone(unixTime, toTimeZone);

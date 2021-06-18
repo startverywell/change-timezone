@@ -2,7 +2,7 @@ import options from './popup/html/options.html';
 import popupButton from './popup/html/popup.html';
 import iconImageURL from './popup/images/tcicon128.png';
 import './popup/css/popup.scss';
-import convertPage from './convertPage.js';
+import convertPage from './conversion/convertPage';
 import setTimeZonePref from './setTimeZonePref.js';
 
 (function () {

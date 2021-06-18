@@ -1,8 +1,8 @@
 // Import conversion library
-import conversion from '../conversion-ts';
+import conversion from '../conversion';
 
 // Import custom page conversion function
-import convertPage from '../convertPage.js';
+import convertPage from '../conversion/convertPage';
 
 // Import Popup functions
 import { togglePopup, closeAlert, toggleInputs, displayConversion, displayError } from './js/script.js';
