@@ -1,9 +1,6 @@
 // Import conversion library
 import conversion from '../conversion';
 
-// Import custom page conversion function
-import convertPage from '../conversion/convertPage';
-
 // Import Popup functions
 import { togglePopup, closeAlert, toggleInputs, displayConversion, displayError } from './js/script.js';
 
@@ -18,7 +15,7 @@ import { togglePopup, closeAlert, toggleInputs, displayConversion, displayError 
 
   // Convert the entire page
   queryID('js-convert-page').onclick = () => {
-    convertPage(queryID('js-page-timezone').value);
+    conversion.convertPage(queryID('js-page-timezone').value);
   };
 
   // Toggle Popup / options display

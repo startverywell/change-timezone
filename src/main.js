@@ -2,14 +2,13 @@ import options from './popup/html/options.html';
 import popupButton from './popup/html/popup.html';
 import iconImageURL from './popup/images/tcicon128.png';
 import './popup/css/popup.scss';
-import convertPage from './conversion/convertPage';
-import setTimeZonePref from './setTimeZonePref.js';
+import conversion from './conversion';
+
+import setTimeZonePref from './setTimeZonePref';
 
 (function () {
   const PAGE_DEFAULT_TIMEZONE = 'America/Los_Angeles';
-
   const query = document.querySelector.bind(document);
-
   // Add the Popup to the page
   const converterTool = document.createElement('div');
   converterTool.innerHTML = popupButton;
@@ -39,7 +38,7 @@ import setTimeZonePref from './setTimeZonePref.js';
           setTimeZonePref(PAGE_DEFAULT_TIMEZONE);
           selectedTimeZone = PAGE_DEFAULT_TIMEZONE;
         }
-        convertPage(selectedTimeZone);
+        conversion.convertPage(selectedTimeZone);
       });
     });
   } else {
@@ -52,7 +51,7 @@ import setTimeZonePref from './setTimeZonePref.js';
       setTimeZonePref(PAGE_DEFAULT_TIMEZONE);
       selectedTimeZone = PAGE_DEFAULT_TIMEZONE;
     }
-    convertPage(selectedTimeZone);
+    conversion.convertPage(selectedTimeZone);
   }
   // Add image to Popup
   query('#js-open-options').appendChild(imgElement);

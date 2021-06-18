@@ -4,13 +4,19 @@
 */
 import conversion from '..';
 import getContentToReplace from './getContentToReplace';
-import setTimeZonePref from '../../setTimeZonePref.js';
-import getTimeZonePref from '../../getTimeZonePref.js';
+import setTimeZonePref from '../../setTimeZonePref';
+import getTimeZonePref from '../../getTimeZonePref';
+
+import { TimeZone } from '../enums.js';
 
 // Change to the target element on the page you want to convert
 const ELEMENT_TO_CONVERT = 'td';
 
-function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
+function convertElementsInDom(
+  elements: any[] | NodeListOf<HTMLTableDataCellElement>,
+  currentTimeZone: TimeZone,
+  toTimeZone: TimeZone
+) {
   if (elements.length != 0) {
     elements.forEach(function (element) {
       // Get Unix Time and string to replace in element from element
@@ -32,15 +38,15 @@ function convertElementsInDom(elements, currentTimeZone, toTimeZone) {
   }
 }
 
-export default function convertPage(newTimeZone) {
+export default function convertPage(newTimeZone: TimeZone) {
   // Select all TD elemets on page
   const elements = document.body.querySelectorAll(ELEMENT_TO_CONVERT);
-  let currentTimeZone, selectedTimeZone;
+  let currentTimeZone: TimeZone, selectedTimeZone: TimeZone;
 
-  // Convert Page needs to handle the getting of the current page
-  // We control this through this flag
+  // @ts-ignore
   if (PRODUCTION) {
     // on load or on refresh
+    // @ts-ignore
     chrome.storage.local.get(['currentTimeZone'], function (result) {
       currentTimeZone = result.currentTimeZone;
 

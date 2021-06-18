@@ -1,4 +1,5 @@
 export enum TimeZone {
+  'none' = 'none',
   'Pacific/Midway' = 'Pacific/Midway',
   'America/Adak' = 'America/Adak',
   'Pacific/Honolulu' = 'Pacific/Honolulu',
