@@ -28,10 +28,13 @@ function dateTimeReverse(input: string, timeZone: TimeZone): number | null {
   return unixTime;
 }
 
+// Function type
 type ToUnixTime = (input: string, timeZone: TimeZone) => number | null;
 
+// Array of date to unix conversion functions
 const toUnixFuncs: ToUnixTime[] = [dateTimeZone, dateTimeReverse];
 
+// Checks input with each conversion function and returns the unix time of a supported date time format
 export default function toUnixTime(input: string, timeZone: TimeZone): number | null {
   let unixTime: number | null = null;
 

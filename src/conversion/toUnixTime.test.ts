@@ -5,7 +5,7 @@ import conversion from '.';
 import { TimeZone } from './enums';
 
 describe('Testing conversion lib', function () {
-  it('Should return null because the string does not have a Date Time', function () {
+  it('Should return null because the string does not have a supported Date Time', function () {
     assert.deepStrictEqual(conversion.toUnixTime('No date here!', TimeZone['America/Los_Angeles']), null);
   });
 
