@@ -55,6 +55,12 @@ There should also be the clock icon in your Chrome extensions tray (you may need
 
 ## Extending
 
-Adding a new
+In order to add additional formats to convert, the following files need to be updated:
+
+1. `src/conversion/config/index.ts` here you can change the default time zone of the page
+2. `.../regex.ts` here you will add any formats as regular expressions that will be converted. Exporting them via the `regexsToReplace` array.
+3. `src/conversion/toUnixTime.ts` here you will create your function to convert the date time format returning a unix time. Then adding to the `toUnixFuncs` array.
+
+`src/conversion/momentInterface.ts` is a simple interface to the moment library which can be used and updated for step 3
 
 ---
