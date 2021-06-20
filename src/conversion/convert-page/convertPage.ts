@@ -9,8 +9,9 @@ import getTimeZonePref from '../../getTimeZonePref';
 
 import { TimeZone } from '../enums.js';
 
+import { ELEMENT_TO_CONVERT } from '../config';
+
 // Change to the target element on the page you want to convert
-const ELEMENT_TO_CONVERT = 'td';
 
 function convertElementsInDom(
   elements: any[] | NodeListOf<HTMLTableDataCellElement>,

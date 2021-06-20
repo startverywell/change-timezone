@@ -3,11 +3,10 @@ import popupButton from './popup/html/popup.html';
 import iconImageURL from './popup/images/tcicon128.png';
 import './popup/css/popup.scss';
 import { convertPage } from './conversion';
-
 import setTimeZonePref from './setTimeZonePref';
+import { PAGE_DEFAULT_TIMEZONE } from './conversion/config';
 
 (function () {
-  const PAGE_DEFAULT_TIMEZONE = 'America/Los_Angeles';
   const query = document.querySelector.bind(document);
   // Add the Popup to the page
   const converterTool = document.createElement('div');

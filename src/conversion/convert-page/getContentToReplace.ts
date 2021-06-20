@@ -1,6 +1,4 @@
-import { REGEX_DATE_TIME_ZONE, REGEX_DATE_TIME_REVERSE } from '../regex';
-
-const regexArray: RegExp[] = [REGEX_DATE_TIME_ZONE, REGEX_DATE_TIME_REVERSE];
+import { regexArray } from '../config';
 
 export default function getContentToReplace(target: string): string {
   let stringToReplace = '';
