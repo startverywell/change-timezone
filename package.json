@@ -8,7 +8,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "mocha -r ts-node/register 'src/**/*.ts'",
+    "test": "mocha -r ts-node/register 'src/**/*.test.ts'",
     "predev": "npm test",
     "dev": "webpack --env.NODE_ENV=local",
     "prebuild": "npm-run-all test lint",
