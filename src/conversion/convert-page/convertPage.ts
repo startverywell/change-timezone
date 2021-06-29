@@ -20,8 +20,21 @@ function convertElementsInDom(
 ) {
   if (elements.length != 0) {
     elements.forEach(function (element) {
+      let unixTime;
       // Get Unix Time and string to replace in element from element
-      const unixTime = conversion.toUnixTime(element.innerHTML, currentTimeZone);
+
+      const hasTBODY = /<tbody>/.exec(element.innerHTML);
+
+      if (hasTBODY && hasTBODY[0]) {
+        return;
+      }
+      const timeZoneAbbr = /(?:[A-Z]{2,5})/.exec(element.innerHTML);
+
+      if (timeZoneAbbr && timeZoneAbbr[0] === 'UTC') {
+        unixTime = conversion.toUnixTime(element.innerHTML, 'Etc/UTC' as TimeZone);
+      } else {
+        unixTime = conversion.toUnixTime(element.innerHTML, currentTimeZone);
+      }
       if (unixTime) {
         // Get the string in the element that will be replaced
         const stringToReplace = getContentToReplace(element.innerHTML);
@@ -60,12 +73,12 @@ export default function convertPage(newTimeZone: TimeZone) {
         setTimeZonePref(newTimeZone);
         selectedTimeZone = newTimeZone;
       }
-
       convertElementsInDom(elements, currentTimeZone, selectedTimeZone);
     });
   } else {
     currentTimeZone = getTimeZonePref().currentTimeZone;
     // Check if there are TD values on the page
+
     convertElementsInDom(elements, currentTimeZone, newTimeZone);
 
     // Set storage and display options to selected TimeZone
