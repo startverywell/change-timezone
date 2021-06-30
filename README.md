@@ -4,35 +4,31 @@
 
 ## Description
 
-A Chrome extension that converts a date time to a new time zone of the user's choice..
+A Chrome extension that converts a date time to a new time zone of the user's choice.
 
-- It automatically converts any times of: YYYY-MM-DD HH:MM:SS [Time Zone Abbreviation] format to the user's chosen default. It also has a manual converter if the page hasn't automatically converted (can also convert Unix time).
+- It automatically converts any times of: `YYYY-MM-DD HH:MM:SS` format to the user's chosen default. It also has a manual converter if the page hasn't automatically converted (can also convert Unix time).
 
-- The target element on a page is a table data cell (`'td'`) and format of: `YYYY-MM-DD HH:MM:SS` or Unix Time, however this should be somewhat easily extended for other formats and target elements on specific pages. See [Extending](https://github.com/richardaspinall/chrome-timezone-converter#extending) for more information
+**Assumptions**
 
-## Goals
+1. There is one default timezone that the times on a page are generated in (defaults to "America/Los_Angeles"
+2. They are all contained in the same HTML entity (such as `td`)
 
-## Requirements
-
-- Node 14.16.1
-- NPM 7.13.0
-- Webpack 5.30.0
+- See [Extending](https://github.com/richardaspinall/chrome-timezone-converter#extending) for details on how to modify defaults and extend to support other formats
 
 ## Install
 
-1. Clone repo
-2. Run `npm run install`
+Run `npm install`
 
 ## Development
 
-1. Run `npm run dev -s` (silent mode)
+1. Run `npm run dev`
 2. Open `mock_site/index-dev.html`
 
 ## Production
 
 1. Run `npm run build`
 
-2. Production usage is through a Chrome extension. It will run / show on any page that you have configured against `matches` under `content_scripts`in the `dist/manifest.json` file. The current `manifest` defaults to all `https://` websites (but won't convert anything unless there are <td> table cells with a `YYYY-MM-DD HH:MM:SS` format. See here for matching: https://developer.chrome.com/docs/extensions/mv2/match_patterns/
+2. Production usage is through a Chrome extension. It will run / show on any page that you have configured against `matches` under `content_scripts`in the `dist/manifest.json` file. The current `manifest` defaults to all `https://` websites.
 
 3. For local testing, the `dist` folder can be added into your extensions in Chrome [chrome://extensions/](chrome://extensions/). You will need to turn on `developer mode` before you can add an extension this way, see [Developer Mode](https://developer.chrome.com/docs/extensions/mv3/faq/#:~:text=You%20can%20start%20by%20turning,right%2Dhand%20corner%20is%20checked)
 
@@ -53,12 +49,12 @@ There should also be the clock icon in your Chrome extensions tray (you may need
 
 ## Extending
 
-In order to add additional formats to convert, the following files need to be updated:
+In order to add additional formats to convert, the following files need to be updated under `src/conversion`:
 
-1. `src/conversion/config/index.ts` here you can change the default time zone of the page
-2. `src/conversion/config/regex.ts` here you will add any formats as regular expressions that will be converted. Exporting them via the `regexsToReplace` array.
-3. `src/conversion/toUnixTime.ts` here you will create your function to convert the date time format returning a unix time. Then adding to the `toUnixFuncs` array.
+1. `/config/index.ts` here you can change the default time zone of the page
+2. `/config/regex.ts` here you will add any formats as regular expressions that will be converted. Exporting them via the `regexsToReplace` array.
+3. `/toUnixTime.ts` here you will create your function to convert the date time format returning a unix time. Then adding to the `toUnixFuncs` array.
 
-**Note:** `src/conversion/momentInterface.ts` is a simple interface to the moment library which can be used and updated for step 3
+**Note:** `/momentInterface.ts` is a simple interface to the moment library which can be used and updated for step 3
 
 ---
